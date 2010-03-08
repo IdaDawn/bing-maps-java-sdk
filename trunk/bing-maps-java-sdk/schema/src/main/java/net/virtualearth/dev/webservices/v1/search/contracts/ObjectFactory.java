@@ -36,19 +36,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse }
-     * 
-     */
-    public net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse createSearchResponse() {
-        return new net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse();
-    }
-
-    /**
      * Create an instance of {@link Search }
      * 
      */
     public Search createSearch() {
         return new Search();
+    }
+
+    /**
+     * Create an instance of {@link net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse }
+     * 
+     */
+    public net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse createSearchResponse() {
+        return new net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse();
     }
 
     /**

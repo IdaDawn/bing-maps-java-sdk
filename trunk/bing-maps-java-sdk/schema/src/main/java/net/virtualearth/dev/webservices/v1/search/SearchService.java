@@ -15,7 +15,7 @@ import javax.xml.ws.WebServiceClient;
  * Generated source version: 2.0
  * 
  */
-@WebServiceClient(name = "SearchService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search", wsdlLocation = "dev.virtualearth.net.webservices.v1.search.wsdl")
+@WebServiceClient(name = "SearchService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
 public class SearchService
     extends Service
 {
@@ -25,7 +25,7 @@ public class SearchService
     static {
         URL url = null;
         try {
-            url = new URL("file:/E:/workspace/opensource/bing-maps-java-sdk/schema/src/main/resources/com/google/code/bing/webservices/schema/dev.virtualearth.net.webservices.v1.search.wsdl");
+            url = new URL("http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

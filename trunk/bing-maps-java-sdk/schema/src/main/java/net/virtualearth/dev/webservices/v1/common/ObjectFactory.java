@@ -47,13 +47,13 @@ public class ObjectFactory {
     private final static QName _ResponseSummary_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ResponseSummary");
     private final static QName _ResponseBaseBrandLogoUri_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "BrandLogoUri");
     private final static QName _PolygonVertices_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Vertices");
+    private final static QName _RequestBaseCulture_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Culture");
     private final static QName _UserProfileScreenSize_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ScreenSize");
     private final static QName _UserProfileCurrentLocation_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "CurrentLocation");
     private final static QName _UserProfileCurrentHeading_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "CurrentHeading");
     private final static QName _UserProfileMapView_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "MapView");
     private final static QName _UserProfileIPAddress_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "IPAddress");
     private final static QName _CircleCenter_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Center");
-    private final static QName _RequestBaseCulture_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Culture");
     private final static QName _ResponseSummaryTraceId_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "TraceId");
     private final static QName _ResponseSummaryCopyright_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Copyright");
     private final static QName _ResponseSummaryFaultReason_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "FaultReason");
@@ -95,6 +95,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RequestBase }
+     * 
+     */
+    public RequestBase createRequestBase() {
+        return new RequestBase();
+    }
+
+    /**
      * Create an instance of {@link SizeOfint }
      * 
      */
@@ -132,14 +140,6 @@ public class ObjectFactory {
      */
     public ExecutionOptions createExecutionOptions() {
         return new ExecutionOptions();
-    }
-
-    /**
-     * Create an instance of {@link RequestBase }
-     * 
-     */
-    public RequestBase createRequestBase() {
-        return new RequestBase();
     }
 
     /**
@@ -415,6 +415,42 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UserProfile }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "UserProfile", scope = RequestBase.class)
+    public JAXBElement<UserProfile> createRequestBaseUserProfile(UserProfile value) {
+        return new JAXBElement<UserProfile>(_UserProfile_QNAME, UserProfile.class, RequestBase.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Credentials }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Credentials", scope = RequestBase.class)
+    public JAXBElement<Credentials> createRequestBaseCredentials(Credentials value) {
+        return new JAXBElement<Credentials>(_Credentials_QNAME, Credentials.class, RequestBase.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Culture", scope = RequestBase.class)
+    public JAXBElement<String> createRequestBaseCulture(String value) {
+        return new JAXBElement<String>(_RequestBaseCulture_QNAME, String.class, RequestBase.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExecutionOptions }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ExecutionOptions", scope = RequestBase.class)
+    public JAXBElement<ExecutionOptions> createRequestBaseExecutionOptions(ExecutionOptions value) {
+        return new JAXBElement<ExecutionOptions>(_ExecutionOptions_QNAME, ExecutionOptions.class, RequestBase.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}}
      * 
      */
@@ -466,42 +502,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Center", scope = Circle.class)
     public JAXBElement<Location> createCircleCenter(Location value) {
         return new JAXBElement<Location>(_CircleCenter_QNAME, Location.class, Circle.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserProfile }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "UserProfile", scope = RequestBase.class)
-    public JAXBElement<UserProfile> createRequestBaseUserProfile(UserProfile value) {
-        return new JAXBElement<UserProfile>(_UserProfile_QNAME, UserProfile.class, RequestBase.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Credentials }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Credentials", scope = RequestBase.class)
-    public JAXBElement<Credentials> createRequestBaseCredentials(Credentials value) {
-        return new JAXBElement<Credentials>(_Credentials_QNAME, Credentials.class, RequestBase.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Culture", scope = RequestBase.class)
-    public JAXBElement<String> createRequestBaseCulture(String value) {
-        return new JAXBElement<String>(_RequestBaseCulture_QNAME, String.class, RequestBase.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ExecutionOptions }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ExecutionOptions", scope = RequestBase.class)
-    public JAXBElement<ExecutionOptions> createRequestBaseExecutionOptions(ExecutionOptions value) {
-        return new JAXBElement<ExecutionOptions>(_ExecutionOptions_QNAME, ExecutionOptions.class, RequestBase.class, value);
     }
 
     /**
