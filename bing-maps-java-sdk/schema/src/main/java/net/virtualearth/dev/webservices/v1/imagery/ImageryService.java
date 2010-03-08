@@ -15,7 +15,7 @@ import javax.xml.ws.WebServiceClient;
  * Generated source version: 2.0
  * 
  */
-@WebServiceClient(name = "ImageryService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery", wsdlLocation = "imageryservice.wsdl")
+@WebServiceClient(name = "ImageryService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
 public class ImageryService
     extends Service
 {
@@ -25,7 +25,7 @@ public class ImageryService
     static {
         URL url = null;
         try {
-            url = new URL("file:/E:/workspace/opensource/bing-maps-java-sdk/schema/src/main/resources/com/google/code/bing/webservices/schema/imageryservice.wsdl");
+            url = new URL("http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

@@ -15,7 +15,7 @@ import javax.xml.ws.WebServiceClient;
  * Generated source version: 2.0
  * 
  */
-@WebServiceClient(name = "GeocodeService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/geocode", wsdlLocation = "geocodeservice.wsdl")
+@WebServiceClient(name = "GeocodeService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/geocode", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/geocodeservice/geocodeservice.wsdl")
 public class GeocodeService
     extends Service
 {
@@ -25,7 +25,7 @@ public class GeocodeService
     static {
         URL url = null;
         try {
-            url = new URL("file:/E:/workspace/opensource/bing-maps-java-sdk/schema/src/main/resources/com/google/code/bing/webservices/schema/geocodeservice.wsdl");
+            url = new URL("http://dev.virtualearth.net/webservices/v1/metadata/geocodeservice/geocodeservice.wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

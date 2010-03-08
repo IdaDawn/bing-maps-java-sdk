@@ -15,7 +15,7 @@ import javax.xml.ws.WebServiceClient;
  * Generated source version: 2.0
  * 
  */
-@WebServiceClient(name = "RouteService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route", wsdlLocation = "routeservice.wsdl")
+@WebServiceClient(name = "RouteService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
 public class RouteService
     extends Service
 {
@@ -25,7 +25,7 @@ public class RouteService
     static {
         URL url = null;
         try {
-            url = new URL("file:/E:/workspace/opensource/bing-maps-java-sdk/schema/src/main/resources/com/google/code/bing/webservices/schema/routeservice.wsdl");
+            url = new URL("http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
