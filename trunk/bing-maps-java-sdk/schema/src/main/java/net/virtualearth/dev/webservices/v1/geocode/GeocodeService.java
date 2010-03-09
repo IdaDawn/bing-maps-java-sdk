@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "GeocodeService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/geocode", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/geocodeservice/geocodeservice.wsdl")
+@WebServiceClient(name = "GeocodeService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/geocode", wsdlLocation = "geocodeservice.wsdl")
 public class GeocodeService
     extends Service
 {
@@ -30,9 +30,9 @@ public class GeocodeService
         try {
             URL baseUrl;
             baseUrl = net.virtualearth.dev.webservices.v1.geocode.GeocodeService.class.getResource(".");
-            url = new URL(baseUrl, "http://dev.virtualearth.net/webservices/v1/metadata/geocodeservice/geocodeservice.wsdl");
+            url = new URL(baseUrl, "geocodeservice.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://dev.virtualearth.net/webservices/v1/metadata/geocodeservice/geocodeservice.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'geocodeservice.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         GEOCODESERVICE_WSDL_LOCATION = url;

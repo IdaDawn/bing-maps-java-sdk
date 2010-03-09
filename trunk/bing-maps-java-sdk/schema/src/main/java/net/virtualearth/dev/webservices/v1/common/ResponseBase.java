@@ -8,8 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import net.virtualearth.dev.webservices.v1.route.MajorRoutesResponse;
-import net.virtualearth.dev.webservices.v1.route.RouteResponse;
+import net.virtualearth.dev.webservices.v1.search.SearchResponse;
 
 
 /**
@@ -38,8 +37,7 @@ import net.virtualearth.dev.webservices.v1.route.RouteResponse;
     "responseSummary"
 })
 @XmlSeeAlso({
-    MajorRoutesResponse.class,
-    RouteResponse.class
+    SearchResponse.class
 })
 public class ResponseBase
     implements Serializable

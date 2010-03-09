@@ -29,9 +29,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ShapeBase")
 @XmlSeeAlso({
+    Circle.class,
     Polygon.class,
-    Rectangle.class,
-    Circle.class
+    Rectangle.class
 })
 public class ShapeBase
     implements Serializable
