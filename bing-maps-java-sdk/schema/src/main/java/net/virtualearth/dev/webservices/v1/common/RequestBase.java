@@ -7,8 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
-import net.virtualearth.dev.webservices.v1.route.RouteRequest;
+import net.virtualearth.dev.webservices.v1.search.SearchRequest;
 
 
 /**
@@ -41,8 +40,7 @@ import net.virtualearth.dev.webservices.v1.route.RouteRequest;
     "userProfile"
 })
 @XmlSeeAlso({
-    MajorRoutesRequest.class,
-    RouteRequest.class
+    SearchRequest.class
 })
 public class RequestBase
     implements Serializable

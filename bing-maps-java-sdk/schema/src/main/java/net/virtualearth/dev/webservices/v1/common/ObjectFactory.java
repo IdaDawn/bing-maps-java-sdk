@@ -29,12 +29,20 @@ public class ObjectFactory {
     private final static QName _Confidence_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Confidence");
     private final static QName _DistanceUnit_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "DistanceUnit");
     private final static QName _Circle_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Circle");
+    private final static QName _ArrayOfFilterExpressionBase_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ArrayOfFilterExpressionBase");
     private final static QName _ResponseBase_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ResponseBase");
+    private final static QName _ArrayOfGeocodeLocation_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ArrayOfGeocodeLocation");
     private final static QName _AuthenticationResultCode_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "AuthenticationResultCode");
     private final static QName _GeocodeLocation_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "GeocodeLocation");
     private final static QName _Heading_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Heading");
     private final static QName _Credentials_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Credentials");
+    private final static QName _CompareOperator_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "CompareOperator");
     private final static QName _ExecutionOptions_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ExecutionOptions");
+    private final static QName _FilterExpressionBase_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "FilterExpressionBase");
+    private final static QName _LogicalOperator_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "LogicalOperator");
+    private final static QName _FilterExpressionClause_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "FilterExpressionClause");
+    private final static QName _FilterExpression_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "FilterExpression");
+    private final static QName _GeocodeResult_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "GeocodeResult");
     private final static QName _ResponseStatusCode_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ResponseStatusCode");
     private final static QName _RequestBase_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "RequestBase");
     private final static QName _Location_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Location");
@@ -45,6 +53,7 @@ public class ObjectFactory {
     private final static QName _UserProfile_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "UserProfile");
     private final static QName _Polygon_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Polygon");
     private final static QName _ResponseSummary_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "ResponseSummary");
+    private final static QName _Address_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/common", "Address");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: net.virtualearth.dev.webservices.v1.common
@@ -54,19 +63,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ResponseSummary }
+     * Create an instance of {@link UserLocation }
      * 
      */
-    public ResponseSummary createResponseSummary() {
-        return new ResponseSummary();
+    public UserLocation createUserLocation() {
+        return new UserLocation();
     }
 
     /**
-     * Create an instance of {@link ArrayOfLocation }
+     * Create an instance of {@link Credentials }
      * 
      */
-    public ArrayOfLocation createArrayOfLocation() {
-        return new ArrayOfLocation();
+    public Credentials createCredentials() {
+        return new Credentials();
+    }
+
+    /**
+     * Create an instance of {@link GeocodeLocation }
+     * 
+     */
+    public GeocodeLocation createGeocodeLocation() {
+        return new GeocodeLocation();
     }
 
     /**
@@ -86,30 +103,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SizeOfint }
-     * 
-     */
-    public SizeOfint createSizeOfint() {
-        return new SizeOfint();
-    }
-
-    /**
-     * Create an instance of {@link ResponseBase }
-     * 
-     */
-    public ResponseBase createResponseBase() {
-        return new ResponseBase();
-    }
-
-    /**
-     * Create an instance of {@link RequestBase }
-     * 
-     */
-    public RequestBase createRequestBase() {
-        return new RequestBase();
-    }
-
-    /**
      * Create an instance of {@link ShapeBase }
      * 
      */
@@ -118,51 +111,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GeocodeLocation }
+     * Create an instance of {@link Address }
      * 
      */
-    public GeocodeLocation createGeocodeLocation() {
-        return new GeocodeLocation();
+    public Address createAddress() {
+        return new Address();
     }
 
     /**
-     * Create an instance of {@link Heading }
+     * Create an instance of {@link FilterExpressionClause }
      * 
      */
-    public Heading createHeading() {
-        return new Heading();
-    }
-
-    /**
-     * Create an instance of {@link ExecutionOptions }
-     * 
-     */
-    public ExecutionOptions createExecutionOptions() {
-        return new ExecutionOptions();
-    }
-
-    /**
-     * Create an instance of {@link UserLocation }
-     * 
-     */
-    public UserLocation createUserLocation() {
-        return new UserLocation();
-    }
-
-    /**
-     * Create an instance of {@link Polygon }
-     * 
-     */
-    public Polygon createPolygon() {
-        return new Polygon();
-    }
-
-    /**
-     * Create an instance of {@link Credentials }
-     * 
-     */
-    public Credentials createCredentials() {
-        return new Credentials();
+    public FilterExpressionClause createFilterExpressionClause() {
+        return new FilterExpressionClause();
     }
 
     /**
@@ -174,11 +135,115 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ArrayOfGeocodeLocation }
+     * 
+     */
+    public ArrayOfGeocodeLocation createArrayOfGeocodeLocation() {
+        return new ArrayOfGeocodeLocation();
+    }
+
+    /**
+     * Create an instance of {@link ExecutionOptions }
+     * 
+     */
+    public ExecutionOptions createExecutionOptions() {
+        return new ExecutionOptions();
+    }
+
+    /**
+     * Create an instance of {@link ResponseBase }
+     * 
+     */
+    public ResponseBase createResponseBase() {
+        return new ResponseBase();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfLocation }
+     * 
+     */
+    public ArrayOfLocation createArrayOfLocation() {
+        return new ArrayOfLocation();
+    }
+
+    /**
+     * Create an instance of {@link RequestBase }
+     * 
+     */
+    public RequestBase createRequestBase() {
+        return new RequestBase();
+    }
+
+    /**
+     * Create an instance of {@link SizeOfint }
+     * 
+     */
+    public SizeOfint createSizeOfint() {
+        return new SizeOfint();
+    }
+
+    /**
+     * Create an instance of {@link FilterExpression }
+     * 
+     */
+    public FilterExpression createFilterExpression() {
+        return new FilterExpression();
+    }
+
+    /**
+     * Create an instance of {@link Heading }
+     * 
+     */
+    public Heading createHeading() {
+        return new Heading();
+    }
+
+    /**
      * Create an instance of {@link Circle }
      * 
      */
     public Circle createCircle() {
         return new Circle();
+    }
+
+    /**
+     * Create an instance of {@link ResponseSummary }
+     * 
+     */
+    public ResponseSummary createResponseSummary() {
+        return new ResponseSummary();
+    }
+
+    /**
+     * Create an instance of {@link GeocodeResult }
+     * 
+     */
+    public GeocodeResult createGeocodeResult() {
+        return new GeocodeResult();
+    }
+
+    /**
+     * Create an instance of {@link FilterExpressionBase }
+     * 
+     */
+    public FilterExpressionBase createFilterExpressionBase() {
+        return new FilterExpressionBase();
+    }
+
+    /**
+     * Create an instance of {@link Polygon }
+     * 
+     */
+    public Polygon createPolygon() {
+        return new Polygon();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfFilterExpressionBase }
+     * 
+     */
+    public ArrayOfFilterExpressionBase createArrayOfFilterExpressionBase() {
+        return new ArrayOfFilterExpressionBase();
     }
 
     /**
@@ -227,12 +292,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfFilterExpressionBase }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ArrayOfFilterExpressionBase")
+    public JAXBElement<ArrayOfFilterExpressionBase> createArrayOfFilterExpressionBase(ArrayOfFilterExpressionBase value) {
+        return new JAXBElement<ArrayOfFilterExpressionBase>(_ArrayOfFilterExpressionBase_QNAME, ArrayOfFilterExpressionBase.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ResponseBase }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ResponseBase")
     public JAXBElement<ResponseBase> createResponseBase(ResponseBase value) {
         return new JAXBElement<ResponseBase>(_ResponseBase_QNAME, ResponseBase.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGeocodeLocation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ArrayOfGeocodeLocation")
+    public JAXBElement<ArrayOfGeocodeLocation> createArrayOfGeocodeLocation(ArrayOfGeocodeLocation value) {
+        return new JAXBElement<ArrayOfGeocodeLocation>(_ArrayOfGeocodeLocation_QNAME, ArrayOfGeocodeLocation.class, null, value);
     }
 
     /**
@@ -272,12 +355,66 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompareOperator }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "CompareOperator")
+    public JAXBElement<CompareOperator> createCompareOperator(CompareOperator value) {
+        return new JAXBElement<CompareOperator>(_CompareOperator_QNAME, CompareOperator.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ExecutionOptions }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ExecutionOptions")
     public JAXBElement<ExecutionOptions> createExecutionOptions(ExecutionOptions value) {
         return new JAXBElement<ExecutionOptions>(_ExecutionOptions_QNAME, ExecutionOptions.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FilterExpressionBase }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "FilterExpressionBase")
+    public JAXBElement<FilterExpressionBase> createFilterExpressionBase(FilterExpressionBase value) {
+        return new JAXBElement<FilterExpressionBase>(_FilterExpressionBase_QNAME, FilterExpressionBase.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LogicalOperator }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "LogicalOperator")
+    public JAXBElement<LogicalOperator> createLogicalOperator(LogicalOperator value) {
+        return new JAXBElement<LogicalOperator>(_LogicalOperator_QNAME, LogicalOperator.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FilterExpressionClause }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "FilterExpressionClause")
+    public JAXBElement<FilterExpressionClause> createFilterExpressionClause(FilterExpressionClause value) {
+        return new JAXBElement<FilterExpressionClause>(_FilterExpressionClause_QNAME, FilterExpressionClause.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FilterExpression }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "FilterExpression")
+    public JAXBElement<FilterExpression> createFilterExpression(FilterExpression value) {
+        return new JAXBElement<FilterExpression>(_FilterExpression_QNAME, FilterExpression.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeocodeResult }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "GeocodeResult")
+    public JAXBElement<GeocodeResult> createGeocodeResult(GeocodeResult value) {
+        return new JAXBElement<GeocodeResult>(_GeocodeResult_QNAME, GeocodeResult.class, null, value);
     }
 
     /**
@@ -368,6 +505,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "ResponseSummary")
     public JAXBElement<ResponseSummary> createResponseSummary(ResponseSummary value) {
         return new JAXBElement<ResponseSummary>(_ResponseSummary_QNAME, ResponseSummary.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Address }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/common", name = "Address")
+    public JAXBElement<Address> createAddress(Address value) {
+        return new JAXBElement<Address>(_Address_QNAME, Address.class, null, value);
     }
 
 }

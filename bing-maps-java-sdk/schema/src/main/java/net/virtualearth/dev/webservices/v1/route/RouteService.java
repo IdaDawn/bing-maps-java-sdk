@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "RouteService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
+@WebServiceClient(name = "RouteService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route", wsdlLocation = "routeservice.wsdl")
 public class RouteService
     extends Service
 {
@@ -30,9 +30,9 @@ public class RouteService
         try {
             URL baseUrl;
             baseUrl = net.virtualearth.dev.webservices.v1.route.RouteService.class.getResource(".");
-            url = new URL(baseUrl, "http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl");
+            url = new URL(baseUrl, "routeservice.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'routeservice.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         ROUTESERVICE_WSDL_LOCATION = url;

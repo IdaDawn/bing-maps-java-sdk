@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "ImageryService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
+@WebServiceClient(name = "ImageryService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery", wsdlLocation = "imageryservice.wsdl")
 public class ImageryService
     extends Service
 {
@@ -30,9 +30,9 @@ public class ImageryService
         try {
             URL baseUrl;
             baseUrl = net.virtualearth.dev.webservices.v1.imagery.ImageryService.class.getResource(".");
-            url = new URL(baseUrl, "http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl");
+            url = new URL(baseUrl, "imageryservice.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'imageryservice.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         IMAGERYSERVICE_WSDL_LOCATION = url;

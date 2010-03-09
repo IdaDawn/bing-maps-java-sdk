@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "SearchService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search", wsdlLocation = "http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
+@WebServiceClient(name = "SearchService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search", wsdlLocation = "dev.virtualearth.net.webservices.v1.search.wsdl")
 public class SearchService
     extends Service
 {
@@ -30,9 +30,9 @@ public class SearchService
         try {
             URL baseUrl;
             baseUrl = net.virtualearth.dev.webservices.v1.search.SearchService.class.getResource(".");
-            url = new URL(baseUrl, "http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl");
+            url = new URL(baseUrl, "dev.virtualearth.net.webservices.v1.search.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'dev.virtualearth.net.webservices.v1.search.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         SEARCHSERVICE_WSDL_LOCATION = url;
