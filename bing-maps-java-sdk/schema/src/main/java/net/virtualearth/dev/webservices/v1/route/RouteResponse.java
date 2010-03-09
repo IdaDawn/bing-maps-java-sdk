@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 
@@ -34,20 +34,22 @@ import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 })
 public class RouteResponse
     extends ResponseBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Result", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RouteResult> result;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Result", nillable = true)
+    protected RouteResult result;
 
     /**
      * Gets the value of the result property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RouteResult }{@code >}
+     *     {@link RouteResult }
      *     
      */
-    public JAXBElement<RouteResult> getResult() {
+    public RouteResult getResult() {
         return result;
     }
 
@@ -56,11 +58,11 @@ public class RouteResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RouteResult }{@code >}
+     *     {@link RouteResult }
      *     
      */
-    public void setResult(JAXBElement<RouteResult> value) {
-        this.result = ((JAXBElement<RouteResult> ) value);
+    public void setResult(RouteResult value) {
+        this.result = value;
     }
 
 }

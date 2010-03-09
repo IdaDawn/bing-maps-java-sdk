@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Rectangle;
 
@@ -37,10 +36,13 @@ import net.virtualearth.dev.webservices.v1.common.Rectangle;
     "distance",
     "timeInSeconds"
 })
-public class RouteSummary {
+public class RouteSummary
+    implements Serializable
+{
 
-    @XmlElementRef(name = "BoundingRectangle", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<Rectangle> boundingRectangle;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "BoundingRectangle", nillable = true)
+    protected Rectangle boundingRectangle;
     @XmlElement(name = "Distance")
     protected Double distance;
     @XmlElement(name = "TimeInSeconds")
@@ -51,10 +53,10 @@ public class RouteSummary {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Rectangle }{@code >}
+     *     {@link Rectangle }
      *     
      */
-    public JAXBElement<Rectangle> getBoundingRectangle() {
+    public Rectangle getBoundingRectangle() {
         return boundingRectangle;
     }
 
@@ -63,11 +65,11 @@ public class RouteSummary {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Rectangle }{@code >}
+     *     {@link Rectangle }
      *     
      */
-    public void setBoundingRectangle(JAXBElement<Rectangle> value) {
-        this.boundingRectangle = ((JAXBElement<Rectangle> ) value);
+    public void setBoundingRectangle(Rectangle value) {
+        this.boundingRectangle = value;
     }
 
     /**

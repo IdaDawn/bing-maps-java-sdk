@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,12 +37,14 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class FilterExpression
     extends FilterExpressionBase
+    implements Serializable
 {
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "CompareOperator")
     protected CompareOperator compareOperator;
-    @XmlElementRef(name = "FilterValue", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Object> filterValue;
+    @XmlElement(name = "FilterValue", nillable = true)
+    protected Object filterValue;
     @XmlElement(name = "PropertyId")
     protected Integer propertyId;
 
@@ -76,10 +77,10 @@ public class FilterExpression
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public JAXBElement<Object> getFilterValue() {
+    public Object getFilterValue() {
         return filterValue;
     }
 
@@ -88,11 +89,11 @@ public class FilterExpression
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public void setFilterValue(JAXBElement<Object> value) {
-        this.filterValue = ((JAXBElement<Object> ) value);
+    public void setFilterValue(Object value) {
+        this.filterValue = value;
     }
 
     /**

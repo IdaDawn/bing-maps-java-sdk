@@ -38,27 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfanyType }
+     * Create an instance of {@link KeyValueOfintCategorySpecificPropertySetn6Q9QP9S }
      * 
      */
-    public ArrayOfanyType createArrayOfanyType() {
-        return new ArrayOfanyType();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfKeyValueOfstringanyType.KeyValueOfstringanyType }
-     * 
-     */
-    public ArrayOfKeyValueOfstringanyType.KeyValueOfstringanyType createArrayOfKeyValueOfstringanyTypeKeyValueOfstringanyType() {
-        return new ArrayOfKeyValueOfstringanyType.KeyValueOfstringanyType();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfstring }
-     * 
-     */
-    public ArrayOfstring createArrayOfstring() {
-        return new ArrayOfstring();
+    public KeyValueOfintCategorySpecificPropertySetn6Q9QP9S createKeyValueOfintCategorySpecificPropertySetn6Q9QP9S() {
+        return new KeyValueOfintCategorySpecificPropertySetn6Q9QP9S();
     }
 
     /**
@@ -70,19 +54,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 .KeyValueOfNeighborhoodintkC8B0Tr6 }
+     * Create an instance of {@link ArrayOfstring }
      * 
      */
-    public ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 .KeyValueOfNeighborhoodintkC8B0Tr6 createArrayOfKeyValueOfNeighborhoodintkC8B0Tr6KeyValueOfNeighborhoodintkC8B0Tr6() {
-        return new ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 .KeyValueOfNeighborhoodintkC8B0Tr6();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfKeyValueOfstringanyType }
-     * 
-     */
-    public ArrayOfKeyValueOfstringanyType createArrayOfKeyValueOfstringanyType() {
-        return new ArrayOfKeyValueOfstringanyType();
+    public ArrayOfstring createArrayOfstring() {
+        return new ArrayOfstring();
     }
 
     /**
@@ -94,11 +70,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S.KeyValueOfintCategorySpecificPropertySetn6Q9QP9S }
+     * Create an instance of {@link ArrayOfanyType }
      * 
      */
-    public ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S.KeyValueOfintCategorySpecificPropertySetn6Q9QP9S createArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9SKeyValueOfintCategorySpecificPropertySetn6Q9QP9S() {
-        return new ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S.KeyValueOfintCategorySpecificPropertySetn6Q9QP9S();
+    public ArrayOfanyType createArrayOfanyType() {
+        return new ArrayOfanyType();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfKeyValueOfstringanyType }
+     * 
+     */
+    public ArrayOfKeyValueOfstringanyType createArrayOfKeyValueOfstringanyType() {
+        return new ArrayOfKeyValueOfstringanyType();
+    }
+
+    /**
+     * Create an instance of {@link KeyValueOfNeighborhoodintkC8B0Tr6 }
+     * 
+     */
+    public KeyValueOfNeighborhoodintkC8B0Tr6 createKeyValueOfNeighborhoodintkC8B0Tr6() {
+        return new KeyValueOfNeighborhoodintkC8B0Tr6();
+    }
+
+    /**
+     * Create an instance of {@link KeyValueOfstringanyType }
+     * 
+     */
+    public KeyValueOfstringanyType createKeyValueOfstringanyType() {
+        return new KeyValueOfstringanyType();
     }
 
     /**

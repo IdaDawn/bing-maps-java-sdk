@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Heading;
 import net.virtualearth.dev.webservices.v1.common.Location;
@@ -43,28 +42,31 @@ import net.virtualearth.dev.webservices.v1.common.UriScheme;
     "uriScheme",
     "zoomLevel"
 })
-public class ImageryMetadataOptions {
+public class ImageryMetadataOptions
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Heading", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Heading> heading;
-    @XmlElementRef(name = "Location", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Location> location;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Heading", nillable = true)
+    protected Heading heading;
+    @XmlElement(name = "Location", nillable = true)
+    protected Location location;
     @XmlElement(name = "ReturnImageryProviders")
     protected Boolean returnImageryProviders;
     @XmlElement(name = "UriScheme")
     protected UriScheme uriScheme;
-    @XmlElementRef(name = "ZoomLevel", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Integer> zoomLevel;
+    @XmlElement(name = "ZoomLevel", nillable = true)
+    protected Integer zoomLevel;
 
     /**
      * Gets the value of the heading property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Heading }{@code >}
+     *     {@link Heading }
      *     
      */
-    public JAXBElement<Heading> getHeading() {
+    public Heading getHeading() {
         return heading;
     }
 
@@ -73,11 +75,11 @@ public class ImageryMetadataOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Heading }{@code >}
+     *     {@link Heading }
      *     
      */
-    public void setHeading(JAXBElement<Heading> value) {
-        this.heading = ((JAXBElement<Heading> ) value);
+    public void setHeading(Heading value) {
+        this.heading = value;
     }
 
     /**
@@ -85,10 +87,10 @@ public class ImageryMetadataOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -97,11 +99,11 @@ public class ImageryMetadataOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setLocation(JAXBElement<Location> value) {
-        this.location = ((JAXBElement<Location> ) value);
+    public void setLocation(Location value) {
+        this.location = value;
     }
 
     /**
@@ -157,10 +159,10 @@ public class ImageryMetadataOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public JAXBElement<Integer> getZoomLevel() {
+    public Integer getZoomLevel() {
         return zoomLevel;
     }
 
@@ -169,11 +171,11 @@ public class ImageryMetadataOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public void setZoomLevel(JAXBElement<Integer> value) {
-        this.zoomLevel = ((JAXBElement<Integer> ) value);
+    public void setZoomLevel(Integer value) {
+        this.zoomLevel = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
     "request"
 })
 @XmlRootElement(name = "GetMapUri")
-public class GetMapUri {
+public class GetMapUri
+    implements Serializable
+{
 
-    @XmlElementRef(name = "request", namespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", type = JAXBElement.class)
-    protected JAXBElement<MapUriRequest> request;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(nillable = true)
+    protected MapUriRequest request;
 
     /**
      * Gets the value of the request property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link MapUriRequest }{@code >}
+     *     {@link MapUriRequest }
      *     
      */
-    public JAXBElement<MapUriRequest> getRequest() {
+    public MapUriRequest getRequest() {
         return request;
     }
 
@@ -56,11 +59,11 @@ public class GetMapUri {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link MapUriRequest }{@code >}
+     *     {@link MapUriRequest }
      *     
      */
-    public void setRequest(JAXBElement<MapUriRequest> value) {
-        this.request = ((JAXBElement<MapUriRequest> ) value);
+    public void setRequest(MapUriRequest value) {
+        this.request = value;
     }
 
 }

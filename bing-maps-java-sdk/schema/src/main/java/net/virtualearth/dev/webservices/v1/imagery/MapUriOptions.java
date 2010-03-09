@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring;
 import net.virtualearth.dev.webservices.v1.common.ImageType;
@@ -49,12 +48,15 @@ import net.virtualearth.dev.webservices.v1.common.UriScheme;
     "uriScheme",
     "zoomLevel"
 })
-public class MapUriOptions {
+public class MapUriOptions
+    implements Serializable
+{
 
-    @XmlElementRef(name = "DisplayLayers", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfstring> displayLayers;
-    @XmlElementRef(name = "ImageSize", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<SizeOfint> imageSize;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "DisplayLayers", nillable = true)
+    protected ArrayOfstring displayLayers;
+    @XmlElement(name = "ImageSize", nillable = true)
+    protected SizeOfint imageSize;
     @XmlElement(name = "ImageType")
     protected ImageType imageType;
     @XmlElement(name = "PreventIconCollision")
@@ -63,18 +65,18 @@ public class MapUriOptions {
     protected MapStyle style;
     @XmlElement(name = "UriScheme")
     protected UriScheme uriScheme;
-    @XmlElementRef(name = "ZoomLevel", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Integer> zoomLevel;
+    @XmlElement(name = "ZoomLevel", nillable = true)
+    protected Integer zoomLevel;
 
     /**
      * Gets the value of the displayLayers property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link ArrayOfstring }
      *     
      */
-    public JAXBElement<ArrayOfstring> getDisplayLayers() {
+    public ArrayOfstring getDisplayLayers() {
         return displayLayers;
     }
 
@@ -83,11 +85,11 @@ public class MapUriOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link ArrayOfstring }
      *     
      */
-    public void setDisplayLayers(JAXBElement<ArrayOfstring> value) {
-        this.displayLayers = ((JAXBElement<ArrayOfstring> ) value);
+    public void setDisplayLayers(ArrayOfstring value) {
+        this.displayLayers = value;
     }
 
     /**
@@ -95,10 +97,10 @@ public class MapUriOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public JAXBElement<SizeOfint> getImageSize() {
+    public SizeOfint getImageSize() {
         return imageSize;
     }
 
@@ -107,11 +109,11 @@ public class MapUriOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public void setImageSize(JAXBElement<SizeOfint> value) {
-        this.imageSize = ((JAXBElement<SizeOfint> ) value);
+    public void setImageSize(SizeOfint value) {
+        this.imageSize = value;
     }
 
     /**
@@ -215,10 +217,10 @@ public class MapUriOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public JAXBElement<Integer> getZoomLevel() {
+    public Integer getZoomLevel() {
         return zoomLevel;
     }
 
@@ -227,11 +229,11 @@ public class MapUriOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public void setZoomLevel(JAXBElement<Integer> value) {
-        this.zoomLevel = ((JAXBElement<Integer> ) value);
+    public void setZoomLevel(Integer value) {
+        this.zoomLevel = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 
@@ -34,20 +34,22 @@ import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 })
 public class MapUriResponse
     extends ResponseBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Uri", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<String> uri;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Uri", nillable = true)
+    protected String uri;
 
     /**
      * Gets the value of the uri property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getUri() {
+    public String getUri() {
         return uri;
     }
 
@@ -56,11 +58,11 @@ public class MapUriResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setUri(JAXBElement<String> value) {
-        this.uri = ((JAXBElement<String> ) value);
+    public void setUri(String value) {
+        this.uri = value;
     }
 
 }

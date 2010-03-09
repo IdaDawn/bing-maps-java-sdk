@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -33,20 +33,23 @@ import javax.xml.bind.annotation.XmlType;
     "searchResult"
 })
 @XmlRootElement(name = "SearchResponse")
-public class SearchResponse {
+public class SearchResponse
+    implements Serializable
+{
 
-    @XmlElementRef(name = "SearchResult", namespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", type = JAXBElement.class)
-    protected JAXBElement<net.virtualearth.dev.webservices.v1.search.SearchResponse> searchResult;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "SearchResult", nillable = true)
+    protected net.virtualearth.dev.webservices.v1.search.SearchResponse searchResult;
 
     /**
      * Gets the value of the searchResult property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link net.virtualearth.dev.webservices.v1.search.SearchResponse }{@code >}
+     *     {@link net.virtualearth.dev.webservices.v1.search.SearchResponse }
      *     
      */
-    public JAXBElement<net.virtualearth.dev.webservices.v1.search.SearchResponse> getSearchResult() {
+    public net.virtualearth.dev.webservices.v1.search.SearchResponse getSearchResult() {
         return searchResult;
     }
 
@@ -55,11 +58,11 @@ public class SearchResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link net.virtualearth.dev.webservices.v1.search.SearchResponse }{@code >}
+     *     {@link net.virtualearth.dev.webservices.v1.search.SearchResponse }
      *     
      */
-    public void setSearchResult(JAXBElement<net.virtualearth.dev.webservices.v1.search.SearchResponse> value) {
-        this.searchResult = ((JAXBElement<net.virtualearth.dev.webservices.v1.search.SearchResponse> ) value);
+    public void setSearchResult(net.virtualearth.dev.webservices.v1.search.SearchResponse value) {
+        this.searchResult = value;
     }
 
 }

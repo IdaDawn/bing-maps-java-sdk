@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ArrayOfGeocodeResult;
 import net.virtualearth.dev.webservices.v1.common.ResponseBase;
@@ -35,20 +35,22 @@ import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 })
 public class GeocodeResponse
     extends ResponseBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Results", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfGeocodeResult> results;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Results", nillable = true)
+    protected ArrayOfGeocodeResult results;
 
     /**
      * Gets the value of the results property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfGeocodeResult }{@code >}
+     *     {@link ArrayOfGeocodeResult }
      *     
      */
-    public JAXBElement<ArrayOfGeocodeResult> getResults() {
+    public ArrayOfGeocodeResult getResults() {
         return results;
     }
 
@@ -57,11 +59,11 @@ public class GeocodeResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfGeocodeResult }{@code >}
+     *     {@link ArrayOfGeocodeResult }
      *     
      */
-    public void setResults(JAXBElement<ArrayOfGeocodeResult> value) {
-        this.results = ((JAXBElement<ArrayOfGeocodeResult> ) value);
+    public void setResults(ArrayOfGeocodeResult value) {
+        this.results = value;
     }
 
 }

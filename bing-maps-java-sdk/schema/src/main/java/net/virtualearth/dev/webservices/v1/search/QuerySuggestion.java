@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -33,22 +33,25 @@ import javax.xml.bind.annotation.XmlType;
     "query",
     "structuredQuery"
 })
-public class QuerySuggestion {
+public class QuerySuggestion
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Query", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> query;
-    @XmlElementRef(name = "StructuredQuery", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<StructuredSearchQuery> structuredQuery;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Query", nillable = true)
+    protected String query;
+    @XmlElement(name = "StructuredQuery", nillable = true)
+    protected StructuredSearchQuery structuredQuery;
 
     /**
      * Gets the value of the query property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getQuery() {
+    public String getQuery() {
         return query;
     }
 
@@ -57,11 +60,11 @@ public class QuerySuggestion {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setQuery(JAXBElement<String> value) {
-        this.query = ((JAXBElement<String> ) value);
+    public void setQuery(String value) {
+        this.query = value;
     }
 
     /**
@@ -69,10 +72,10 @@ public class QuerySuggestion {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link StructuredSearchQuery }{@code >}
+     *     {@link StructuredSearchQuery }
      *     
      */
-    public JAXBElement<StructuredSearchQuery> getStructuredQuery() {
+    public StructuredSearchQuery getStructuredQuery() {
         return structuredQuery;
     }
 
@@ -81,11 +84,11 @@ public class QuerySuggestion {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link StructuredSearchQuery }{@code >}
+     *     {@link StructuredSearchQuery }
      *     
      */
-    public void setStructuredQuery(JAXBElement<StructuredSearchQuery> value) {
-        this.structuredQuery = ((JAXBElement<StructuredSearchQuery> ) value);
+    public void setStructuredQuery(StructuredSearchQuery value) {
+        this.structuredQuery = value;
     }
 
 }

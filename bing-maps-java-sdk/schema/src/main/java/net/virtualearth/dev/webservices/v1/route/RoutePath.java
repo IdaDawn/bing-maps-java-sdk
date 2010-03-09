@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ArrayOfLocation;
 
@@ -32,20 +32,23 @@ import net.virtualearth.dev.webservices.v1.common.ArrayOfLocation;
 @XmlType(name = "RoutePath", propOrder = {
     "points"
 })
-public class RoutePath {
+public class RoutePath
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Points", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfLocation> points;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Points", nillable = true)
+    protected ArrayOfLocation points;
 
     /**
      * Gets the value of the points property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfLocation }{@code >}
+     *     {@link ArrayOfLocation }
      *     
      */
-    public JAXBElement<ArrayOfLocation> getPoints() {
+    public ArrayOfLocation getPoints() {
         return points;
     }
 
@@ -54,11 +57,11 @@ public class RoutePath {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfLocation }{@code >}
+     *     {@link ArrayOfLocation }
      *     
      */
-    public void setPoints(JAXBElement<ArrayOfLocation> value) {
-        this.points = ((JAXBElement<ArrayOfLocation> ) value);
+    public void setPoints(ArrayOfLocation value) {
+        this.points = value;
     }
 
 }

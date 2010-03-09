@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Location;
 
@@ -38,26 +38,29 @@ import net.virtualearth.dev.webservices.v1.common.Location;
     "itinerary",
     "summary"
 })
-public class RouteLeg {
+public class RouteLeg
+    implements Serializable
+{
 
-    @XmlElementRef(name = "ActualEnd", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<Location> actualEnd;
-    @XmlElementRef(name = "ActualStart", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<Location> actualStart;
-    @XmlElementRef(name = "Itinerary", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfItineraryItem> itinerary;
-    @XmlElementRef(name = "Summary", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RouteSummary> summary;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "ActualEnd", nillable = true)
+    protected Location actualEnd;
+    @XmlElement(name = "ActualStart", nillable = true)
+    protected Location actualStart;
+    @XmlElement(name = "Itinerary", nillable = true)
+    protected ArrayOfItineraryItem itinerary;
+    @XmlElement(name = "Summary", nillable = true)
+    protected RouteSummary summary;
 
     /**
      * Gets the value of the actualEnd property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getActualEnd() {
+    public Location getActualEnd() {
         return actualEnd;
     }
 
@@ -66,11 +69,11 @@ public class RouteLeg {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setActualEnd(JAXBElement<Location> value) {
-        this.actualEnd = ((JAXBElement<Location> ) value);
+    public void setActualEnd(Location value) {
+        this.actualEnd = value;
     }
 
     /**
@@ -78,10 +81,10 @@ public class RouteLeg {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getActualStart() {
+    public Location getActualStart() {
         return actualStart;
     }
 
@@ -90,11 +93,11 @@ public class RouteLeg {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setActualStart(JAXBElement<Location> value) {
-        this.actualStart = ((JAXBElement<Location> ) value);
+    public void setActualStart(Location value) {
+        this.actualStart = value;
     }
 
     /**
@@ -102,10 +105,10 @@ public class RouteLeg {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItem }{@code >}
+     *     {@link ArrayOfItineraryItem }
      *     
      */
-    public JAXBElement<ArrayOfItineraryItem> getItinerary() {
+    public ArrayOfItineraryItem getItinerary() {
         return itinerary;
     }
 
@@ -114,11 +117,11 @@ public class RouteLeg {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItem }{@code >}
+     *     {@link ArrayOfItineraryItem }
      *     
      */
-    public void setItinerary(JAXBElement<ArrayOfItineraryItem> value) {
-        this.itinerary = ((JAXBElement<ArrayOfItineraryItem> ) value);
+    public void setItinerary(ArrayOfItineraryItem value) {
+        this.itinerary = value;
     }
 
     /**
@@ -126,10 +129,10 @@ public class RouteLeg {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public JAXBElement<RouteSummary> getSummary() {
+    public RouteSummary getSummary() {
         return summary;
     }
 
@@ -138,11 +141,11 @@ public class RouteLeg {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public void setSummary(JAXBElement<RouteSummary> value) {
-        this.summary = ((JAXBElement<RouteSummary> ) value);
+    public void setSummary(RouteSummary value) {
+        this.summary = value;
     }
 
 }

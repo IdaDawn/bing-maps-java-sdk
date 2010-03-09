@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataRequest;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataRequest;
     "request"
 })
 @XmlRootElement(name = "GetImageryMetadata")
-public class GetImageryMetadata {
+public class GetImageryMetadata
+    implements Serializable
+{
 
-    @XmlElementRef(name = "request", namespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", type = JAXBElement.class)
-    protected JAXBElement<ImageryMetadataRequest> request;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(nillable = true)
+    protected ImageryMetadataRequest request;
 
     /**
      * Gets the value of the request property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ImageryMetadataRequest }{@code >}
+     *     {@link ImageryMetadataRequest }
      *     
      */
-    public JAXBElement<ImageryMetadataRequest> getRequest() {
+    public ImageryMetadataRequest getRequest() {
         return request;
     }
 
@@ -56,11 +59,11 @@ public class GetImageryMetadata {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ImageryMetadataRequest }{@code >}
+     *     {@link ImageryMetadataRequest }
      *     
      */
-    public void setRequest(JAXBElement<ImageryMetadataRequest> value) {
-        this.request = ((JAXBElement<ImageryMetadataRequest> ) value);
+    public void setRequest(ImageryMetadataRequest value) {
+        this.request = value;
     }
 
 }

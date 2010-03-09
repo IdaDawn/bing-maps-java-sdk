@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
@@ -36,22 +36,24 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
 })
 public class RouteRequest
     extends RequestBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Options", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RouteOptions> options;
-    @XmlElementRef(name = "Waypoints", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfWaypoint> waypoints;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Options", nillable = true)
+    protected RouteOptions options;
+    @XmlElement(name = "Waypoints", nillable = true)
+    protected ArrayOfWaypoint waypoints;
 
     /**
      * Gets the value of the options property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RouteOptions }{@code >}
+     *     {@link RouteOptions }
      *     
      */
-    public JAXBElement<RouteOptions> getOptions() {
+    public RouteOptions getOptions() {
         return options;
     }
 
@@ -60,11 +62,11 @@ public class RouteRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RouteOptions }{@code >}
+     *     {@link RouteOptions }
      *     
      */
-    public void setOptions(JAXBElement<RouteOptions> value) {
-        this.options = ((JAXBElement<RouteOptions> ) value);
+    public void setOptions(RouteOptions value) {
+        this.options = value;
     }
 
     /**
@@ -72,10 +74,10 @@ public class RouteRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfWaypoint }{@code >}
+     *     {@link ArrayOfWaypoint }
      *     
      */
-    public JAXBElement<ArrayOfWaypoint> getWaypoints() {
+    public ArrayOfWaypoint getWaypoints() {
         return waypoints;
     }
 
@@ -84,11 +86,11 @@ public class RouteRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfWaypoint }{@code >}
+     *     {@link ArrayOfWaypoint }
      *     
      */
-    public void setWaypoints(JAXBElement<ArrayOfWaypoint> value) {
-        this.waypoints = ((JAXBElement<ArrayOfWaypoint> ) value);
+    public void setWaypoints(ArrayOfWaypoint value) {
+        this.waypoints = value;
     }
 
 }

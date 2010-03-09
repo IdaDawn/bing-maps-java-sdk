@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 
@@ -36,22 +36,24 @@ import net.virtualearth.dev.webservices.v1.common.ResponseBase;
 })
 public class SearchResponse
     extends ResponseBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "QuerySuggestion", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<QuerySuggestion> querySuggestion;
-    @XmlElementRef(name = "ResultSets", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfSearchResultSet> resultSets;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "QuerySuggestion", nillable = true)
+    protected QuerySuggestion querySuggestion;
+    @XmlElement(name = "ResultSets", nillable = true)
+    protected ArrayOfSearchResultSet resultSets;
 
     /**
      * Gets the value of the querySuggestion property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link QuerySuggestion }{@code >}
+     *     {@link QuerySuggestion }
      *     
      */
-    public JAXBElement<QuerySuggestion> getQuerySuggestion() {
+    public QuerySuggestion getQuerySuggestion() {
         return querySuggestion;
     }
 
@@ -60,11 +62,11 @@ public class SearchResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link QuerySuggestion }{@code >}
+     *     {@link QuerySuggestion }
      *     
      */
-    public void setQuerySuggestion(JAXBElement<QuerySuggestion> value) {
-        this.querySuggestion = ((JAXBElement<QuerySuggestion> ) value);
+    public void setQuerySuggestion(QuerySuggestion value) {
+        this.querySuggestion = value;
     }
 
     /**
@@ -72,10 +74,10 @@ public class SearchResponse
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchResultSet }{@code >}
+     *     {@link ArrayOfSearchResultSet }
      *     
      */
-    public JAXBElement<ArrayOfSearchResultSet> getResultSets() {
+    public ArrayOfSearchResultSet getResultSets() {
         return resultSets;
     }
 
@@ -84,11 +86,11 @@ public class SearchResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchResultSet }{@code >}
+     *     {@link ArrayOfSearchResultSet }
      *     
      */
-    public void setResultSets(JAXBElement<ArrayOfSearchResultSet> value) {
-        this.resultSets = ((JAXBElement<ArrayOfSearchResultSet> ) value);
+    public void setResultSets(ArrayOfSearchResultSet value) {
+        this.resultSets = value;
     }
 
 }

@@ -5,9 +5,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import net.virtualearth.dev.webservices.v1.common.Address;
-import net.virtualearth.dev.webservices.v1.common.ArrayOfGeocodeResult;
-import net.virtualearth.dev.webservices.v1.common.Location;
 
 
 /**
@@ -34,13 +31,6 @@ public class ObjectFactory {
     private final static QName _ArrayOfFilterBase_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "ArrayOfFilterBase");
     private final static QName _ConfidenceFilter_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "ConfidenceFilter");
     private final static QName _GeocodeResponse_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "GeocodeResponse");
-    private final static QName _GeocodeOptionsFilters_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Filters");
-    private final static QName _GeocodeOptionsCount_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Count");
-    private final static QName _GeocodeResponseResults_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Results");
-    private final static QName _GeocodeRequestOptions_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Options");
-    private final static QName _GeocodeRequestAddress_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Address");
-    private final static QName _GeocodeRequestQuery_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Query");
-    private final static QName _ReverseGeocodeRequestLocation_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/geocode", "Location");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: net.virtualearth.dev.webservices.v1.geocode
@@ -50,27 +40,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GeocodeResponse }
+     * Create an instance of {@link ArrayOfFilterBase }
      * 
      */
-    public GeocodeResponse createGeocodeResponse() {
-        return new GeocodeResponse();
-    }
-
-    /**
-     * Create an instance of {@link ConfidenceFilter }
-     * 
-     */
-    public ConfidenceFilter createConfidenceFilter() {
-        return new ConfidenceFilter();
-    }
-
-    /**
-     * Create an instance of {@link GeocodeRequest }
-     * 
-     */
-    public GeocodeRequest createGeocodeRequest() {
-        return new GeocodeRequest();
+    public ArrayOfFilterBase createArrayOfFilterBase() {
+        return new ArrayOfFilterBase();
     }
 
     /**
@@ -90,11 +64,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfFilterBase }
+     * Create an instance of {@link GeocodeResponse }
      * 
      */
-    public ArrayOfFilterBase createArrayOfFilterBase() {
-        return new ArrayOfFilterBase();
+    public GeocodeResponse createGeocodeResponse() {
+        return new GeocodeResponse();
+    }
+
+    /**
+     * Create an instance of {@link ConfidenceFilter }
+     * 
+     */
+    public ConfidenceFilter createConfidenceFilter() {
+        return new ConfidenceFilter();
     }
 
     /**
@@ -103,6 +85,14 @@ public class ObjectFactory {
      */
     public GeocodeOptions createGeocodeOptions() {
         return new GeocodeOptions();
+    }
+
+    /**
+     * Create an instance of {@link GeocodeRequest }
+     * 
+     */
+    public GeocodeRequest createGeocodeRequest() {
+        return new GeocodeRequest();
     }
 
     /**
@@ -166,69 +156,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "GeocodeResponse")
     public JAXBElement<GeocodeResponse> createGeocodeResponse(GeocodeResponse value) {
         return new JAXBElement<GeocodeResponse>(_GeocodeResponse_QNAME, GeocodeResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfFilterBase }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Filters", scope = GeocodeOptions.class)
-    public JAXBElement<ArrayOfFilterBase> createGeocodeOptionsFilters(ArrayOfFilterBase value) {
-        return new JAXBElement<ArrayOfFilterBase>(_GeocodeOptionsFilters_QNAME, ArrayOfFilterBase.class, GeocodeOptions.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Count", scope = GeocodeOptions.class)
-    public JAXBElement<Integer> createGeocodeOptionsCount(Integer value) {
-        return new JAXBElement<Integer>(_GeocodeOptionsCount_QNAME, Integer.class, GeocodeOptions.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfGeocodeResult }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Results", scope = GeocodeResponse.class)
-    public JAXBElement<ArrayOfGeocodeResult> createGeocodeResponseResults(ArrayOfGeocodeResult value) {
-        return new JAXBElement<ArrayOfGeocodeResult>(_GeocodeResponseResults_QNAME, ArrayOfGeocodeResult.class, GeocodeResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeocodeOptions }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Options", scope = GeocodeRequest.class)
-    public JAXBElement<GeocodeOptions> createGeocodeRequestOptions(GeocodeOptions value) {
-        return new JAXBElement<GeocodeOptions>(_GeocodeRequestOptions_QNAME, GeocodeOptions.class, GeocodeRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Address }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Address", scope = GeocodeRequest.class)
-    public JAXBElement<Address> createGeocodeRequestAddress(Address value) {
-        return new JAXBElement<Address>(_GeocodeRequestAddress_QNAME, Address.class, GeocodeRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Query", scope = GeocodeRequest.class)
-    public JAXBElement<String> createGeocodeRequestQuery(String value) {
-        return new JAXBElement<String>(_GeocodeRequestQuery_QNAME, String.class, GeocodeRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Location }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/geocode", name = "Location", scope = ReverseGeocodeRequest.class)
-    public JAXBElement<Location> createReverseGeocodeRequestLocation(Location value) {
-        return new JAXBElement<Location>(_ReverseGeocodeRequestLocation_QNAME, Location.class, ReverseGeocodeRequest.class, value);
     }
 
 }

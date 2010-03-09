@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.geocode.ReverseGeocodeRequest;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.geocode.ReverseGeocodeRequest;
     "request"
 })
 @XmlRootElement(name = "ReverseGeocode")
-public class ReverseGeocode {
+public class ReverseGeocode
+    implements Serializable
+{
 
-    @XmlElementRef(name = "request", namespace = "http://dev.virtualearth.net/webservices/v1/geocode/contracts", type = JAXBElement.class)
-    protected JAXBElement<ReverseGeocodeRequest> request;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(nillable = true)
+    protected ReverseGeocodeRequest request;
 
     /**
      * Gets the value of the request property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ReverseGeocodeRequest }{@code >}
+     *     {@link ReverseGeocodeRequest }
      *     
      */
-    public JAXBElement<ReverseGeocodeRequest> getRequest() {
+    public ReverseGeocodeRequest getRequest() {
         return request;
     }
 
@@ -56,11 +59,11 @@ public class ReverseGeocode {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ReverseGeocodeRequest }{@code >}
+     *     {@link ReverseGeocodeRequest }
      *     
      */
-    public void setRequest(JAXBElement<ReverseGeocodeRequest> value) {
-        this.request = ((JAXBElement<ReverseGeocodeRequest> ) value);
+    public void setRequest(ReverseGeocodeRequest value) {
+        this.request = value;
     }
 
 }

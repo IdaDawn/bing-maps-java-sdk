@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
@@ -38,24 +38,26 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
 })
 public class SearchRequest
     extends RequestBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Query", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> query;
-    @XmlElementRef(name = "SearchOptions", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<SearchOptions> searchOptions;
-    @XmlElementRef(name = "StructuredQuery", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<StructuredSearchQuery> structuredQuery;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Query", nillable = true)
+    protected String query;
+    @XmlElement(name = "SearchOptions", nillable = true)
+    protected SearchOptions searchOptions;
+    @XmlElement(name = "StructuredQuery", nillable = true)
+    protected StructuredSearchQuery structuredQuery;
 
     /**
      * Gets the value of the query property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getQuery() {
+    public String getQuery() {
         return query;
     }
 
@@ -64,11 +66,11 @@ public class SearchRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setQuery(JAXBElement<String> value) {
-        this.query = ((JAXBElement<String> ) value);
+    public void setQuery(String value) {
+        this.query = value;
     }
 
     /**
@@ -76,10 +78,10 @@ public class SearchRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SearchOptions }{@code >}
+     *     {@link SearchOptions }
      *     
      */
-    public JAXBElement<SearchOptions> getSearchOptions() {
+    public SearchOptions getSearchOptions() {
         return searchOptions;
     }
 
@@ -88,11 +90,11 @@ public class SearchRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SearchOptions }{@code >}
+     *     {@link SearchOptions }
      *     
      */
-    public void setSearchOptions(JAXBElement<SearchOptions> value) {
-        this.searchOptions = ((JAXBElement<SearchOptions> ) value);
+    public void setSearchOptions(SearchOptions value) {
+        this.searchOptions = value;
     }
 
     /**
@@ -100,10 +102,10 @@ public class SearchRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link StructuredSearchQuery }{@code >}
+     *     {@link StructuredSearchQuery }
      *     
      */
-    public JAXBElement<StructuredSearchQuery> getStructuredQuery() {
+    public StructuredSearchQuery getStructuredQuery() {
         return structuredQuery;
     }
 
@@ -112,11 +114,11 @@ public class SearchRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link StructuredSearchQuery }{@code >}
+     *     {@link StructuredSearchQuery }
      *     
      */
-    public void setStructuredQuery(JAXBElement<StructuredSearchQuery> value) {
-        this.structuredQuery = ((JAXBElement<StructuredSearchQuery> ) value);
+    public void setStructuredQuery(StructuredSearchQuery value) {
+        this.structuredQuery = value;
     }
 
 }

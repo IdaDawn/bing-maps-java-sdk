@@ -1,6 +1,7 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,8 +33,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ArrayOfSearchResultSet", propOrder = {
     "searchResultSet"
 })
-public class ArrayOfSearchResultSet {
+public class ArrayOfSearchResultSet
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "SearchResultSet", nillable = true)
     protected List<SearchResultSet> searchResultSet;
 

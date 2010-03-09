@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,10 +37,12 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Circle
     extends ShapeBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Center", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Location> center;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Center", nillable = true)
+    protected Location center;
     @XmlElement(name = "DistanceUnit")
     protected DistanceUnit distanceUnit;
     @XmlElement(name = "Radius")
@@ -52,10 +53,10 @@ public class Circle
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getCenter() {
+    public Location getCenter() {
         return center;
     }
 
@@ -64,11 +65,11 @@ public class Circle
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setCenter(JAXBElement<Location> value) {
-        this.center = ((JAXBElement<Location> ) value);
+    public void setCenter(Location value) {
+        this.center = value;
     }
 
     /**

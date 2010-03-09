@@ -1,6 +1,7 @@
 
 package net.virtualearth.dev.webservices.v1.geocode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,8 +33,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ArrayOfFilterBase", propOrder = {
     "filterBase"
 })
-public class ArrayOfFilterBase {
+public class ArrayOfFilterBase
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "FilterBase", nillable = true)
     protected List<FilterBase> filterBase;
 

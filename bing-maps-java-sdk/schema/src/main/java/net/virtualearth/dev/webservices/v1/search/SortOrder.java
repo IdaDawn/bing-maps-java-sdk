@@ -3,6 +3,7 @@ package net.virtualearth.dev.webservices.v1.search;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -22,6 +23,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
  * </pre>
  * 
  */
+@XmlType(name = "SortOrder")
 @XmlEnum
 public enum SortOrder {
 
@@ -49,7 +51,7 @@ public enum SortOrder {
                 return c;
             }
         }
-        throw new IllegalArgumentException(v.toString());
+        throw new IllegalArgumentException(v);
     }
 
 }

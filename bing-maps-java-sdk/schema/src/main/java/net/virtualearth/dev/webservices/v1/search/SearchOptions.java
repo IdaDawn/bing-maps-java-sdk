@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.FilterExpressionBase;
 
@@ -47,20 +46,23 @@ import net.virtualearth.dev.webservices.v1.common.FilterExpressionBase;
     "sortOrder",
     "startingIndex"
 })
-public class SearchOptions {
+public class SearchOptions
+    implements Serializable
+{
 
-    @XmlElementRef(name = "AutocorrectQuery", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Boolean> autocorrectQuery;
-    @XmlElementRef(name = "Count", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Integer> count;
-    @XmlElementRef(name = "Filters", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<FilterExpressionBase> filters;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "AutocorrectQuery", nillable = true)
+    protected Boolean autocorrectQuery;
+    @XmlElement(name = "Count", nillable = true)
+    protected Integer count;
+    @XmlElement(name = "Filters", nillable = true)
+    protected FilterExpressionBase filters;
     @XmlElement(name = "ListingType")
     protected ListingType listingType;
     @XmlElement(name = "ParseOnly")
     protected Boolean parseOnly;
-    @XmlElementRef(name = "Radius", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Double> radius;
+    @XmlElement(name = "Radius", nillable = true)
+    protected Double radius;
     @XmlElement(name = "SortOrder")
     protected SortOrder sortOrder;
     @XmlElement(name = "StartingIndex")
@@ -71,10 +73,10 @@ public class SearchOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
+     *     {@link Boolean }
      *     
      */
-    public JAXBElement<Boolean> getAutocorrectQuery() {
+    public Boolean isAutocorrectQuery() {
         return autocorrectQuery;
     }
 
@@ -83,11 +85,11 @@ public class SearchOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Boolean }{@code >}
+     *     {@link Boolean }
      *     
      */
-    public void setAutocorrectQuery(JAXBElement<Boolean> value) {
-        this.autocorrectQuery = ((JAXBElement<Boolean> ) value);
+    public void setAutocorrectQuery(Boolean value) {
+        this.autocorrectQuery = value;
     }
 
     /**
@@ -95,10 +97,10 @@ public class SearchOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public JAXBElement<Integer> getCount() {
+    public Integer getCount() {
         return count;
     }
 
@@ -107,11 +109,11 @@ public class SearchOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public void setCount(JAXBElement<Integer> value) {
-        this.count = ((JAXBElement<Integer> ) value);
+    public void setCount(Integer value) {
+        this.count = value;
     }
 
     /**
@@ -119,10 +121,10 @@ public class SearchOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link FilterExpressionBase }{@code >}
+     *     {@link FilterExpressionBase }
      *     
      */
-    public JAXBElement<FilterExpressionBase> getFilters() {
+    public FilterExpressionBase getFilters() {
         return filters;
     }
 
@@ -131,11 +133,11 @@ public class SearchOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link FilterExpressionBase }{@code >}
+     *     {@link FilterExpressionBase }
      *     
      */
-    public void setFilters(JAXBElement<FilterExpressionBase> value) {
-        this.filters = ((JAXBElement<FilterExpressionBase> ) value);
+    public void setFilters(FilterExpressionBase value) {
+        this.filters = value;
     }
 
     /**
@@ -191,10 +193,10 @@ public class SearchOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Double }{@code >}
+     *     {@link Double }
      *     
      */
-    public JAXBElement<Double> getRadius() {
+    public Double getRadius() {
         return radius;
     }
 
@@ -203,11 +205,11 @@ public class SearchOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Double }{@code >}
+     *     {@link Double }
      *     
      */
-    public void setRadius(JAXBElement<Double> value) {
-        this.radius = ((JAXBElement<Double> ) value);
+    public void setRadius(Double value) {
+        this.radius = value;
     }
 
     /**

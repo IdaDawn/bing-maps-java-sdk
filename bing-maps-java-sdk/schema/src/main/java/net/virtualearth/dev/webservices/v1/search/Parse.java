@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Address;
 
@@ -38,26 +38,29 @@ import net.virtualearth.dev.webservices.v1.common.Address;
     "landmark",
     "locationSeparator"
 })
-public class Parse {
+public class Parse
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Address", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Address> address;
-    @XmlElementRef(name = "Keyword", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> keyword;
-    @XmlElementRef(name = "Landmark", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> landmark;
-    @XmlElementRef(name = "LocationSeparator", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> locationSeparator;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Address", nillable = true)
+    protected Address address;
+    @XmlElement(name = "Keyword", nillable = true)
+    protected String keyword;
+    @XmlElement(name = "Landmark", nillable = true)
+    protected String landmark;
+    @XmlElement(name = "LocationSeparator", nillable = true)
+    protected String locationSeparator;
 
     /**
      * Gets the value of the address property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public JAXBElement<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -66,11 +69,11 @@ public class Parse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public void setAddress(JAXBElement<Address> value) {
-        this.address = ((JAXBElement<Address> ) value);
+    public void setAddress(Address value) {
+        this.address = value;
     }
 
     /**
@@ -78,10 +81,10 @@ public class Parse {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getKeyword() {
+    public String getKeyword() {
         return keyword;
     }
 
@@ -90,11 +93,11 @@ public class Parse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setKeyword(JAXBElement<String> value) {
-        this.keyword = ((JAXBElement<String> ) value);
+    public void setKeyword(String value) {
+        this.keyword = value;
     }
 
     /**
@@ -102,10 +105,10 @@ public class Parse {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getLandmark() {
+    public String getLandmark() {
         return landmark;
     }
 
@@ -114,11 +117,11 @@ public class Parse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setLandmark(JAXBElement<String> value) {
-        this.landmark = ((JAXBElement<String> ) value);
+    public void setLandmark(String value) {
+        this.landmark = value;
     }
 
     /**
@@ -126,10 +129,10 @@ public class Parse {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getLocationSeparator() {
+    public String getLocationSeparator() {
         return locationSeparator;
     }
 
@@ -138,11 +141,11 @@ public class Parse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setLocationSeparator(JAXBElement<String> value) {
-        this.locationSeparator = ((JAXBElement<String> ) value);
+    public void setLocationSeparator(String value) {
+        this.locationSeparator = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfanyType;
 
@@ -34,20 +34,22 @@ import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfanyType;
 })
 public class ValueListFilter
     extends AvailableFilter
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Values", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfanyType> values;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Values", nillable = true)
+    protected ArrayOfanyType values;
 
     /**
      * Gets the value of the values property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfanyType }{@code >}
+     *     {@link ArrayOfanyType }
      *     
      */
-    public JAXBElement<ArrayOfanyType> getValues() {
+    public ArrayOfanyType getValues() {
         return values;
     }
 
@@ -56,11 +58,11 @@ public class ValueListFilter
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfanyType }{@code >}
+     *     {@link ArrayOfanyType }
      *     
      */
-    public void setValues(JAXBElement<ArrayOfanyType> value) {
-        this.values = ((JAXBElement<ArrayOfanyType> ) value);
+    public void setValues(ArrayOfanyType value) {
+        this.values = value;
     }
 
 }

@@ -1,11 +1,11 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfstringanyType;
@@ -55,38 +55,41 @@ import net.virtualearth.dev.webservices.v1.common.Address;
 })
 public class BusinessSearchResult
     extends SearchResultBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "AdditionalProperties", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfKeyValueOfstringanyType> additionalProperties;
-    @XmlElementRef(name = "Address", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Address> address;
-    @XmlElementRef(name = "Categories", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfCategory> categories;
-    @XmlElementRef(name = "CategorySpecificProperties", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S> categorySpecificProperties;
-    @XmlElementRef(name = "Neighborhoods", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfNeighborhood> neighborhoods;
-    @XmlElementRef(name = "PhoneNumber", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> phoneNumber;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "AdditionalProperties", nillable = true)
+    protected ArrayOfKeyValueOfstringanyType additionalProperties;
+    @XmlElement(name = "Address", nillable = true)
+    protected Address address;
+    @XmlElement(name = "Categories", nillable = true)
+    protected ArrayOfCategory categories;
+    @XmlElement(name = "CategorySpecificProperties", nillable = true)
+    protected ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S categorySpecificProperties;
+    @XmlElement(name = "Neighborhoods", nillable = true)
+    protected ArrayOfNeighborhood neighborhoods;
+    @XmlElement(name = "PhoneNumber", nillable = true)
+    protected String phoneNumber;
     @XmlElement(name = "RatingCount")
     protected Integer ratingCount;
     @XmlElement(name = "ReviewCount")
     protected Integer reviewCount;
     @XmlElement(name = "UserRating")
     protected Double userRating;
-    @XmlElementRef(name = "Website", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> website;
+    @XmlElement(name = "Website", nillable = true)
+    @XmlSchemaType(name = "anyURI")
+    protected String website;
 
     /**
      * Gets the value of the additionalProperties property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfstringanyType }{@code >}
+     *     {@link ArrayOfKeyValueOfstringanyType }
      *     
      */
-    public JAXBElement<ArrayOfKeyValueOfstringanyType> getAdditionalProperties() {
+    public ArrayOfKeyValueOfstringanyType getAdditionalProperties() {
         return additionalProperties;
     }
 
@@ -95,11 +98,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfstringanyType }{@code >}
+     *     {@link ArrayOfKeyValueOfstringanyType }
      *     
      */
-    public void setAdditionalProperties(JAXBElement<ArrayOfKeyValueOfstringanyType> value) {
-        this.additionalProperties = ((JAXBElement<ArrayOfKeyValueOfstringanyType> ) value);
+    public void setAdditionalProperties(ArrayOfKeyValueOfstringanyType value) {
+        this.additionalProperties = value;
     }
 
     /**
@@ -107,10 +110,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public JAXBElement<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -119,11 +122,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public void setAddress(JAXBElement<Address> value) {
-        this.address = ((JAXBElement<Address> ) value);
+    public void setAddress(Address value) {
+        this.address = value;
     }
 
     /**
@@ -131,10 +134,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfCategory }{@code >}
+     *     {@link ArrayOfCategory }
      *     
      */
-    public JAXBElement<ArrayOfCategory> getCategories() {
+    public ArrayOfCategory getCategories() {
         return categories;
     }
 
@@ -143,11 +146,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfCategory }{@code >}
+     *     {@link ArrayOfCategory }
      *     
      */
-    public void setCategories(JAXBElement<ArrayOfCategory> value) {
-        this.categories = ((JAXBElement<ArrayOfCategory> ) value);
+    public void setCategories(ArrayOfCategory value) {
+        this.categories = value;
     }
 
     /**
@@ -155,10 +158,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S }{@code >}
+     *     {@link ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S }
      *     
      */
-    public JAXBElement<ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S> getCategorySpecificProperties() {
+    public ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S getCategorySpecificProperties() {
         return categorySpecificProperties;
     }
 
@@ -167,11 +170,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S }{@code >}
+     *     {@link ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S }
      *     
      */
-    public void setCategorySpecificProperties(JAXBElement<ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S> value) {
-        this.categorySpecificProperties = ((JAXBElement<ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S> ) value);
+    public void setCategorySpecificProperties(ArrayOfKeyValueOfintCategorySpecificPropertySetn6Q9QP9S value) {
+        this.categorySpecificProperties = value;
     }
 
     /**
@@ -179,10 +182,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfNeighborhood }{@code >}
+     *     {@link ArrayOfNeighborhood }
      *     
      */
-    public JAXBElement<ArrayOfNeighborhood> getNeighborhoods() {
+    public ArrayOfNeighborhood getNeighborhoods() {
         return neighborhoods;
     }
 
@@ -191,11 +194,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfNeighborhood }{@code >}
+     *     {@link ArrayOfNeighborhood }
      *     
      */
-    public void setNeighborhoods(JAXBElement<ArrayOfNeighborhood> value) {
-        this.neighborhoods = ((JAXBElement<ArrayOfNeighborhood> ) value);
+    public void setNeighborhoods(ArrayOfNeighborhood value) {
+        this.neighborhoods = value;
     }
 
     /**
@@ -203,10 +206,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -215,11 +218,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPhoneNumber(JAXBElement<String> value) {
-        this.phoneNumber = ((JAXBElement<String> ) value);
+    public void setPhoneNumber(String value) {
+        this.phoneNumber = value;
     }
 
     /**
@@ -299,10 +302,10 @@ public class BusinessSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getWebsite() {
+    public String getWebsite() {
         return website;
     }
 
@@ -311,11 +314,11 @@ public class BusinessSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setWebsite(JAXBElement<String> value) {
-        this.website = ((JAXBElement<String> ) value);
+    public void setWebsite(String value) {
+        this.website = value;
     }
 
 }
