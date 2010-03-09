@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,22 +35,24 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Rectangle
     extends ShapeBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Northeast", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Location> northeast;
-    @XmlElementRef(name = "Southwest", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Location> southwest;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Northeast", nillable = true)
+    protected Location northeast;
+    @XmlElement(name = "Southwest", nillable = true)
+    protected Location southwest;
 
     /**
      * Gets the value of the northeast property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getNortheast() {
+    public Location getNortheast() {
         return northeast;
     }
 
@@ -59,11 +61,11 @@ public class Rectangle
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setNortheast(JAXBElement<Location> value) {
-        this.northeast = ((JAXBElement<Location> ) value);
+    public void setNortheast(Location value) {
+        this.northeast = value;
     }
 
     /**
@@ -71,10 +73,10 @@ public class Rectangle
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getSouthwest() {
+    public Location getSouthwest() {
         return southwest;
     }
 
@@ -83,11 +85,11 @@ public class Rectangle
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setSouthwest(JAXBElement<Location> value) {
-        this.southwest = ((JAXBElement<Location> ) value);
+    public void setSouthwest(Location value) {
+        this.southwest = value;
     }
 
 }

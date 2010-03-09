@@ -5,9 +5,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import net.virtualearth.dev.webservices.v1.common.ArrayOfLocation;
-import net.virtualearth.dev.webservices.v1.common.Location;
-import net.virtualearth.dev.webservices.v1.common.Rectangle;
 
 
 /**
@@ -55,25 +52,6 @@ public class ObjectFactory {
     private final static QName _ArrayOfItineraryItem_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "ArrayOfItineraryItem");
     private final static QName _MajorRoutesRequest_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "MajorRoutesRequest");
     private final static QName _TrafficUsage_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "TrafficUsage");
-    private final static QName _RouteResponseResult_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Result");
-    private final static QName _RouteRequestWaypoints_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Waypoints");
-    private final static QName _RouteRequestOptions_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Options");
-    private final static QName _ItineraryItemWarningText_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Text");
-    private final static QName _ItineraryItemCompassDirection_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "CompassDirection");
-    private final static QName _ItineraryItemWarnings_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Warnings");
-    private final static QName _ItineraryItemSummary_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Summary");
-    private final static QName _ItineraryItemHints_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Hints");
-    private final static QName _ItineraryItemLocation_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Location");
-    private final static QName _RouteResultLegs_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Legs");
-    private final static QName _RoutePathPoints_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Points");
-    private final static QName _RouteSummaryBoundingRectangle_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "BoundingRectangle");
-    private final static QName _MajorRoutesResponseRoutes_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Routes");
-    private final static QName _MajorRoutesResponseStartingPoints_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "StartingPoints");
-    private final static QName _MajorRoutesRequestDestination_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Destination");
-    private final static QName _RouteLegActualEnd_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "ActualEnd");
-    private final static QName _RouteLegItinerary_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Itinerary");
-    private final static QName _RouteLegActualStart_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "ActualStart");
-    private final static QName _WaypointDescription_QNAME = new QName("http://dev.virtualearth.net/webservices/v1/route", "Description");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: net.virtualearth.dev.webservices.v1.route
@@ -83,59 +61,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RouteResponse }
+     * Create an instance of {@link MajorRoutesResponse }
      * 
      */
-    public RouteResponse createRouteResponse() {
-        return new RouteResponse();
+    public MajorRoutesResponse createMajorRoutesResponse() {
+        return new MajorRoutesResponse();
     }
 
     /**
-     * Create an instance of {@link ArrayOfItineraryItemHint }
+     * Create an instance of {@link RouteOptions }
      * 
      */
-    public ArrayOfItineraryItemHint createArrayOfItineraryItemHint() {
-        return new ArrayOfItineraryItemHint();
-    }
-
-    /**
-     * Create an instance of {@link RouteRequest }
-     * 
-     */
-    public RouteRequest createRouteRequest() {
-        return new RouteRequest();
-    }
-
-    /**
-     * Create an instance of {@link MajorRoutesOptions }
-     * 
-     */
-    public MajorRoutesOptions createMajorRoutesOptions() {
-        return new MajorRoutesOptions();
-    }
-
-    /**
-     * Create an instance of {@link ItineraryItemWarning }
-     * 
-     */
-    public ItineraryItemWarning createItineraryItemWarning() {
-        return new ItineraryItemWarning();
-    }
-
-    /**
-     * Create an instance of {@link ItineraryItem }
-     * 
-     */
-    public ItineraryItem createItineraryItem() {
-        return new ItineraryItem();
-    }
-
-    /**
-     * Create an instance of {@link RouteResult }
-     * 
-     */
-    public RouteResult createRouteResult() {
-        return new RouteResult();
+    public RouteOptions createRouteOptions() {
+        return new RouteOptions();
     }
 
     /**
@@ -147,19 +85,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RoutePath }
+     * Create an instance of {@link RouteLeg }
      * 
      */
-    public RoutePath createRoutePath() {
-        return new RoutePath();
+    public RouteLeg createRouteLeg() {
+        return new RouteLeg();
     }
 
     /**
-     * Create an instance of {@link MajorRoutesResponse }
+     * Create an instance of {@link MajorRoutesRequest }
      * 
      */
-    public MajorRoutesResponse createMajorRoutesResponse() {
-        return new MajorRoutesResponse();
+    public MajorRoutesRequest createMajorRoutesRequest() {
+        return new MajorRoutesRequest();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfRouteResult }
+     * 
+     */
+    public ArrayOfRouteResult createArrayOfRouteResult() {
+        return new ArrayOfRouteResult();
     }
 
     /**
@@ -179,27 +125,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfWaypoint }
+     * Create an instance of {@link ItineraryItemWarning }
      * 
      */
-    public ArrayOfWaypoint createArrayOfWaypoint() {
-        return new ArrayOfWaypoint();
+    public ItineraryItemWarning createItineraryItemWarning() {
+        return new ItineraryItemWarning();
     }
 
     /**
-     * Create an instance of {@link ArrayOfItineraryItem }
+     * Create an instance of {@link RouteRequest }
      * 
      */
-    public ArrayOfItineraryItem createArrayOfItineraryItem() {
-        return new ArrayOfItineraryItem();
+    public RouteRequest createRouteRequest() {
+        return new RouteRequest();
     }
 
     /**
-     * Create an instance of {@link MajorRoutesRequest }
+     * Create an instance of {@link RouteResponse }
      * 
      */
-    public MajorRoutesRequest createMajorRoutesRequest() {
-        return new MajorRoutesRequest();
+    public RouteResponse createRouteResponse() {
+        return new RouteResponse();
+    }
+
+    /**
+     * Create an instance of {@link MajorRoutesOptions }
+     * 
+     */
+    public MajorRoutesOptions createMajorRoutesOptions() {
+        return new MajorRoutesOptions();
     }
 
     /**
@@ -211,19 +165,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RouteLeg }
+     * Create an instance of {@link ArrayOfWaypoint }
      * 
      */
-    public RouteLeg createRouteLeg() {
-        return new RouteLeg();
+    public ArrayOfWaypoint createArrayOfWaypoint() {
+        return new ArrayOfWaypoint();
     }
 
     /**
-     * Create an instance of {@link RouteOptions }
+     * Create an instance of {@link ArrayOfItineraryItemHint }
      * 
      */
-    public RouteOptions createRouteOptions() {
-        return new RouteOptions();
+    public ArrayOfItineraryItemHint createArrayOfItineraryItemHint() {
+        return new ArrayOfItineraryItemHint();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfItineraryItem }
+     * 
+     */
+    public ArrayOfItineraryItem createArrayOfItineraryItem() {
+        return new ArrayOfItineraryItem();
+    }
+
+    /**
+     * Create an instance of {@link ItineraryItem }
+     * 
+     */
+    public ItineraryItem createItineraryItem() {
+        return new ItineraryItem();
     }
 
     /**
@@ -235,11 +205,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfRouteResult }
+     * Create an instance of {@link RoutePath }
      * 
      */
-    public ArrayOfRouteResult createArrayOfRouteResult() {
-        return new ArrayOfRouteResult();
+    public RoutePath createRoutePath() {
+        return new RoutePath();
+    }
+
+    /**
+     * Create an instance of {@link RouteResult }
+     * 
+     */
+    public RouteResult createRouteResult() {
+        return new RouteResult();
     }
 
     /**
@@ -492,240 +470,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "TrafficUsage")
     public JAXBElement<TrafficUsage> createTrafficUsage(TrafficUsage value) {
         return new JAXBElement<TrafficUsage>(_TrafficUsage_QNAME, TrafficUsage.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RouteResult }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Result", scope = RouteResponse.class)
-    public JAXBElement<RouteResult> createRouteResponseResult(RouteResult value) {
-        return new JAXBElement<RouteResult>(_RouteResponseResult_QNAME, RouteResult.class, RouteResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfWaypoint }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Waypoints", scope = RouteRequest.class)
-    public JAXBElement<ArrayOfWaypoint> createRouteRequestWaypoints(ArrayOfWaypoint value) {
-        return new JAXBElement<ArrayOfWaypoint>(_RouteRequestWaypoints_QNAME, ArrayOfWaypoint.class, RouteRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RouteOptions }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Options", scope = RouteRequest.class)
-    public JAXBElement<RouteOptions> createRouteRequestOptions(RouteOptions value) {
-        return new JAXBElement<RouteOptions>(_RouteRequestOptions_QNAME, RouteOptions.class, RouteRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Text", scope = ItineraryItemWarning.class)
-    public JAXBElement<String> createItineraryItemWarningText(String value) {
-        return new JAXBElement<String>(_ItineraryItemWarningText_QNAME, String.class, ItineraryItemWarning.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Text", scope = ItineraryItem.class)
-    public JAXBElement<String> createItineraryItemText(String value) {
-        return new JAXBElement<String>(_ItineraryItemWarningText_QNAME, String.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "CompassDirection", scope = ItineraryItem.class)
-    public JAXBElement<String> createItineraryItemCompassDirection(String value) {
-        return new JAXBElement<String>(_ItineraryItemCompassDirection_QNAME, String.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemWarning }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Warnings", scope = ItineraryItem.class)
-    public JAXBElement<ArrayOfItineraryItemWarning> createItineraryItemWarnings(ArrayOfItineraryItemWarning value) {
-        return new JAXBElement<ArrayOfItineraryItemWarning>(_ItineraryItemWarnings_QNAME, ArrayOfItineraryItemWarning.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Summary", scope = ItineraryItem.class)
-    public JAXBElement<RouteSummary> createItineraryItemSummary(RouteSummary value) {
-        return new JAXBElement<RouteSummary>(_ItineraryItemSummary_QNAME, RouteSummary.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemHint }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Hints", scope = ItineraryItem.class)
-    public JAXBElement<ArrayOfItineraryItemHint> createItineraryItemHints(ArrayOfItineraryItemHint value) {
-        return new JAXBElement<ArrayOfItineraryItemHint>(_ItineraryItemHints_QNAME, ArrayOfItineraryItemHint.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Location }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Location", scope = ItineraryItem.class)
-    public JAXBElement<Location> createItineraryItemLocation(Location value) {
-        return new JAXBElement<Location>(_ItineraryItemLocation_QNAME, Location.class, ItineraryItem.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Summary", scope = RouteResult.class)
-    public JAXBElement<RouteSummary> createRouteResultSummary(RouteSummary value) {
-        return new JAXBElement<RouteSummary>(_ItineraryItemSummary_QNAME, RouteSummary.class, RouteResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RoutePath }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "RoutePath", scope = RouteResult.class)
-    public JAXBElement<RoutePath> createRouteResultRoutePath(RoutePath value) {
-        return new JAXBElement<RoutePath>(_RoutePath_QNAME, RoutePath.class, RouteResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRouteLeg }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Legs", scope = RouteResult.class)
-    public JAXBElement<ArrayOfRouteLeg> createRouteResultLegs(ArrayOfRouteLeg value) {
-        return new JAXBElement<ArrayOfRouteLeg>(_RouteResultLegs_QNAME, ArrayOfRouteLeg.class, RouteResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Text", scope = ItineraryItemHint.class)
-    public JAXBElement<String> createItineraryItemHintText(String value) {
-        return new JAXBElement<String>(_ItineraryItemWarningText_QNAME, String.class, ItineraryItemHint.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfLocation }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Points", scope = RoutePath.class)
-    public JAXBElement<ArrayOfLocation> createRoutePathPoints(ArrayOfLocation value) {
-        return new JAXBElement<ArrayOfLocation>(_RoutePathPoints_QNAME, ArrayOfLocation.class, RoutePath.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Rectangle }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "BoundingRectangle", scope = RouteSummary.class)
-    public JAXBElement<Rectangle> createRouteSummaryBoundingRectangle(Rectangle value) {
-        return new JAXBElement<Rectangle>(_RouteSummaryBoundingRectangle_QNAME, Rectangle.class, RouteSummary.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfRouteResult }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Routes", scope = MajorRoutesResponse.class)
-    public JAXBElement<ArrayOfRouteResult> createMajorRoutesResponseRoutes(ArrayOfRouteResult value) {
-        return new JAXBElement<ArrayOfRouteResult>(_MajorRoutesResponseRoutes_QNAME, ArrayOfRouteResult.class, MajorRoutesResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfWaypoint }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "StartingPoints", scope = MajorRoutesResponse.class)
-    public JAXBElement<ArrayOfWaypoint> createMajorRoutesResponseStartingPoints(ArrayOfWaypoint value) {
-        return new JAXBElement<ArrayOfWaypoint>(_MajorRoutesResponseStartingPoints_QNAME, ArrayOfWaypoint.class, MajorRoutesResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MajorRoutesOptions }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Options", scope = MajorRoutesRequest.class)
-    public JAXBElement<MajorRoutesOptions> createMajorRoutesRequestOptions(MajorRoutesOptions value) {
-        return new JAXBElement<MajorRoutesOptions>(_RouteRequestOptions_QNAME, MajorRoutesOptions.class, MajorRoutesRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Waypoint }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Destination", scope = MajorRoutesRequest.class)
-    public JAXBElement<Waypoint> createMajorRoutesRequestDestination(Waypoint value) {
-        return new JAXBElement<Waypoint>(_MajorRoutesRequestDestination_QNAME, Waypoint.class, MajorRoutesRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Location }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "ActualEnd", scope = RouteLeg.class)
-    public JAXBElement<Location> createRouteLegActualEnd(Location value) {
-        return new JAXBElement<Location>(_RouteLegActualEnd_QNAME, Location.class, RouteLeg.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfItineraryItem }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Itinerary", scope = RouteLeg.class)
-    public JAXBElement<ArrayOfItineraryItem> createRouteLegItinerary(ArrayOfItineraryItem value) {
-        return new JAXBElement<ArrayOfItineraryItem>(_RouteLegItinerary_QNAME, ArrayOfItineraryItem.class, RouteLeg.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Location }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "ActualStart", scope = RouteLeg.class)
-    public JAXBElement<Location> createRouteLegActualStart(Location value) {
-        return new JAXBElement<Location>(_RouteLegActualStart_QNAME, Location.class, RouteLeg.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Summary", scope = RouteLeg.class)
-    public JAXBElement<RouteSummary> createRouteLegSummary(RouteSummary value) {
-        return new JAXBElement<RouteSummary>(_ItineraryItemSummary_QNAME, RouteSummary.class, RouteLeg.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Description", scope = Waypoint.class)
-    public JAXBElement<String> createWaypointDescription(String value) {
-        return new JAXBElement<String>(_WaypointDescription_QNAME, String.class, Waypoint.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Location }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://dev.virtualearth.net/webservices/v1/route", name = "Location", scope = Waypoint.class)
-    public JAXBElement<Location> createWaypointLocation(Location value) {
-        return new JAXBElement<Location>(_ItineraryItemLocation_QNAME, Location.class, Waypoint.class, value);
     }
 
 }

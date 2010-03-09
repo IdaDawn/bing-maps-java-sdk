@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -36,10 +35,12 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class FilterExpressionClause
     extends FilterExpressionBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Expressions", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfFilterExpressionBase> expressions;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Expressions", nillable = true)
+    protected ArrayOfFilterExpressionBase expressions;
     @XmlElement(name = "LogicalOperator")
     protected LogicalOperator logicalOperator;
 
@@ -48,10 +49,10 @@ public class FilterExpressionClause
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfFilterExpressionBase }{@code >}
+     *     {@link ArrayOfFilterExpressionBase }
      *     
      */
-    public JAXBElement<ArrayOfFilterExpressionBase> getExpressions() {
+    public ArrayOfFilterExpressionBase getExpressions() {
         return expressions;
     }
 
@@ -60,11 +61,11 @@ public class FilterExpressionClause
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfFilterExpressionBase }{@code >}
+     *     {@link ArrayOfFilterExpressionBase }
      *     
      */
-    public void setExpressions(JAXBElement<ArrayOfFilterExpressionBase> value) {
-        this.expressions = ((JAXBElement<ArrayOfFilterExpressionBase> ) value);
+    public void setExpressions(ArrayOfFilterExpressionBase value) {
+        this.expressions = value;
     }
 
     /**

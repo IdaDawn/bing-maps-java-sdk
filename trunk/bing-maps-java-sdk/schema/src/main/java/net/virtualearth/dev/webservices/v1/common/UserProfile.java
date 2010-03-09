@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -44,32 +43,35 @@ import javax.xml.bind.annotation.XmlType;
     "mapView",
     "screenSize"
 })
-public class UserProfile {
+public class UserProfile
+    implements Serializable
+{
 
-    @XmlElementRef(name = "CurrentHeading", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Heading> currentHeading;
-    @XmlElementRef(name = "CurrentLocation", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<UserLocation> currentLocation;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "CurrentHeading", nillable = true)
+    protected Heading currentHeading;
+    @XmlElement(name = "CurrentLocation", nillable = true)
+    protected UserLocation currentLocation;
     @XmlElement(name = "DeviceType")
     protected DeviceType deviceType;
     @XmlElement(name = "DistanceUnit")
     protected DistanceUnit distanceUnit;
-    @XmlElementRef(name = "IPAddress", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> ipAddress;
-    @XmlElementRef(name = "MapView", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<ShapeBase> mapView;
-    @XmlElementRef(name = "ScreenSize", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<SizeOfint> screenSize;
+    @XmlElement(name = "IPAddress", nillable = true)
+    protected String ipAddress;
+    @XmlElement(name = "MapView", nillable = true)
+    protected ShapeBase mapView;
+    @XmlElement(name = "ScreenSize", nillable = true)
+    protected SizeOfint screenSize;
 
     /**
      * Gets the value of the currentHeading property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Heading }{@code >}
+     *     {@link Heading }
      *     
      */
-    public JAXBElement<Heading> getCurrentHeading() {
+    public Heading getCurrentHeading() {
         return currentHeading;
     }
 
@@ -78,11 +80,11 @@ public class UserProfile {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Heading }{@code >}
+     *     {@link Heading }
      *     
      */
-    public void setCurrentHeading(JAXBElement<Heading> value) {
-        this.currentHeading = ((JAXBElement<Heading> ) value);
+    public void setCurrentHeading(Heading value) {
+        this.currentHeading = value;
     }
 
     /**
@@ -90,10 +92,10 @@ public class UserProfile {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link UserLocation }{@code >}
+     *     {@link UserLocation }
      *     
      */
-    public JAXBElement<UserLocation> getCurrentLocation() {
+    public UserLocation getCurrentLocation() {
         return currentLocation;
     }
 
@@ -102,11 +104,11 @@ public class UserProfile {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link UserLocation }{@code >}
+     *     {@link UserLocation }
      *     
      */
-    public void setCurrentLocation(JAXBElement<UserLocation> value) {
-        this.currentLocation = ((JAXBElement<UserLocation> ) value);
+    public void setCurrentLocation(UserLocation value) {
+        this.currentLocation = value;
     }
 
     /**
@@ -162,10 +164,10 @@ public class UserProfile {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getIPAddress() {
+    public String getIPAddress() {
         return ipAddress;
     }
 
@@ -174,11 +176,11 @@ public class UserProfile {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setIPAddress(JAXBElement<String> value) {
-        this.ipAddress = ((JAXBElement<String> ) value);
+    public void setIPAddress(String value) {
+        this.ipAddress = value;
     }
 
     /**
@@ -186,10 +188,10 @@ public class UserProfile {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ShapeBase }{@code >}
+     *     {@link ShapeBase }
      *     
      */
-    public JAXBElement<ShapeBase> getMapView() {
+    public ShapeBase getMapView() {
         return mapView;
     }
 
@@ -198,11 +200,11 @@ public class UserProfile {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ShapeBase }{@code >}
+     *     {@link ShapeBase }
      *     
      */
-    public void setMapView(JAXBElement<ShapeBase> value) {
-        this.mapView = ((JAXBElement<ShapeBase> ) value);
+    public void setMapView(ShapeBase value) {
+        this.mapView = value;
     }
 
     /**
@@ -210,10 +212,10 @@ public class UserProfile {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public JAXBElement<SizeOfint> getScreenSize() {
+    public SizeOfint getScreenSize() {
         return screenSize;
     }
 
@@ -222,11 +224,11 @@ public class UserProfile {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public void setScreenSize(JAXBElement<SizeOfint> value) {
-        this.screenSize = ((JAXBElement<SizeOfint> ) value);
+    public void setScreenSize(SizeOfint value) {
+        this.screenSize = value;
     }
 
 }

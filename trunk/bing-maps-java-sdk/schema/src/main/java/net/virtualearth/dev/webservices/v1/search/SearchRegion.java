@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.GeocodeResult;
 import net.virtualearth.dev.webservices.v1.common.ShapeBase;
@@ -37,24 +37,27 @@ import net.virtualearth.dev.webservices.v1.common.ShapeBase;
     "geocodeLocation",
     "source"
 })
-public class SearchRegion {
+public class SearchRegion
+    implements Serializable
+{
 
-    @XmlElementRef(name = "BoundingArea", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ShapeBase> boundingArea;
-    @XmlElementRef(name = "GeocodeLocation", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<GeocodeResult> geocodeLocation;
-    @XmlElementRef(name = "Source", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> source;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "BoundingArea", nillable = true)
+    protected ShapeBase boundingArea;
+    @XmlElement(name = "GeocodeLocation", nillable = true)
+    protected GeocodeResult geocodeLocation;
+    @XmlElement(name = "Source", nillable = true)
+    protected String source;
 
     /**
      * Gets the value of the boundingArea property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ShapeBase }{@code >}
+     *     {@link ShapeBase }
      *     
      */
-    public JAXBElement<ShapeBase> getBoundingArea() {
+    public ShapeBase getBoundingArea() {
         return boundingArea;
     }
 
@@ -63,11 +66,11 @@ public class SearchRegion {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ShapeBase }{@code >}
+     *     {@link ShapeBase }
      *     
      */
-    public void setBoundingArea(JAXBElement<ShapeBase> value) {
-        this.boundingArea = ((JAXBElement<ShapeBase> ) value);
+    public void setBoundingArea(ShapeBase value) {
+        this.boundingArea = value;
     }
 
     /**
@@ -75,10 +78,10 @@ public class SearchRegion {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeResult }{@code >}
+     *     {@link GeocodeResult }
      *     
      */
-    public JAXBElement<GeocodeResult> getGeocodeLocation() {
+    public GeocodeResult getGeocodeLocation() {
         return geocodeLocation;
     }
 
@@ -87,11 +90,11 @@ public class SearchRegion {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeResult }{@code >}
+     *     {@link GeocodeResult }
      *     
      */
-    public void setGeocodeLocation(JAXBElement<GeocodeResult> value) {
-        this.geocodeLocation = ((JAXBElement<GeocodeResult> ) value);
+    public void setGeocodeLocation(GeocodeResult value) {
+        this.geocodeLocation = value;
     }
 
     /**
@@ -99,10 +102,10 @@ public class SearchRegion {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getSource() {
+    public String getSource() {
         return source;
     }
 
@@ -111,11 +114,11 @@ public class SearchRegion {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setSource(JAXBElement<String> value) {
-        this.source = ((JAXBElement<String> ) value);
+    public void setSource(String value) {
+        this.source = value;
     }
 
 }

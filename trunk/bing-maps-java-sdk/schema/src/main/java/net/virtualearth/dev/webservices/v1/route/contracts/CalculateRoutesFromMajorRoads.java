@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
     "request"
 })
 @XmlRootElement(name = "CalculateRoutesFromMajorRoads")
-public class CalculateRoutesFromMajorRoads {
+public class CalculateRoutesFromMajorRoads
+    implements Serializable
+{
 
-    @XmlElementRef(name = "request", namespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", type = JAXBElement.class)
-    protected JAXBElement<MajorRoutesRequest> request;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(nillable = true)
+    protected MajorRoutesRequest request;
 
     /**
      * Gets the value of the request property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link MajorRoutesRequest }{@code >}
+     *     {@link MajorRoutesRequest }
      *     
      */
-    public JAXBElement<MajorRoutesRequest> getRequest() {
+    public MajorRoutesRequest getRequest() {
         return request;
     }
 
@@ -56,11 +59,11 @@ public class CalculateRoutesFromMajorRoads {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link MajorRoutesRequest }{@code >}
+     *     {@link MajorRoutesRequest }
      *     
      */
-    public void setRequest(JAXBElement<MajorRoutesRequest> value) {
-        this.request = ((JAXBElement<MajorRoutesRequest> ) value);
+    public void setRequest(MajorRoutesRequest value) {
+        this.request = value;
     }
 
 }

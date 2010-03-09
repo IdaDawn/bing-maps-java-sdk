@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -33,22 +33,25 @@ import javax.xml.bind.annotation.XmlType;
     "count",
     "filters"
 })
-public class GeocodeOptions {
+public class GeocodeOptions
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Count", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<Integer> count;
-    @XmlElementRef(name = "Filters", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfFilterBase> filters;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Count", nillable = true)
+    protected Integer count;
+    @XmlElement(name = "Filters", nillable = true)
+    protected ArrayOfFilterBase filters;
 
     /**
      * Gets the value of the count property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public JAXBElement<Integer> getCount() {
+    public Integer getCount() {
         return count;
     }
 
@@ -57,11 +60,11 @@ public class GeocodeOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *     {@link Integer }
      *     
      */
-    public void setCount(JAXBElement<Integer> value) {
-        this.count = ((JAXBElement<Integer> ) value);
+    public void setCount(Integer value) {
+        this.count = value;
     }
 
     /**
@@ -69,10 +72,10 @@ public class GeocodeOptions {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfFilterBase }{@code >}
+     *     {@link ArrayOfFilterBase }
      *     
      */
-    public JAXBElement<ArrayOfFilterBase> getFilters() {
+    public ArrayOfFilterBase getFilters() {
         return filters;
     }
 
@@ -81,11 +84,11 @@ public class GeocodeOptions {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfFilterBase }{@code >}
+     *     {@link ArrayOfFilterBase }
      *     
      */
-    public void setFilters(JAXBElement<ArrayOfFilterBase> value) {
-        this.filters = ((JAXBElement<ArrayOfFilterBase> ) value);
+    public void setFilters(ArrayOfFilterBase value) {
+        this.filters = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -33,22 +33,25 @@ import javax.xml.bind.annotation.XmlType;
     "keyword",
     "location"
 })
-public class StructuredSearchQuery {
+public class StructuredSearchQuery
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Keyword", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> keyword;
-    @XmlElementRef(name = "Location", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> location;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Keyword", nillable = true)
+    protected String keyword;
+    @XmlElement(name = "Location", nillable = true)
+    protected String location;
 
     /**
      * Gets the value of the keyword property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getKeyword() {
+    public String getKeyword() {
         return keyword;
     }
 
@@ -57,11 +60,11 @@ public class StructuredSearchQuery {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setKeyword(JAXBElement<String> value) {
-        this.keyword = ((JAXBElement<String> ) value);
+    public void setKeyword(String value) {
+        this.keyword = value;
     }
 
     /**
@@ -69,10 +72,10 @@ public class StructuredSearchQuery {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getLocation() {
+    public String getLocation() {
         return location;
     }
 
@@ -81,11 +84,11 @@ public class StructuredSearchQuery {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setLocation(JAXBElement<String> value) {
-        this.location = ((JAXBElement<String> ) value);
+    public void setLocation(String value) {
+        this.location = value;
     }
 
 }

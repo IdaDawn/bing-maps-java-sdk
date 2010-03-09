@@ -1,11 +1,14 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
+import net.virtualearth.dev.webservices.v1.route.RouteRequest;
 
 
 /**
@@ -37,26 +40,33 @@ import javax.xml.bind.annotation.XmlType;
     "executionOptions",
     "userProfile"
 })
-public class RequestBase {
+@XmlSeeAlso({
+    MajorRoutesRequest.class,
+    RouteRequest.class
+})
+public class RequestBase
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Credentials", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<Credentials> credentials;
-    @XmlElementRef(name = "Culture", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> culture;
-    @XmlElementRef(name = "ExecutionOptions", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<ExecutionOptions> executionOptions;
-    @XmlElementRef(name = "UserProfile", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<UserProfile> userProfile;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Credentials", nillable = true)
+    protected Credentials credentials;
+    @XmlElement(name = "Culture", nillable = true)
+    protected String culture;
+    @XmlElement(name = "ExecutionOptions", nillable = true)
+    protected ExecutionOptions executionOptions;
+    @XmlElement(name = "UserProfile", nillable = true)
+    protected UserProfile userProfile;
 
     /**
      * Gets the value of the credentials property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Credentials }{@code >}
+     *     {@link Credentials }
      *     
      */
-    public JAXBElement<Credentials> getCredentials() {
+    public Credentials getCredentials() {
         return credentials;
     }
 
@@ -65,11 +75,11 @@ public class RequestBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Credentials }{@code >}
+     *     {@link Credentials }
      *     
      */
-    public void setCredentials(JAXBElement<Credentials> value) {
-        this.credentials = ((JAXBElement<Credentials> ) value);
+    public void setCredentials(Credentials value) {
+        this.credentials = value;
     }
 
     /**
@@ -77,10 +87,10 @@ public class RequestBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getCulture() {
+    public String getCulture() {
         return culture;
     }
 
@@ -89,11 +99,11 @@ public class RequestBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setCulture(JAXBElement<String> value) {
-        this.culture = ((JAXBElement<String> ) value);
+    public void setCulture(String value) {
+        this.culture = value;
     }
 
     /**
@@ -101,10 +111,10 @@ public class RequestBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ExecutionOptions }{@code >}
+     *     {@link ExecutionOptions }
      *     
      */
-    public JAXBElement<ExecutionOptions> getExecutionOptions() {
+    public ExecutionOptions getExecutionOptions() {
         return executionOptions;
     }
 
@@ -113,11 +123,11 @@ public class RequestBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ExecutionOptions }{@code >}
+     *     {@link ExecutionOptions }
      *     
      */
-    public void setExecutionOptions(JAXBElement<ExecutionOptions> value) {
-        this.executionOptions = ((JAXBElement<ExecutionOptions> ) value);
+    public void setExecutionOptions(ExecutionOptions value) {
+        this.executionOptions = value;
     }
 
     /**
@@ -125,10 +135,10 @@ public class RequestBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link UserProfile }{@code >}
+     *     {@link UserProfile }
      *     
      */
-    public JAXBElement<UserProfile> getUserProfile() {
+    public UserProfile getUserProfile() {
         return userProfile;
     }
 
@@ -137,11 +147,11 @@ public class RequestBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link UserProfile }{@code >}
+     *     {@link UserProfile }
      *     
      */
-    public void setUserProfile(JAXBElement<UserProfile> value) {
-        this.userProfile = ((JAXBElement<UserProfile> ) value);
+    public void setUserProfile(UserProfile value) {
+        this.userProfile = value;
     }
 
 }

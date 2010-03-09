@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Location;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
@@ -35,20 +35,22 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
 })
 public class ReverseGeocodeRequest
     extends RequestBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Location", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<Location> location;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Location", nillable = true)
+    protected Location location;
 
     /**
      * Gets the value of the location property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -57,11 +59,11 @@ public class ReverseGeocodeRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setLocation(JAXBElement<Location> value) {
-        this.location = ((JAXBElement<Location> ) value);
+    public void setLocation(Location value) {
+        this.location = value;
     }
 
 }

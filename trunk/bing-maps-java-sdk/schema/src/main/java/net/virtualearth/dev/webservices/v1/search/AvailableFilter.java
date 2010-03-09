@@ -1,11 +1,11 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -34,12 +34,19 @@ import javax.xml.bind.annotation.XmlType;
     "propertyId",
     "propertyName"
 })
-public class AvailableFilter {
+@XmlSeeAlso({
+    RangeFilter.class,
+    ValueListFilter.class
+})
+public class AvailableFilter
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "PropertyId")
     protected Integer propertyId;
-    @XmlElementRef(name = "PropertyName", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> propertyName;
+    @XmlElement(name = "PropertyName", nillable = true)
+    protected String propertyName;
 
     /**
      * Gets the value of the propertyId property.
@@ -70,10 +77,10 @@ public class AvailableFilter {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPropertyName() {
+    public String getPropertyName() {
         return propertyName;
     }
 
@@ -82,11 +89,11 @@ public class AvailableFilter {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPropertyName(JAXBElement<String> value) {
-        this.propertyName = ((JAXBElement<String> ) value);
+    public void setPropertyName(String value) {
+        this.propertyName = value;
     }
 
 }

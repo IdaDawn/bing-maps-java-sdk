@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeResponse;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.geocode.GeocodeResponse;
     "reverseGeocodeResult"
 })
 @XmlRootElement(name = "ReverseGeocodeResponse")
-public class ReverseGeocodeResponse {
+public class ReverseGeocodeResponse
+    implements Serializable
+{
 
-    @XmlElementRef(name = "ReverseGeocodeResult", namespace = "http://dev.virtualearth.net/webservices/v1/geocode/contracts", type = JAXBElement.class)
-    protected JAXBElement<GeocodeResponse> reverseGeocodeResult;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "ReverseGeocodeResult", nillable = true)
+    protected GeocodeResponse reverseGeocodeResult;
 
     /**
      * Gets the value of the reverseGeocodeResult property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeResponse }{@code >}
+     *     {@link GeocodeResponse }
      *     
      */
-    public JAXBElement<GeocodeResponse> getReverseGeocodeResult() {
+    public GeocodeResponse getReverseGeocodeResult() {
         return reverseGeocodeResult;
     }
 
@@ -56,11 +59,11 @@ public class ReverseGeocodeResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeResponse }{@code >}
+     *     {@link GeocodeResponse }
      *     
      */
-    public void setReverseGeocodeResult(JAXBElement<GeocodeResponse> value) {
-        this.reverseGeocodeResult = ((JAXBElement<GeocodeResponse> ) value);
+    public void setReverseGeocodeResult(GeocodeResponse value) {
+        this.reverseGeocodeResult = value;
     }
 
 }

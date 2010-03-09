@@ -1,5 +1,5 @@
 
-package net.virtualearth.dev.webservices.v1.common;
+package com.microsoft.schemas._2003._10.serialization.arrays;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,17 +9,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for RangeOfint complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="RangeOfint">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="From" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="To" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="Key" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="Value" type="{http://www.w3.org/2001/XMLSchema}anyType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,66 +29,66 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RangeOfint", propOrder = {
-    "from",
-    "to"
+@XmlType(name = "", propOrder = {
+    "key",
+    "value"
 })
-public class RangeOfint
+public class KeyValueOfstringanyType
     implements Serializable
 {
 
     private final static long serialVersionUID = 2461660169443089969L;
-    @XmlElement(name = "From")
-    protected Integer from;
-    @XmlElement(name = "To")
-    protected Integer to;
+    @XmlElement(name = "Key", required = true, nillable = true)
+    protected String key;
+    @XmlElement(name = "Value", required = true, nillable = true)
+    protected Object value;
 
     /**
-     * Gets the value of the from property.
+     * Gets the value of the key property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link String }
      *     
      */
-    public Integer getFrom() {
-        return from;
+    public String getKey() {
+        return key;
     }
 
     /**
-     * Sets the value of the from property.
+     * Sets the value of the key property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link String }
      *     
      */
-    public void setFrom(Integer value) {
-        this.from = value;
+    public void setKey(String value) {
+        this.key = value;
     }
 
     /**
-     * Gets the value of the to property.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link Object }
      *     
      */
-    public Integer getTo() {
-        return to;
+    public Object getValue() {
+        return value;
     }
 
     /**
-     * Sets the value of the to property.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link Object }
      *     
      */
-    public void setTo(Integer value) {
-        this.to = value;
+    public void setValue(Object value) {
+        this.value = value;
     }
 
 }

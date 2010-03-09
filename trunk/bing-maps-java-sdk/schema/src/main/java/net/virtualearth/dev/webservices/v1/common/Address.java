@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -45,34 +45,37 @@ import javax.xml.bind.annotation.XmlType;
     "postalCode",
     "postalTown"
 })
-public class Address {
+public class Address
+    implements Serializable
+{
 
-    @XmlElementRef(name = "AddressLine", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> addressLine;
-    @XmlElementRef(name = "AdminDistrict", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> adminDistrict;
-    @XmlElementRef(name = "CountryRegion", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> countryRegion;
-    @XmlElementRef(name = "District", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> district;
-    @XmlElementRef(name = "FormattedAddress", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> formattedAddress;
-    @XmlElementRef(name = "Locality", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> locality;
-    @XmlElementRef(name = "PostalCode", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> postalCode;
-    @XmlElementRef(name = "PostalTown", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> postalTown;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "AddressLine", nillable = true)
+    protected String addressLine;
+    @XmlElement(name = "AdminDistrict", nillable = true)
+    protected String adminDistrict;
+    @XmlElement(name = "CountryRegion", nillable = true)
+    protected String countryRegion;
+    @XmlElement(name = "District", nillable = true)
+    protected String district;
+    @XmlElement(name = "FormattedAddress", nillable = true)
+    protected String formattedAddress;
+    @XmlElement(name = "Locality", nillable = true)
+    protected String locality;
+    @XmlElement(name = "PostalCode", nillable = true)
+    protected String postalCode;
+    @XmlElement(name = "PostalTown", nillable = true)
+    protected String postalTown;
 
     /**
      * Gets the value of the addressLine property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getAddressLine() {
+    public String getAddressLine() {
         return addressLine;
     }
 
@@ -81,11 +84,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setAddressLine(JAXBElement<String> value) {
-        this.addressLine = ((JAXBElement<String> ) value);
+    public void setAddressLine(String value) {
+        this.addressLine = value;
     }
 
     /**
@@ -93,10 +96,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getAdminDistrict() {
+    public String getAdminDistrict() {
         return adminDistrict;
     }
 
@@ -105,11 +108,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setAdminDistrict(JAXBElement<String> value) {
-        this.adminDistrict = ((JAXBElement<String> ) value);
+    public void setAdminDistrict(String value) {
+        this.adminDistrict = value;
     }
 
     /**
@@ -117,10 +120,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getCountryRegion() {
+    public String getCountryRegion() {
         return countryRegion;
     }
 
@@ -129,11 +132,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setCountryRegion(JAXBElement<String> value) {
-        this.countryRegion = ((JAXBElement<String> ) value);
+    public void setCountryRegion(String value) {
+        this.countryRegion = value;
     }
 
     /**
@@ -141,10 +144,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
@@ -153,11 +156,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setDistrict(JAXBElement<String> value) {
-        this.district = ((JAXBElement<String> ) value);
+    public void setDistrict(String value) {
+        this.district = value;
     }
 
     /**
@@ -165,10 +168,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getFormattedAddress() {
+    public String getFormattedAddress() {
         return formattedAddress;
     }
 
@@ -177,11 +180,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setFormattedAddress(JAXBElement<String> value) {
-        this.formattedAddress = ((JAXBElement<String> ) value);
+    public void setFormattedAddress(String value) {
+        this.formattedAddress = value;
     }
 
     /**
@@ -189,10 +192,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getLocality() {
+    public String getLocality() {
         return locality;
     }
 
@@ -201,11 +204,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setLocality(JAXBElement<String> value) {
-        this.locality = ((JAXBElement<String> ) value);
+    public void setLocality(String value) {
+        this.locality = value;
     }
 
     /**
@@ -213,10 +216,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 
@@ -225,11 +228,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPostalCode(JAXBElement<String> value) {
-        this.postalCode = ((JAXBElement<String> ) value);
+    public void setPostalCode(String value) {
+        this.postalCode = value;
     }
 
     /**
@@ -237,10 +240,10 @@ public class Address {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPostalTown() {
+    public String getPostalTown() {
         return postalTown;
     }
 
@@ -249,11 +252,11 @@ public class Address {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPostalTown(JAXBElement<String> value) {
-        this.postalTown = ((JAXBElement<String> ) value);
+    public void setPostalTown(String value) {
+        this.postalTown = value;
     }
 
 }

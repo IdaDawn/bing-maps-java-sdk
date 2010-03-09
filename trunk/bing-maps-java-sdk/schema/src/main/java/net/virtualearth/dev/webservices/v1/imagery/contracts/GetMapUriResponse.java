@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery.contracts;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
@@ -34,20 +34,23 @@ import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
     "getMapUriResult"
 })
 @XmlRootElement(name = "GetMapUriResponse")
-public class GetMapUriResponse {
+public class GetMapUriResponse
+    implements Serializable
+{
 
-    @XmlElementRef(name = "GetMapUriResult", namespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", type = JAXBElement.class)
-    protected JAXBElement<MapUriResponse> getMapUriResult;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "GetMapUriResult", nillable = true)
+    protected MapUriResponse getMapUriResult;
 
     /**
      * Gets the value of the getMapUriResult property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link MapUriResponse }{@code >}
+     *     {@link MapUriResponse }
      *     
      */
-    public JAXBElement<MapUriResponse> getGetMapUriResult() {
+    public MapUriResponse getGetMapUriResult() {
         return getMapUriResult;
     }
 
@@ -56,11 +59,11 @@ public class GetMapUriResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link MapUriResponse }{@code >}
+     *     {@link MapUriResponse }
      *     
      */
-    public void setGetMapUriResult(JAXBElement<MapUriResponse> value) {
-        this.getMapUriResult = ((JAXBElement<MapUriResponse> ) value);
+    public void setGetMapUriResult(MapUriResponse value) {
+        this.getMapUriResult = value;
     }
 
 }

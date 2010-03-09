@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.geocode;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Address;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
@@ -39,24 +39,26 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
 })
 public class GeocodeRequest
     extends RequestBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Address", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<Address> address;
-    @XmlElementRef(name = "Options", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<GeocodeOptions> options;
-    @XmlElementRef(name = "Query", namespace = "http://dev.virtualearth.net/webservices/v1/geocode", type = JAXBElement.class)
-    protected JAXBElement<String> query;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Address", nillable = true)
+    protected Address address;
+    @XmlElement(name = "Options", nillable = true)
+    protected GeocodeOptions options;
+    @XmlElement(name = "Query", nillable = true)
+    protected String query;
 
     /**
      * Gets the value of the address property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public JAXBElement<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -65,11 +67,11 @@ public class GeocodeRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Address }{@code >}
+     *     {@link Address }
      *     
      */
-    public void setAddress(JAXBElement<Address> value) {
-        this.address = ((JAXBElement<Address> ) value);
+    public void setAddress(Address value) {
+        this.address = value;
     }
 
     /**
@@ -77,10 +79,10 @@ public class GeocodeRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeOptions }{@code >}
+     *     {@link GeocodeOptions }
      *     
      */
-    public JAXBElement<GeocodeOptions> getOptions() {
+    public GeocodeOptions getOptions() {
         return options;
     }
 
@@ -89,11 +91,11 @@ public class GeocodeRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link GeocodeOptions }{@code >}
+     *     {@link GeocodeOptions }
      *     
      */
-    public void setOptions(JAXBElement<GeocodeOptions> value) {
-        this.options = ((JAXBElement<GeocodeOptions> ) value);
+    public void setOptions(GeocodeOptions value) {
+        this.options = value;
     }
 
     /**
@@ -101,10 +103,10 @@ public class GeocodeRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getQuery() {
+    public String getQuery() {
         return query;
     }
 
@@ -113,11 +115,11 @@ public class GeocodeRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setQuery(JAXBElement<String> value) {
-        this.query = ((JAXBElement<String> ) value);
+    public void setQuery(String value) {
+        this.query = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfstringanyType;
 
@@ -36,22 +36,24 @@ import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfstr
 })
 public class CommunityContentSearchResult
     extends SearchResultBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "AdditionalProperties", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfKeyValueOfstringanyType> additionalProperties;
-    @XmlElementRef(name = "Description", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> description;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "AdditionalProperties", nillable = true)
+    protected ArrayOfKeyValueOfstringanyType additionalProperties;
+    @XmlElement(name = "Description", nillable = true)
+    protected String description;
 
     /**
      * Gets the value of the additionalProperties property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfstringanyType }{@code >}
+     *     {@link ArrayOfKeyValueOfstringanyType }
      *     
      */
-    public JAXBElement<ArrayOfKeyValueOfstringanyType> getAdditionalProperties() {
+    public ArrayOfKeyValueOfstringanyType getAdditionalProperties() {
         return additionalProperties;
     }
 
@@ -60,11 +62,11 @@ public class CommunityContentSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfstringanyType }{@code >}
+     *     {@link ArrayOfKeyValueOfstringanyType }
      *     
      */
-    public void setAdditionalProperties(JAXBElement<ArrayOfKeyValueOfstringanyType> value) {
-        this.additionalProperties = ((JAXBElement<ArrayOfKeyValueOfstringanyType> ) value);
+    public void setAdditionalProperties(ArrayOfKeyValueOfstringanyType value) {
+        this.additionalProperties = value;
     }
 
     /**
@@ -72,10 +74,10 @@ public class CommunityContentSearchResult
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -84,11 +86,11 @@ public class CommunityContentSearchResult
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setDescription(JAXBElement<String> value) {
-        this.description = ((JAXBElement<String> ) value);
+    public void setDescription(String value) {
+        this.description = value;
     }
 
 }

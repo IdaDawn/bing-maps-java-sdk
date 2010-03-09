@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -50,38 +49,41 @@ import javax.xml.bind.annotation.XmlType;
     "results",
     "searchRegion"
 })
-public class SearchResultSet {
+public class SearchResultSet
+    implements Serializable
+{
 
-    @XmlElementRef(name = "AlternateSearchRegions", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfSearchRegion> alternateSearchRegions;
-    @XmlElementRef(name = "AvailableFilters", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfAvailableFilter> availableFilters;
-    @XmlElementRef(name = "CategoryCounts", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfCategoryCount> categoryCounts;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "AlternateSearchRegions", nillable = true)
+    protected ArrayOfSearchRegion alternateSearchRegions;
+    @XmlElement(name = "AvailableFilters", nillable = true)
+    protected ArrayOfAvailableFilter availableFilters;
+    @XmlElement(name = "CategoryCounts", nillable = true)
+    protected ArrayOfCategoryCount categoryCounts;
     @XmlElement(name = "EstimatedMatches")
     protected Integer estimatedMatches;
-    @XmlElementRef(name = "ListingType", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> listingType;
-    @XmlElementRef(name = "Parse", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Parse> parse;
-    @XmlElementRef(name = "QueryCategory", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Category> queryCategory;
+    @XmlElement(name = "ListingType", nillable = true)
+    protected String listingType;
+    @XmlElement(name = "Parse", nillable = true)
+    protected Parse parse;
+    @XmlElement(name = "QueryCategory", nillable = true)
+    protected Category queryCategory;
     @XmlElement(name = "QueryCorrected")
     protected Boolean queryCorrected;
-    @XmlElementRef(name = "Results", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfSearchResultBase> results;
-    @XmlElementRef(name = "SearchRegion", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<SearchRegion> searchRegion;
+    @XmlElement(name = "Results", nillable = true)
+    protected ArrayOfSearchResultBase results;
+    @XmlElement(name = "SearchRegion", nillable = true)
+    protected SearchRegion searchRegion;
 
     /**
      * Gets the value of the alternateSearchRegions property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchRegion }{@code >}
+     *     {@link ArrayOfSearchRegion }
      *     
      */
-    public JAXBElement<ArrayOfSearchRegion> getAlternateSearchRegions() {
+    public ArrayOfSearchRegion getAlternateSearchRegions() {
         return alternateSearchRegions;
     }
 
@@ -90,11 +92,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchRegion }{@code >}
+     *     {@link ArrayOfSearchRegion }
      *     
      */
-    public void setAlternateSearchRegions(JAXBElement<ArrayOfSearchRegion> value) {
-        this.alternateSearchRegions = ((JAXBElement<ArrayOfSearchRegion> ) value);
+    public void setAlternateSearchRegions(ArrayOfSearchRegion value) {
+        this.alternateSearchRegions = value;
     }
 
     /**
@@ -102,10 +104,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfAvailableFilter }{@code >}
+     *     {@link ArrayOfAvailableFilter }
      *     
      */
-    public JAXBElement<ArrayOfAvailableFilter> getAvailableFilters() {
+    public ArrayOfAvailableFilter getAvailableFilters() {
         return availableFilters;
     }
 
@@ -114,11 +116,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfAvailableFilter }{@code >}
+     *     {@link ArrayOfAvailableFilter }
      *     
      */
-    public void setAvailableFilters(JAXBElement<ArrayOfAvailableFilter> value) {
-        this.availableFilters = ((JAXBElement<ArrayOfAvailableFilter> ) value);
+    public void setAvailableFilters(ArrayOfAvailableFilter value) {
+        this.availableFilters = value;
     }
 
     /**
@@ -126,10 +128,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfCategoryCount }{@code >}
+     *     {@link ArrayOfCategoryCount }
      *     
      */
-    public JAXBElement<ArrayOfCategoryCount> getCategoryCounts() {
+    public ArrayOfCategoryCount getCategoryCounts() {
         return categoryCounts;
     }
 
@@ -138,11 +140,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfCategoryCount }{@code >}
+     *     {@link ArrayOfCategoryCount }
      *     
      */
-    public void setCategoryCounts(JAXBElement<ArrayOfCategoryCount> value) {
-        this.categoryCounts = ((JAXBElement<ArrayOfCategoryCount> ) value);
+    public void setCategoryCounts(ArrayOfCategoryCount value) {
+        this.categoryCounts = value;
     }
 
     /**
@@ -174,10 +176,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getListingType() {
+    public String getListingType() {
         return listingType;
     }
 
@@ -186,11 +188,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setListingType(JAXBElement<String> value) {
-        this.listingType = ((JAXBElement<String> ) value);
+    public void setListingType(String value) {
+        this.listingType = value;
     }
 
     /**
@@ -198,10 +200,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Parse }{@code >}
+     *     {@link Parse }
      *     
      */
-    public JAXBElement<Parse> getParse() {
+    public Parse getParse() {
         return parse;
     }
 
@@ -210,11 +212,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Parse }{@code >}
+     *     {@link Parse }
      *     
      */
-    public void setParse(JAXBElement<Parse> value) {
-        this.parse = ((JAXBElement<Parse> ) value);
+    public void setParse(Parse value) {
+        this.parse = value;
     }
 
     /**
@@ -222,10 +224,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Category }{@code >}
+     *     {@link Category }
      *     
      */
-    public JAXBElement<Category> getQueryCategory() {
+    public Category getQueryCategory() {
         return queryCategory;
     }
 
@@ -234,11 +236,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Category }{@code >}
+     *     {@link Category }
      *     
      */
-    public void setQueryCategory(JAXBElement<Category> value) {
-        this.queryCategory = ((JAXBElement<Category> ) value);
+    public void setQueryCategory(Category value) {
+        this.queryCategory = value;
     }
 
     /**
@@ -270,10 +272,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchResultBase }{@code >}
+     *     {@link ArrayOfSearchResultBase }
      *     
      */
-    public JAXBElement<ArrayOfSearchResultBase> getResults() {
+    public ArrayOfSearchResultBase getResults() {
         return results;
     }
 
@@ -282,11 +284,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfSearchResultBase }{@code >}
+     *     {@link ArrayOfSearchResultBase }
      *     
      */
-    public void setResults(JAXBElement<ArrayOfSearchResultBase> value) {
-        this.results = ((JAXBElement<ArrayOfSearchResultBase> ) value);
+    public void setResults(ArrayOfSearchResultBase value) {
+        this.results = value;
     }
 
     /**
@@ -294,10 +296,10 @@ public class SearchResultSet {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SearchRegion }{@code >}
+     *     {@link SearchRegion }
      *     
      */
-    public JAXBElement<SearchRegion> getSearchRegion() {
+    public SearchRegion getSearchRegion() {
         return searchRegion;
     }
 
@@ -306,11 +308,11 @@ public class SearchResultSet {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SearchRegion }{@code >}
+     *     {@link SearchRegion }
      *     
      */
-    public void setSearchRegion(JAXBElement<SearchRegion> value) {
-        this.searchRegion = ((JAXBElement<SearchRegion> ) value);
+    public void setSearchRegion(SearchRegion value) {
+        this.searchRegion = value;
     }
 
 }

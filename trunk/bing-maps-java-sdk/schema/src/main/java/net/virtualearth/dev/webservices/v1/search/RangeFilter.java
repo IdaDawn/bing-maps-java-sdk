@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,22 +35,24 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class RangeFilter
     extends AvailableFilter
+    implements Serializable
 {
 
-    @XmlElementRef(name = "MaximumValue", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Object> maximumValue;
-    @XmlElementRef(name = "MinimumValue", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Object> minimumValue;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "MaximumValue", nillable = true)
+    protected Object maximumValue;
+    @XmlElement(name = "MinimumValue", nillable = true)
+    protected Object minimumValue;
 
     /**
      * Gets the value of the maximumValue property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public JAXBElement<Object> getMaximumValue() {
+    public Object getMaximumValue() {
         return maximumValue;
     }
 
@@ -59,11 +61,11 @@ public class RangeFilter
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public void setMaximumValue(JAXBElement<Object> value) {
-        this.maximumValue = ((JAXBElement<Object> ) value);
+    public void setMaximumValue(Object value) {
+        this.maximumValue = value;
     }
 
     /**
@@ -71,10 +73,10 @@ public class RangeFilter
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public JAXBElement<Object> getMinimumValue() {
+    public Object getMinimumValue() {
         return minimumValue;
     }
 
@@ -83,11 +85,11 @@ public class RangeFilter
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *     {@link Object }
      *     
      */
-    public void setMinimumValue(JAXBElement<Object> value) {
-        this.minimumValue = ((JAXBElement<Object> ) value);
+    public void setMinimumValue(Object value) {
+        this.minimumValue = value;
     }
 
 }

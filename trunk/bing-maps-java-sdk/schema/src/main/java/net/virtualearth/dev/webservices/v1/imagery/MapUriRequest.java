@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.ArrayOfPushpin;
 import net.virtualearth.dev.webservices.v1.common.Location;
@@ -42,26 +42,28 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
 })
 public class MapUriRequest
     extends RequestBase
+    implements Serializable
 {
 
-    @XmlElementRef(name = "Center", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Location> center;
-    @XmlElementRef(name = "MajorRoutesDestination", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<Location> majorRoutesDestination;
-    @XmlElementRef(name = "Options", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<MapUriOptions> options;
-    @XmlElementRef(name = "Pushpins", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfPushpin> pushpins;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Center", nillable = true)
+    protected Location center;
+    @XmlElement(name = "MajorRoutesDestination", nillable = true)
+    protected Location majorRoutesDestination;
+    @XmlElement(name = "Options", nillable = true)
+    protected MapUriOptions options;
+    @XmlElement(name = "Pushpins", nillable = true)
+    protected ArrayOfPushpin pushpins;
 
     /**
      * Gets the value of the center property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getCenter() {
+    public Location getCenter() {
         return center;
     }
 
@@ -70,11 +72,11 @@ public class MapUriRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setCenter(JAXBElement<Location> value) {
-        this.center = ((JAXBElement<Location> ) value);
+    public void setCenter(Location value) {
+        this.center = value;
     }
 
     /**
@@ -82,10 +84,10 @@ public class MapUriRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getMajorRoutesDestination() {
+    public Location getMajorRoutesDestination() {
         return majorRoutesDestination;
     }
 
@@ -94,11 +96,11 @@ public class MapUriRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setMajorRoutesDestination(JAXBElement<Location> value) {
-        this.majorRoutesDestination = ((JAXBElement<Location> ) value);
+    public void setMajorRoutesDestination(Location value) {
+        this.majorRoutesDestination = value;
     }
 
     /**
@@ -106,10 +108,10 @@ public class MapUriRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link MapUriOptions }{@code >}
+     *     {@link MapUriOptions }
      *     
      */
-    public JAXBElement<MapUriOptions> getOptions() {
+    public MapUriOptions getOptions() {
         return options;
     }
 
@@ -118,11 +120,11 @@ public class MapUriRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link MapUriOptions }{@code >}
+     *     {@link MapUriOptions }
      *     
      */
-    public void setOptions(JAXBElement<MapUriOptions> value) {
-        this.options = ((JAXBElement<MapUriOptions> ) value);
+    public void setOptions(MapUriOptions value) {
+        this.options = value;
     }
 
     /**
@@ -130,10 +132,10 @@ public class MapUriRequest
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfPushpin }{@code >}
+     *     {@link ArrayOfPushpin }
      *     
      */
-    public JAXBElement<ArrayOfPushpin> getPushpins() {
+    public ArrayOfPushpin getPushpins() {
         return pushpins;
     }
 
@@ -142,11 +144,11 @@ public class MapUriRequest
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfPushpin }{@code >}
+     *     {@link ArrayOfPushpin }
      *     
      */
-    public void setPushpins(JAXBElement<ArrayOfPushpin> value) {
-        this.pushpins = ((JAXBElement<ArrayOfPushpin> ) value);
+    public void setPushpins(ArrayOfPushpin value) {
+        this.pushpins = value;
     }
 
 }

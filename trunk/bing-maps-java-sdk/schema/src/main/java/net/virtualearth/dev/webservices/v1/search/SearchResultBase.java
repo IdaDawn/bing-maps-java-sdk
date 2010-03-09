@@ -1,11 +1,11 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,16 +38,24 @@ import javax.xml.bind.annotation.XmlType;
     "locationData",
     "name"
 })
-public class SearchResultBase {
+@XmlSeeAlso({
+    CommunityContentSearchResult.class,
+    PersonSearchResult.class,
+    BusinessSearchResult.class
+})
+public class SearchResultBase
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "Distance")
     protected Double distance;
-    @XmlElementRef(name = "Id", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> id;
-    @XmlElementRef(name = "LocationData", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<LocationData> locationData;
-    @XmlElementRef(name = "Name", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> name;
+    @XmlElement(name = "Id", nillable = true)
+    protected String id;
+    @XmlElement(name = "LocationData", nillable = true)
+    protected LocationData locationData;
+    @XmlElement(name = "Name", nillable = true)
+    protected String name;
 
     /**
      * Gets the value of the distance property.
@@ -78,10 +86,10 @@ public class SearchResultBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getId() {
+    public String getId() {
         return id;
     }
 
@@ -90,11 +98,11 @@ public class SearchResultBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setId(JAXBElement<String> value) {
-        this.id = ((JAXBElement<String> ) value);
+    public void setId(String value) {
+        this.id = value;
     }
 
     /**
@@ -102,10 +110,10 @@ public class SearchResultBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link LocationData }{@code >}
+     *     {@link LocationData }
      *     
      */
-    public JAXBElement<LocationData> getLocationData() {
+    public LocationData getLocationData() {
         return locationData;
     }
 
@@ -114,11 +122,11 @@ public class SearchResultBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link LocationData }{@code >}
+     *     {@link LocationData }
      *     
      */
-    public void setLocationData(JAXBElement<LocationData> value) {
-        this.locationData = ((JAXBElement<LocationData> ) value);
+    public void setLocationData(LocationData value) {
+        this.locationData = value;
     }
 
     /**
@@ -126,10 +134,10 @@ public class SearchResultBase {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getName() {
+    public String getName() {
         return name;
     }
 
@@ -138,11 +146,11 @@ public class SearchResultBase {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setName(JAXBElement<String> value) {
-        this.name = ((JAXBElement<String> ) value);
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

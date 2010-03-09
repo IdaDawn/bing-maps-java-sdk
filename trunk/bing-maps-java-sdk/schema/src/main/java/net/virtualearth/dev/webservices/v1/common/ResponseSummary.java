@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.common;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -40,18 +39,21 @@ import javax.xml.bind.annotation.XmlType;
     "statusCode",
     "traceId"
 })
-public class ResponseSummary {
+public class ResponseSummary
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "AuthenticationResultCode")
     protected AuthenticationResultCode authenticationResultCode;
-    @XmlElementRef(name = "Copyright", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> copyright;
-    @XmlElementRef(name = "FaultReason", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> faultReason;
+    @XmlElement(name = "Copyright", nillable = true)
+    protected String copyright;
+    @XmlElement(name = "FaultReason", nillable = true)
+    protected String faultReason;
     @XmlElement(name = "StatusCode")
     protected ResponseStatusCode statusCode;
-    @XmlElementRef(name = "TraceId", namespace = "http://dev.virtualearth.net/webservices/v1/common", type = JAXBElement.class)
-    protected JAXBElement<String> traceId;
+    @XmlElement(name = "TraceId", nillable = true)
+    protected String traceId;
 
     /**
      * Gets the value of the authenticationResultCode property.
@@ -82,10 +84,10 @@ public class ResponseSummary {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getCopyright() {
+    public String getCopyright() {
         return copyright;
     }
 
@@ -94,11 +96,11 @@ public class ResponseSummary {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setCopyright(JAXBElement<String> value) {
-        this.copyright = ((JAXBElement<String> ) value);
+    public void setCopyright(String value) {
+        this.copyright = value;
     }
 
     /**
@@ -106,10 +108,10 @@ public class ResponseSummary {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getFaultReason() {
+    public String getFaultReason() {
         return faultReason;
     }
 
@@ -118,11 +120,11 @@ public class ResponseSummary {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setFaultReason(JAXBElement<String> value) {
-        this.faultReason = ((JAXBElement<String> ) value);
+    public void setFaultReason(String value) {
+        this.faultReason = value;
     }
 
     /**
@@ -154,10 +156,10 @@ public class ResponseSummary {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getTraceId() {
+    public String getTraceId() {
         return traceId;
     }
 
@@ -166,11 +168,11 @@ public class ResponseSummary {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setTraceId(JAXBElement<String> value) {
-        this.traceId = ((JAXBElement<String> ) value);
+    public void setTraceId(String value) {
+        this.traceId = value;
     }
 
 }

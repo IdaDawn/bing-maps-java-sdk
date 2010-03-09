@@ -1,6 +1,7 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,8 +33,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ArrayOfImageryProvider", propOrder = {
     "imageryProvider"
 })
-public class ArrayOfImageryProvider {
+public class ArrayOfImageryProvider
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "ImageryProvider", nillable = true)
     protected List<ImageryProvider> imageryProvider;
 

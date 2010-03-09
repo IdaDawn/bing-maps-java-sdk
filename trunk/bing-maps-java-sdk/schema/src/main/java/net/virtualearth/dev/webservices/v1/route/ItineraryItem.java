@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Location;
 
@@ -45,32 +44,35 @@ import net.virtualearth.dev.webservices.v1.common.Location;
     "text",
     "warnings"
 })
-public class ItineraryItem {
+public class ItineraryItem
+    implements Serializable
+{
 
-    @XmlElementRef(name = "CompassDirection", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<String> compassDirection;
-    @XmlElementRef(name = "Hints", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfItineraryItemHint> hints;
-    @XmlElementRef(name = "Location", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<Location> location;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "CompassDirection", nillable = true)
+    protected String compassDirection;
+    @XmlElement(name = "Hints", nillable = true)
+    protected ArrayOfItineraryItemHint hints;
+    @XmlElement(name = "Location", nillable = true)
+    protected Location location;
     @XmlElement(name = "ManeuverType")
     protected ManeuverType maneuverType;
-    @XmlElementRef(name = "Summary", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RouteSummary> summary;
-    @XmlElementRef(name = "Text", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<String> text;
-    @XmlElementRef(name = "Warnings", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfItineraryItemWarning> warnings;
+    @XmlElement(name = "Summary", nillable = true)
+    protected RouteSummary summary;
+    @XmlElement(name = "Text", nillable = true)
+    protected String text;
+    @XmlElement(name = "Warnings", nillable = true)
+    protected ArrayOfItineraryItemWarning warnings;
 
     /**
      * Gets the value of the compassDirection property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getCompassDirection() {
+    public String getCompassDirection() {
         return compassDirection;
     }
 
@@ -79,11 +81,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setCompassDirection(JAXBElement<String> value) {
-        this.compassDirection = ((JAXBElement<String> ) value);
+    public void setCompassDirection(String value) {
+        this.compassDirection = value;
     }
 
     /**
@@ -91,10 +93,10 @@ public class ItineraryItem {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemHint }{@code >}
+     *     {@link ArrayOfItineraryItemHint }
      *     
      */
-    public JAXBElement<ArrayOfItineraryItemHint> getHints() {
+    public ArrayOfItineraryItemHint getHints() {
         return hints;
     }
 
@@ -103,11 +105,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemHint }{@code >}
+     *     {@link ArrayOfItineraryItemHint }
      *     
      */
-    public void setHints(JAXBElement<ArrayOfItineraryItemHint> value) {
-        this.hints = ((JAXBElement<ArrayOfItineraryItemHint> ) value);
+    public void setHints(ArrayOfItineraryItemHint value) {
+        this.hints = value;
     }
 
     /**
@@ -115,10 +117,10 @@ public class ItineraryItem {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -127,11 +129,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setLocation(JAXBElement<Location> value) {
-        this.location = ((JAXBElement<Location> ) value);
+    public void setLocation(Location value) {
+        this.location = value;
     }
 
     /**
@@ -163,10 +165,10 @@ public class ItineraryItem {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public JAXBElement<RouteSummary> getSummary() {
+    public RouteSummary getSummary() {
         return summary;
     }
 
@@ -175,11 +177,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public void setSummary(JAXBElement<RouteSummary> value) {
-        this.summary = ((JAXBElement<RouteSummary> ) value);
+    public void setSummary(RouteSummary value) {
+        this.summary = value;
     }
 
     /**
@@ -187,10 +189,10 @@ public class ItineraryItem {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getText() {
+    public String getText() {
         return text;
     }
 
@@ -199,11 +201,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setText(JAXBElement<String> value) {
-        this.text = ((JAXBElement<String> ) value);
+    public void setText(String value) {
+        this.text = value;
     }
 
     /**
@@ -211,10 +213,10 @@ public class ItineraryItem {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemWarning }{@code >}
+     *     {@link ArrayOfItineraryItemWarning }
      *     
      */
-    public JAXBElement<ArrayOfItineraryItemWarning> getWarnings() {
+    public ArrayOfItineraryItemWarning getWarnings() {
         return warnings;
     }
 
@@ -223,11 +225,11 @@ public class ItineraryItem {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfItineraryItemWarning }{@code >}
+     *     {@link ArrayOfItineraryItemWarning }
      *     
      */
-    public void setWarnings(JAXBElement<ArrayOfItineraryItemWarning> value) {
-        this.warnings = ((JAXBElement<ArrayOfItineraryItemWarning> ) value);
+    public void setWarnings(ArrayOfItineraryItemWarning value) {
+        this.warnings = value;
     }
 
 }

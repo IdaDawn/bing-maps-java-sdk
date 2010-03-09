@@ -1,10 +1,11 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring;
 import net.virtualearth.dev.webservices.v1.common.RangeOfdateTime;
@@ -45,30 +46,36 @@ import net.virtualearth.dev.webservices.v1.common.SizeOfint;
     "vintage",
     "zoomRange"
 })
-public class ImageryMetadataResult {
+@XmlSeeAlso({
+    ImageryMetadataBirdseyeResult.class
+})
+public class ImageryMetadataResult
+    implements Serializable
+{
 
-    @XmlElementRef(name = "ImageSize", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<SizeOfint> imageSize;
-    @XmlElementRef(name = "ImageUri", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<String> imageUri;
-    @XmlElementRef(name = "ImageUriSubdomains", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfstring> imageUriSubdomains;
-    @XmlElementRef(name = "ImageryProviders", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfImageryProvider> imageryProviders;
-    @XmlElementRef(name = "Vintage", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<RangeOfdateTime> vintage;
-    @XmlElementRef(name = "ZoomRange", namespace = "http://dev.virtualearth.net/webservices/v1/imagery", type = JAXBElement.class)
-    protected JAXBElement<RangeOfint> zoomRange;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "ImageSize", nillable = true)
+    protected SizeOfint imageSize;
+    @XmlElement(name = "ImageUri", nillable = true)
+    protected String imageUri;
+    @XmlElement(name = "ImageUriSubdomains", nillable = true)
+    protected ArrayOfstring imageUriSubdomains;
+    @XmlElement(name = "ImageryProviders", nillable = true)
+    protected ArrayOfImageryProvider imageryProviders;
+    @XmlElement(name = "Vintage", nillable = true)
+    protected RangeOfdateTime vintage;
+    @XmlElement(name = "ZoomRange", nillable = true)
+    protected RangeOfint zoomRange;
 
     /**
      * Gets the value of the imageSize property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public JAXBElement<SizeOfint> getImageSize() {
+    public SizeOfint getImageSize() {
         return imageSize;
     }
 
@@ -77,11 +84,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SizeOfint }{@code >}
+     *     {@link SizeOfint }
      *     
      */
-    public void setImageSize(JAXBElement<SizeOfint> value) {
-        this.imageSize = ((JAXBElement<SizeOfint> ) value);
+    public void setImageSize(SizeOfint value) {
+        this.imageSize = value;
     }
 
     /**
@@ -89,10 +96,10 @@ public class ImageryMetadataResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getImageUri() {
+    public String getImageUri() {
         return imageUri;
     }
 
@@ -101,11 +108,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setImageUri(JAXBElement<String> value) {
-        this.imageUri = ((JAXBElement<String> ) value);
+    public void setImageUri(String value) {
+        this.imageUri = value;
     }
 
     /**
@@ -113,10 +120,10 @@ public class ImageryMetadataResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link ArrayOfstring }
      *     
      */
-    public JAXBElement<ArrayOfstring> getImageUriSubdomains() {
+    public ArrayOfstring getImageUriSubdomains() {
         return imageUriSubdomains;
     }
 
@@ -125,11 +132,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link ArrayOfstring }
      *     
      */
-    public void setImageUriSubdomains(JAXBElement<ArrayOfstring> value) {
-        this.imageUriSubdomains = ((JAXBElement<ArrayOfstring> ) value);
+    public void setImageUriSubdomains(ArrayOfstring value) {
+        this.imageUriSubdomains = value;
     }
 
     /**
@@ -137,10 +144,10 @@ public class ImageryMetadataResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfImageryProvider }{@code >}
+     *     {@link ArrayOfImageryProvider }
      *     
      */
-    public JAXBElement<ArrayOfImageryProvider> getImageryProviders() {
+    public ArrayOfImageryProvider getImageryProviders() {
         return imageryProviders;
     }
 
@@ -149,11 +156,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfImageryProvider }{@code >}
+     *     {@link ArrayOfImageryProvider }
      *     
      */
-    public void setImageryProviders(JAXBElement<ArrayOfImageryProvider> value) {
-        this.imageryProviders = ((JAXBElement<ArrayOfImageryProvider> ) value);
+    public void setImageryProviders(ArrayOfImageryProvider value) {
+        this.imageryProviders = value;
     }
 
     /**
@@ -161,10 +168,10 @@ public class ImageryMetadataResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RangeOfdateTime }{@code >}
+     *     {@link RangeOfdateTime }
      *     
      */
-    public JAXBElement<RangeOfdateTime> getVintage() {
+    public RangeOfdateTime getVintage() {
         return vintage;
     }
 
@@ -173,11 +180,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RangeOfdateTime }{@code >}
+     *     {@link RangeOfdateTime }
      *     
      */
-    public void setVintage(JAXBElement<RangeOfdateTime> value) {
-        this.vintage = ((JAXBElement<RangeOfdateTime> ) value);
+    public void setVintage(RangeOfdateTime value) {
+        this.vintage = value;
     }
 
     /**
@@ -185,10 +192,10 @@ public class ImageryMetadataResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RangeOfint }{@code >}
+     *     {@link RangeOfint }
      *     
      */
-    public JAXBElement<RangeOfint> getZoomRange() {
+    public RangeOfint getZoomRange() {
         return zoomRange;
     }
 
@@ -197,11 +204,11 @@ public class ImageryMetadataResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RangeOfint }{@code >}
+     *     {@link RangeOfint }
      *     
      */
-    public void setZoomRange(JAXBElement<RangeOfint> value) {
-        this.zoomRange = ((JAXBElement<RangeOfint> ) value);
+    public void setZoomRange(RangeOfint value) {
+        this.zoomRange = value;
     }
 
 }

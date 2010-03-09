@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6;
 
@@ -37,24 +36,27 @@ import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfNei
     "count",
     "countByNeighborhood"
 })
-public class CategoryCount {
+public class CategoryCount
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Category", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<Category> category;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Category", nillable = true)
+    protected Category category;
     @XmlElement(name = "Count")
     protected Integer count;
-    @XmlElementRef(name = "CountByNeighborhood", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6> countByNeighborhood;
+    @XmlElement(name = "CountByNeighborhood", nillable = true)
+    protected ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 countByNeighborhood;
 
     /**
      * Gets the value of the category property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Category }{@code >}
+     *     {@link Category }
      *     
      */
-    public JAXBElement<Category> getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -63,11 +65,11 @@ public class CategoryCount {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Category }{@code >}
+     *     {@link Category }
      *     
      */
-    public void setCategory(JAXBElement<Category> value) {
-        this.category = ((JAXBElement<Category> ) value);
+    public void setCategory(Category value) {
+        this.category = value;
     }
 
     /**
@@ -99,10 +101,10 @@ public class CategoryCount {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 }{@code >}
+     *     {@link ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 }
      *     
      */
-    public JAXBElement<ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6> getCountByNeighborhood() {
+    public ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 getCountByNeighborhood() {
         return countByNeighborhood;
     }
 
@@ -111,11 +113,11 @@ public class CategoryCount {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 }{@code >}
+     *     {@link ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 }
      *     
      */
-    public void setCountByNeighborhood(JAXBElement<ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6> value) {
-        this.countByNeighborhood = ((JAXBElement<ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6> ) value);
+    public void setCountByNeighborhood(ArrayOfKeyValueOfNeighborhoodintkC8B0Tr6 value) {
+        this.countByNeighborhood = value;
     }
 
 }

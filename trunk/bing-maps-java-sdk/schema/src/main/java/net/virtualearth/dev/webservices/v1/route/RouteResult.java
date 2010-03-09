@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,24 +35,27 @@ import javax.xml.bind.annotation.XmlType;
     "routePath",
     "summary"
 })
-public class RouteResult {
+public class RouteResult
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Legs", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<ArrayOfRouteLeg> legs;
-    @XmlElementRef(name = "RoutePath", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RoutePath> routePath;
-    @XmlElementRef(name = "Summary", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<RouteSummary> summary;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Legs", nillable = true)
+    protected ArrayOfRouteLeg legs;
+    @XmlElement(name = "RoutePath", nillable = true)
+    protected RoutePath routePath;
+    @XmlElement(name = "Summary", nillable = true)
+    protected RouteSummary summary;
 
     /**
      * Gets the value of the legs property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfRouteLeg }{@code >}
+     *     {@link ArrayOfRouteLeg }
      *     
      */
-    public JAXBElement<ArrayOfRouteLeg> getLegs() {
+    public ArrayOfRouteLeg getLegs() {
         return legs;
     }
 
@@ -61,11 +64,11 @@ public class RouteResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfRouteLeg }{@code >}
+     *     {@link ArrayOfRouteLeg }
      *     
      */
-    public void setLegs(JAXBElement<ArrayOfRouteLeg> value) {
-        this.legs = ((JAXBElement<ArrayOfRouteLeg> ) value);
+    public void setLegs(ArrayOfRouteLeg value) {
+        this.legs = value;
     }
 
     /**
@@ -73,10 +76,10 @@ public class RouteResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RoutePath }{@code >}
+     *     {@link RoutePath }
      *     
      */
-    public JAXBElement<RoutePath> getRoutePath() {
+    public RoutePath getRoutePath() {
         return routePath;
     }
 
@@ -85,11 +88,11 @@ public class RouteResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RoutePath }{@code >}
+     *     {@link RoutePath }
      *     
      */
-    public void setRoutePath(JAXBElement<RoutePath> value) {
-        this.routePath = ((JAXBElement<RoutePath> ) value);
+    public void setRoutePath(RoutePath value) {
+        this.routePath = value;
     }
 
     /**
@@ -97,10 +100,10 @@ public class RouteResult {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public JAXBElement<RouteSummary> getSummary() {
+    public RouteSummary getSummary() {
         return summary;
     }
 
@@ -109,11 +112,11 @@ public class RouteResult {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RouteSummary }{@code >}
+     *     {@link RouteSummary }
      *     
      */
-    public void setSummary(JAXBElement<RouteSummary> value) {
-        this.summary = ((JAXBElement<RouteSummary> ) value);
+    public void setSummary(RouteSummary value) {
+        this.summary = value;
     }
 
 }

@@ -1,11 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -34,12 +33,15 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "name"
 })
-public class Category {
+public class Category
+    implements Serializable
+{
 
+    private final static long serialVersionUID = 2461660169443089969L;
     @XmlElement(name = "Id")
     protected Integer id;
-    @XmlElementRef(name = "Name", namespace = "http://dev.virtualearth.net/webservices/v1/search", type = JAXBElement.class)
-    protected JAXBElement<String> name;
+    @XmlElement(name = "Name", nillable = true)
+    protected String name;
 
     /**
      * Gets the value of the id property.
@@ -70,10 +72,10 @@ public class Category {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getName() {
+    public String getName() {
         return name;
     }
 
@@ -82,11 +84,11 @@ public class Category {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setName(JAXBElement<String> value) {
-        this.name = ((JAXBElement<String> ) value);
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

@@ -1,10 +1,10 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
-import javax.xml.bind.JAXBElement;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import net.virtualearth.dev.webservices.v1.common.Location;
 
@@ -34,22 +34,25 @@ import net.virtualearth.dev.webservices.v1.common.Location;
     "description",
     "location"
 })
-public class Waypoint {
+public class Waypoint
+    implements Serializable
+{
 
-    @XmlElementRef(name = "Description", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<String> description;
-    @XmlElementRef(name = "Location", namespace = "http://dev.virtualearth.net/webservices/v1/route", type = JAXBElement.class)
-    protected JAXBElement<Location> location;
+    private final static long serialVersionUID = 2461660169443089969L;
+    @XmlElement(name = "Description", nillable = true)
+    protected String description;
+    @XmlElement(name = "Location", nillable = true)
+    protected Location location;
 
     /**
      * Gets the value of the description property.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -58,11 +61,11 @@ public class Waypoint {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setDescription(JAXBElement<String> value) {
-        this.description = ((JAXBElement<String> ) value);
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     /**
@@ -70,10 +73,10 @@ public class Waypoint {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public JAXBElement<Location> getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -82,11 +85,11 @@ public class Waypoint {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link Location }{@code >}
+     *     {@link Location }
      *     
      */
-    public void setLocation(JAXBElement<Location> value) {
-        this.location = ((JAXBElement<Location> ) value);
+    public void setLocation(Location value) {
+        this.location = value;
     }
 
 }
