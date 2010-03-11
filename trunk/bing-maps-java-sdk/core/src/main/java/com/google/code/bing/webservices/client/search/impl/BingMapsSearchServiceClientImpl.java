@@ -14,9 +14,10 @@ import net.virtualearth.dev.webservices.v1.search.SearchResultBase;
 import net.virtualearth.dev.webservices.v1.search.SearchResultSet;
 import net.virtualearth.dev.webservices.v1.search.SearchService;
 
+import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient;
 
-public class BingMapsSearchServiceClientImpl implements
+public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsSearchServiceClient {
 	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
@@ -65,33 +66,10 @@ public class BingMapsSearchServiceClientImpl implements
 		return request;
 	}
 	
-	private static class SearchRequestBuilderImpl implements SearchRequestBuilder {
+	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest> implements SearchRequestBuilder {
 
-		@Override
-		public SearchRequest getResult() {
-			// TODO Auto-generated method stub
-			return null;
+		protected SearchRequestBuilderImpl() {
+			super(new SearchRequest());
 		}
-
-		@Override
-		public RequestBuilder<SearchRequest> withCredentials(
-				String applicationId, String token) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<SearchRequest> withCulture(String culture) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<SearchRequest> withExecutionOptions(
-				boolean suppressFaults) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 	}
 }
