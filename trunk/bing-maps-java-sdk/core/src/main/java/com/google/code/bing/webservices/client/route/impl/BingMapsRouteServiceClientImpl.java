@@ -27,6 +27,8 @@ import com.google.code.bing.webservices.client.route.BingMapsRouteServiceClient;
  */
 public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsRouteServiceClient {
+	
+	private static final ObjectFactory ROUTE_FACTORY = new ObjectFactory();
 
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
 	static RouteService routeService;
@@ -54,36 +56,33 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 	}
 	
 	private static RouteRequest createRouteRequest() {
-		ObjectFactory routeFactory = new ObjectFactory();
-		RouteRequest request = routeFactory.createRouteRequest();
+		RouteRequest request = ROUTE_FACTORY.createRouteRequest();
 		
-		net.virtualearth.dev.webservices.v1.common.ObjectFactory commonFactory = new net.virtualearth.dev.webservices.v1.common.ObjectFactory();
-		
-		Credentials credential = commonFactory.createCredentials();
+		Credentials credential = COMMON_FACTORY.createCredentials();
 		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
 		request.setCredentials(credential);
 		
-		ArrayOfWaypoint arrayOfWaypoint = routeFactory.createArrayOfWaypoint();
+		ArrayOfWaypoint arrayOfWaypoint = ROUTE_FACTORY.createArrayOfWaypoint();
 		
-		Waypoint waypoint1 = routeFactory.createWaypoint();
+		Waypoint waypoint1 = ROUTE_FACTORY.createWaypoint();
 		waypoint1.setDescription("Start");
-		Location location1 = commonFactory.createLocation();
+		Location location1 = COMMON_FACTORY.createLocation();
 		location1.setLatitude(40.0);
 		location1.setLongitude(-120.0);
 		waypoint1.setLocation(location1);
 		arrayOfWaypoint.getWaypoint().add(waypoint1);
 		
-		Waypoint waypoint2 = routeFactory.createWaypoint();
+		Waypoint waypoint2 = ROUTE_FACTORY.createWaypoint();
 		waypoint2.setDescription("Stop");
-		Location location2 = commonFactory.createLocation();
+		Location location2 = COMMON_FACTORY.createLocation();
 		location2.setLatitude(40.5);
 		location2.setLongitude(-120.5);
 		waypoint2.setLocation(location2);
 		arrayOfWaypoint.getWaypoint().add(waypoint2);
 		
-		Waypoint waypoint3 = routeFactory.createWaypoint();
+		Waypoint waypoint3 = ROUTE_FACTORY.createWaypoint();
 		waypoint3.setDescription("End");
-		Location location3 = commonFactory.createLocation();
+		Location location3 = COMMON_FACTORY.createLocation();
 		location3.setLatitude(41.0);
 		location3.setLongitude(-121.0);
 		waypoint3.setLocation(location3);

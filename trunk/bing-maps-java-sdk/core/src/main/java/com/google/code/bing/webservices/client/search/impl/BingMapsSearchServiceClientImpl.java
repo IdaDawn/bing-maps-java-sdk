@@ -20,6 +20,8 @@ import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClien
 public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsSearchServiceClient {
 	
+	private static final ObjectFactory SEARCH_FACTORY = new ObjectFactory();
+	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
 	static SearchService searchService;
 	
@@ -41,21 +43,18 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 	}
 	
 	private static SearchRequest createSearchRequest() {
-		ObjectFactory searchFactory = new ObjectFactory();
-		SearchRequest request = searchFactory.createSearchRequest();
+		SearchRequest request = SEARCH_FACTORY.createSearchRequest();
 		
-		net.virtualearth.dev.webservices.v1.common.ObjectFactory commonFactory = new net.virtualearth.dev.webservices.v1.common.ObjectFactory();
-		
-		Credentials credential = commonFactory.createCredentials();
+		Credentials credential = COMMON_FACTORY.createCredentials();
 		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
 		request.setCredentials(credential);
 		
 		request.setQuery("restaurant in Seattle, WA");
 		
 		
-		SearchOptions searchOptions = searchFactory.createSearchOptions();
+		SearchOptions searchOptions = SEARCH_FACTORY.createSearchOptions();
 		
-		FilterExpression filter = commonFactory.createFilterExpression();
+		FilterExpression filter = COMMON_FACTORY.createFilterExpression();
 		filter.setCompareOperator(CompareOperator.GREATER_THAN_OR_EQUALS);
 		filter.setPropertyId(3);
 		filter.setFilterValue(8);
