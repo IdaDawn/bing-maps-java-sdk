@@ -14,9 +14,10 @@ import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
 import net.virtualearth.dev.webservices.v1.imagery.ObjectFactory;
 
+import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.imagery.BingMapsImageryServiceClient;
 
-public class BingMapsImageryServiceClientImpl implements
+public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsImageryServiceClient {
 	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
@@ -67,62 +68,16 @@ public class BingMapsImageryServiceClientImpl implements
 		return request;
 	}
 	
-	private static class MapUriRequestBuilderImpl implements MapUriRequestBuilder {
-
-		@Override
-		public MapUriRequest getResult() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<MapUriRequest> withCredentials(
-				String applicationId, String token) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<MapUriRequest> withCulture(String culture) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<MapUriRequest> withExecutionOptions(
-				boolean suppressFaults) {
-			// TODO Auto-generated method stub
-			return null;
+	private static class MapUriRequestBuilderImpl extends BaseRequestBuilderImpl<MapUriRequest> implements MapUriRequestBuilder {
+		protected MapUriRequestBuilderImpl() {
+			super(new MapUriRequest());
 		}
 	}
 	
-	private static class ImageryMetadataRequestBuilderImpl implements ImageryMetadataRequestBuilder {
+	private static class ImageryMetadataRequestBuilderImpl extends BaseRequestBuilderImpl<ImageryMetadataRequest> implements ImageryMetadataRequestBuilder {
 
-		@Override
-		public ImageryMetadataRequest getResult() {
-			// TODO Auto-generated method stub
-			return null;
+		protected ImageryMetadataRequestBuilderImpl() {
+			super(new ImageryMetadataRequest());
 		}
-
-		@Override
-		public RequestBuilder<ImageryMetadataRequest> withCredentials(
-				String applicationId, String token) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<ImageryMetadataRequest> withCulture(String culture) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<ImageryMetadataRequest> withExecutionOptions(
-				boolean suppressFaults) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 	}
 }

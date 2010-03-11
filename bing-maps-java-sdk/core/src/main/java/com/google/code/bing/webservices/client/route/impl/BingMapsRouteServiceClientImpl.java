@@ -18,13 +18,14 @@ import net.virtualearth.dev.webservices.v1.route.RouteResponse;
 import net.virtualearth.dev.webservices.v1.route.RouteService;
 import net.virtualearth.dev.webservices.v1.route.Waypoint;
 
+import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.route.BingMapsRouteServiceClient;
 
 /**
  * @author nmukhtar
  *
  */
-public class BingMapsRouteServiceClientImpl implements
+public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsRouteServiceClient {
 
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
@@ -93,63 +94,17 @@ public class BingMapsRouteServiceClientImpl implements
 		return request;
 	}
 	
-	private static class RouteRequestBuilderImpl implements RouteRequestBuilder {
+	private static class RouteRequestBuilderImpl extends BaseRequestBuilderImpl<RouteRequest> implements RouteRequestBuilder {
 
-		@Override
-		public RouteRequest getResult() {
-			// TODO Auto-generated method stub
-			return null;
+		protected RouteRequestBuilderImpl() {
+			super(new RouteRequest());
 		}
-
-		@Override
-		public RequestBuilder<RouteRequest> withCredentials(
-				String applicationId, String token) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<RouteRequest> withCulture(String culture) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<RouteRequest> withExecutionOptions(
-				boolean suppressFaults) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 	}
 	
-	private static class MajorRoutesRequestBuilderImpl implements MajorRoutesRequestBuilder {
+	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest> implements MajorRoutesRequestBuilder {
 
-		@Override
-		public MajorRoutesRequest getResult() {
-			// TODO Auto-generated method stub
-			return null;
+		protected MajorRoutesRequestBuilderImpl() {
+			super(new MajorRoutesRequest());
 		}
-
-		@Override
-		public RequestBuilder<MajorRoutesRequest> withCredentials(
-				String applicationId, String token) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<MajorRoutesRequest> withCulture(String culture) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public RequestBuilder<MajorRoutesRequest> withExecutionOptions(
-				boolean suppressFaults) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 	}
 }
