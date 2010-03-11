@@ -1,9 +1,12 @@
 package com.google.code.bing.webservices.client;
 
+import net.virtualearth.dev.webservices.v1.common.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
 public class BaseBingMapsServiceClientImpl implements
 	BingMapsWebServicesClient {
+	
+	protected static final ObjectFactory COMMON_FACTORY = new ObjectFactory();
 	
 	protected abstract static class BaseRequestBuilderImpl<T extends RequestBase> implements RequestBuilder<T> {
 		protected T result;

@@ -20,6 +20,8 @@ import com.google.code.bing.webservices.client.imagery.BingMapsImageryServiceCli
 public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsImageryServiceClient {
 	
+	private static final ObjectFactory IMAGERY_FACTORY = new ObjectFactory();
+	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
 	static ImageryService imageryService;
 	
@@ -41,25 +43,22 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	}
 	
 	private static MapUriRequest createMapUriRequest() {
-		ObjectFactory imageryFactory = new ObjectFactory();
-		MapUriRequest request = imageryFactory.createMapUriRequest();
+		MapUriRequest request = IMAGERY_FACTORY.createMapUriRequest();
 		
-		net.virtualearth.dev.webservices.v1.common.ObjectFactory commonFactory = new net.virtualearth.dev.webservices.v1.common.ObjectFactory();
-		
-		Credentials credential = commonFactory.createCredentials();
+		Credentials credential = COMMON_FACTORY.createCredentials();
 		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
 		request.setCredentials(credential);
 		
-		Location location = commonFactory.createLocation();
+		Location location = COMMON_FACTORY.createLocation();
 		location.setLatitude(24.826942);
 		location.setLongitude(67.033665);
 		request.setCenter(location);
 		
-		MapUriOptions mapUriOptions = imageryFactory.createMapUriOptions();
+		MapUriOptions mapUriOptions = IMAGERY_FACTORY.createMapUriOptions();
 		mapUriOptions.setStyle(MapStyle.AERIAL_WITH_LABELS);
 		mapUriOptions.setZoomLevel(10);
 		
-		SizeOfint sizeOfInt = commonFactory.createSizeOfint();
+		SizeOfint sizeOfInt = COMMON_FACTORY.createSizeOfint();
 		sizeOfInt.setHeight(400);
 		sizeOfInt.setWidth(400);
 		mapUriOptions.setImageSize(sizeOfInt);

@@ -19,6 +19,7 @@ import com.google.code.bing.webservices.client.geocode.BingMapsGeocodeServiceCli
 
 public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientImpl implements
 		BingMapsGeocodeServiceClient {
+	private static final ObjectFactory GEOCODE_FACTORY = new ObjectFactory();
 	
 	@WebServiceRef(wsdlLocation="geocodeservice.wsdl")
 	static GeocodeService geocodeService;
@@ -41,20 +42,17 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 	}
 	
 	private static GeocodeRequest createGeocodeRequest() {
-		ObjectFactory geocodeFactory = new ObjectFactory();
-		GeocodeRequest request = geocodeFactory.createGeocodeRequest();
+		GeocodeRequest request = GEOCODE_FACTORY.createGeocodeRequest();
 		
-		net.virtualearth.dev.webservices.v1.common.ObjectFactory commonFactory = new net.virtualearth.dev.webservices.v1.common.ObjectFactory();
-		
-		Credentials credential = commonFactory.createCredentials();
+		Credentials credential = COMMON_FACTORY.createCredentials();
 		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
 		request.setCredentials(credential);
 		request.setQuery("1 Microsoft Way, Redmond, WA");
 		
-		GeocodeOptions geocodeOptions = geocodeFactory.createGeocodeOptions();
+		GeocodeOptions geocodeOptions = GEOCODE_FACTORY.createGeocodeOptions();
 
-		ArrayOfFilterBase array = geocodeFactory.createArrayOfFilterBase();
-		ConfidenceFilter filter = geocodeFactory.createConfidenceFilter();
+		ArrayOfFilterBase array = GEOCODE_FACTORY.createArrayOfFilterBase();
+		ConfidenceFilter filter = GEOCODE_FACTORY.createConfidenceFilter();
 		filter.setMinimumConfidence(Confidence.HIGH);
 		array.getFilterBase().add(filter);
 		geocodeOptions.setFilters(array);
