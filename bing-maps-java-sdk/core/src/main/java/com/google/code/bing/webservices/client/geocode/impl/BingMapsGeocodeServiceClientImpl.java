@@ -12,6 +12,7 @@ import net.virtualearth.dev.webservices.v1.geocode.GeocodeResponse;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeService;
 import net.virtualearth.dev.webservices.v1.geocode.IGeocodeService;
 import net.virtualearth.dev.webservices.v1.geocode.ObjectFactory;
+import net.virtualearth.dev.webservices.v1.geocode.ReverseGeocodeRequest;
 
 import com.google.code.bing.webservices.client.geocode.BingMapsGeocodeServiceClient;
 
@@ -20,6 +21,16 @@ public class BingMapsGeocodeServiceClientImpl implements
 	
 	@WebServiceRef(wsdlLocation="geocodeservice.wsdl")
 	static GeocodeService geocodeService;
+	
+	@Override
+	public GeocodeRequestBuilder newGeocodeRequestBuilder() {
+		return new GeocodeRequestBuilderImpl();
+	}
+
+	@Override
+	public ReverseGeocodeRequestBuilder newReverseGeocodeRequestBuilder() {
+		return new ReverseGeocodeRequestBuilderImpl();
+	}
 	
 	public static void main(String[] args) throws Exception {
 		geocodeService = new GeocodeService();
@@ -51,4 +62,63 @@ public class BingMapsGeocodeServiceClientImpl implements
 		return request;
 	}
 	
+	private static class GeocodeRequestBuilderImpl implements GeocodeRequestBuilder {
+
+		@Override
+		public GeocodeRequest getResult() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<GeocodeRequest> withCredentials(
+				String applicationId, String token) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<GeocodeRequest> withCulture(String culture) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<GeocodeRequest> withExecutionOptions(
+				boolean suppressFaults) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+	
+	private static class ReverseGeocodeRequestBuilderImpl implements ReverseGeocodeRequestBuilder {
+
+		@Override
+		public ReverseGeocodeRequest getResult() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<ReverseGeocodeRequest> withCredentials(
+				String applicationId, String token) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<ReverseGeocodeRequest> withCulture(String culture) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<ReverseGeocodeRequest> withExecutionOptions(
+				boolean suppressFaults) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
 }

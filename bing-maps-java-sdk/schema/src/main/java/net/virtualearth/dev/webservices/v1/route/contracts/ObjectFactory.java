@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateRouteResponse }
-     * 
-     */
-    public CalculateRouteResponse createCalculateRouteResponse() {
-        return new CalculateRouteResponse();
-    }
-
-    /**
      * Create an instance of {@link CalculateRoute }
      * 
      */
@@ -46,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateRoutesFromMajorRoads }
+     * Create an instance of {@link CalculateRouteResponse }
      * 
      */
-    public CalculateRoutesFromMajorRoads createCalculateRoutesFromMajorRoads() {
-        return new CalculateRoutesFromMajorRoads();
+    public CalculateRouteResponse createCalculateRouteResponse() {
+        return new CalculateRouteResponse();
     }
 
     /**
@@ -59,6 +51,14 @@ public class ObjectFactory {
      */
     public CalculateRoutesFromMajorRoadsResponse createCalculateRoutesFromMajorRoadsResponse() {
         return new CalculateRoutesFromMajorRoadsResponse();
+    }
+
+    /**
+     * Create an instance of {@link CalculateRoutesFromMajorRoads }
+     * 
+     */
+    public CalculateRoutesFromMajorRoads createCalculateRoutesFromMajorRoads() {
+        return new CalculateRoutesFromMajorRoads();
     }
 
 }

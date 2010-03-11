@@ -46,91 +46,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ImageryMetadataBirdseyeResult }
-     * 
-     */
-    public ImageryMetadataBirdseyeResult createImageryMetadataBirdseyeResult() {
-        return new ImageryMetadataBirdseyeResult();
-    }
-
-    /**
      * Create an instance of {@link ImageryMetadataResult }
      * 
      */
     public ImageryMetadataResult createImageryMetadataResult() {
         return new ImageryMetadataResult();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfImageryMetadataResult }
-     * 
-     */
-    public ArrayOfImageryMetadataResult createArrayOfImageryMetadataResult() {
-        return new ArrayOfImageryMetadataResult();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfImageryProvider }
-     * 
-     */
-    public ArrayOfImageryProvider createArrayOfImageryProvider() {
-        return new ArrayOfImageryProvider();
-    }
-
-    /**
-     * Create an instance of {@link ImageryMetadataOptions }
-     * 
-     */
-    public ImageryMetadataOptions createImageryMetadataOptions() {
-        return new ImageryMetadataOptions();
-    }
-
-    /**
-     * Create an instance of {@link MapUriResponse }
-     * 
-     */
-    public MapUriResponse createMapUriResponse() {
-        return new MapUriResponse();
-    }
-
-    /**
-     * Create an instance of {@link MapUriOptions }
-     * 
-     */
-    public MapUriOptions createMapUriOptions() {
-        return new MapUriOptions();
-    }
-
-    /**
-     * Create an instance of {@link MapUriRequest }
-     * 
-     */
-    public MapUriRequest createMapUriRequest() {
-        return new MapUriRequest();
-    }
-
-    /**
-     * Create an instance of {@link ImageryMetadataRequest }
-     * 
-     */
-    public ImageryMetadataRequest createImageryMetadataRequest() {
-        return new ImageryMetadataRequest();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfCoverageArea }
-     * 
-     */
-    public ArrayOfCoverageArea createArrayOfCoverageArea() {
-        return new ArrayOfCoverageArea();
-    }
-
-    /**
-     * Create an instance of {@link ImageryMetadataResponse }
-     * 
-     */
-    public ImageryMetadataResponse createImageryMetadataResponse() {
-        return new ImageryMetadataResponse();
     }
 
     /**
@@ -142,11 +62,91 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link MapUriRequest }
+     * 
+     */
+    public MapUriRequest createMapUriRequest() {
+        return new MapUriRequest();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfCoverageArea }
+     * 
+     */
+    public ArrayOfCoverageArea createArrayOfCoverageArea() {
+        return new ArrayOfCoverageArea();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfImageryProvider }
+     * 
+     */
+    public ArrayOfImageryProvider createArrayOfImageryProvider() {
+        return new ArrayOfImageryProvider();
+    }
+
+    /**
+     * Create an instance of {@link ImageryMetadataRequest }
+     * 
+     */
+    public ImageryMetadataRequest createImageryMetadataRequest() {
+        return new ImageryMetadataRequest();
+    }
+
+    /**
+     * Create an instance of {@link MapUriOptions }
+     * 
+     */
+    public MapUriOptions createMapUriOptions() {
+        return new MapUriOptions();
+    }
+
+    /**
+     * Create an instance of {@link MapUriResponse }
+     * 
+     */
+    public MapUriResponse createMapUriResponse() {
+        return new MapUriResponse();
+    }
+
+    /**
+     * Create an instance of {@link ImageryMetadataOptions }
+     * 
+     */
+    public ImageryMetadataOptions createImageryMetadataOptions() {
+        return new ImageryMetadataOptions();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfImageryMetadataResult }
+     * 
+     */
+    public ArrayOfImageryMetadataResult createArrayOfImageryMetadataResult() {
+        return new ArrayOfImageryMetadataResult();
+    }
+
+    /**
      * Create an instance of {@link ImageryProvider }
      * 
      */
     public ImageryProvider createImageryProvider() {
         return new ImageryProvider();
+    }
+
+    /**
+     * Create an instance of {@link ImageryMetadataResponse }
+     * 
+     */
+    public ImageryMetadataResponse createImageryMetadataResponse() {
+        return new ImageryMetadataResponse();
+    }
+
+    /**
+     * Create an instance of {@link ImageryMetadataBirdseyeResult }
+     * 
+     */
+    public ImageryMetadataBirdseyeResult createImageryMetadataBirdseyeResult() {
+        return new ImageryMetadataBirdseyeResult();
     }
 
     /**

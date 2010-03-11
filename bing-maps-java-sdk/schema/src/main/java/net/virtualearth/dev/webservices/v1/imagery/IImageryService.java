@@ -1,13 +1,18 @@
 
 package net.virtualearth.dev.webservices.v1.imagery;
 
+import java.util.concurrent.Future;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.Response;
 import javax.xml.ws.ResponseWrapper;
+import net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadataResponse;
+import net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse;
 
 
 /**
@@ -18,15 +23,44 @@ import javax.xml.ws.ResponseWrapper;
  */
 @WebService(name = "IImageryService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts")
 @XmlSeeAlso({
-    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class,
     net.virtualearth.dev.webservices.v1.search.ObjectFactory.class,
-    com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory.class,
-    com.microsoft.schemas._2003._10.serialization.ObjectFactory.class,
+    net.virtualearth.dev.webservices.v1.imagery.ObjectFactory.class,
+    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class,
     net.virtualearth.dev.webservices.v1.imagery.contracts.ObjectFactory.class,
-    net.virtualearth.dev.webservices.v1.imagery.ObjectFactory.class
+    com.microsoft.schemas._2003._10.serialization.ObjectFactory.class,
+    com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory.class
 })
 public interface IImageryService {
 
+
+    /**
+     * 
+     * @param request
+     * @return
+     *     returns javax.xml.ws.Response<net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadataResponse>
+     */
+    @WebMethod(operationName = "GetImageryMetadata", action = "http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetImageryMetadata")
+    @RequestWrapper(localName = "GetImageryMetadata", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadata")
+    @ResponseWrapper(localName = "GetImageryMetadataResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadataResponse")
+    public Response<GetImageryMetadataResponse> getImageryMetadataAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts")
+        ImageryMetadataRequest request);
+
+    /**
+     * 
+     * @param request
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "GetImageryMetadata", action = "http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetImageryMetadata")
+    @RequestWrapper(localName = "GetImageryMetadata", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadata")
+    @ResponseWrapper(localName = "GetImageryMetadataResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadataResponse")
+    public Future<?> getImageryMetadataAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts")
+        ImageryMetadataRequest request,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<GetImageryMetadataResponse> asyncHandler);
 
     /**
      * 
@@ -44,6 +78,35 @@ public interface IImageryService {
         ImageryMetadataRequest request)
         throws IImageryServiceGetImageryMetadataResponseSummaryFaultFaultMessage
     ;
+
+    /**
+     * 
+     * @param request
+     * @return
+     *     returns javax.xml.ws.Response<net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse>
+     */
+    @WebMethod(operationName = "GetMapUri", action = "http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetMapUri")
+    @RequestWrapper(localName = "GetMapUri", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUri")
+    @ResponseWrapper(localName = "GetMapUriResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse")
+    public Response<GetMapUriResponse> getMapUriAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts")
+        MapUriRequest request);
+
+    /**
+     * 
+     * @param request
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "GetMapUri", action = "http://dev.virtualearth.net/webservices/v1/imagery/contracts/IImageryService/GetMapUri")
+    @RequestWrapper(localName = "GetMapUri", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUri")
+    @ResponseWrapper(localName = "GetMapUriResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts", className = "net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse")
+    public Future<?> getMapUriAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/imagery/contracts")
+        MapUriRequest request,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<GetMapUriResponse> asyncHandler);
 
     /**
      * 
