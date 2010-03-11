@@ -63,94 +63,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link QuerySuggestion }
-     * 
-     */
-    public QuerySuggestion createQuerySuggestion() {
-        return new QuerySuggestion();
-    }
-
-    /**
-     * Create an instance of {@link LocationData }
-     * 
-     */
-    public LocationData createLocationData() {
-        return new LocationData();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfSearchRegion }
-     * 
-     */
-    public ArrayOfSearchRegion createArrayOfSearchRegion() {
-        return new ArrayOfSearchRegion();
-    }
-
-    /**
-     * Create an instance of {@link CommunityContentSearchResult }
-     * 
-     */
-    public CommunityContentSearchResult createCommunityContentSearchResult() {
-        return new CommunityContentSearchResult();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfSearchResultSet }
-     * 
-     */
-    public ArrayOfSearchResultSet createArrayOfSearchResultSet() {
-        return new ArrayOfSearchResultSet();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfAvailableFilter }
-     * 
-     */
-    public ArrayOfAvailableFilter createArrayOfAvailableFilter() {
-        return new ArrayOfAvailableFilter();
-    }
-
-    /**
-     * Create an instance of {@link AvailableFilter }
-     * 
-     */
-    public AvailableFilter createAvailableFilter() {
-        return new AvailableFilter();
-    }
-
-    /**
-     * Create an instance of {@link SearchResultSet }
-     * 
-     */
-    public SearchResultSet createSearchResultSet() {
-        return new SearchResultSet();
-    }
-
-    /**
-     * Create an instance of {@link StructuredSearchQuery }
-     * 
-     */
-    public StructuredSearchQuery createStructuredSearchQuery() {
-        return new StructuredSearchQuery();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfSearchResultBase }
-     * 
-     */
-    public ArrayOfSearchResultBase createArrayOfSearchResultBase() {
-        return new ArrayOfSearchResultBase();
-    }
-
-    /**
-     * Create an instance of {@link SearchResultBase }
-     * 
-     */
-    public SearchResultBase createSearchResultBase() {
-        return new SearchResultBase();
-    }
-
-    /**
      * Create an instance of {@link SearchResponse }
      * 
      */
@@ -159,27 +71,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SearchRequest }
+     * Create an instance of {@link FilterValue }
      * 
      */
-    public SearchRequest createSearchRequest() {
-        return new SearchRequest();
-    }
-
-    /**
-     * Create an instance of {@link PersonSearchResult }
-     * 
-     */
-    public PersonSearchResult createPersonSearchResult() {
-        return new PersonSearchResult();
-    }
-
-    /**
-     * Create an instance of {@link CategorySpecificPropertySet }
-     * 
-     */
-    public CategorySpecificPropertySet createCategorySpecificPropertySet() {
-        return new CategorySpecificPropertySet();
+    public FilterValue createFilterValue() {
+        return new FilterValue();
     }
 
     /**
@@ -191,11 +87,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CategoryCount }
+     * Create an instance of {@link SearchRequest }
      * 
      */
-    public CategoryCount createCategoryCount() {
-        return new CategoryCount();
+    public SearchRequest createSearchRequest() {
+        return new SearchRequest();
     }
 
     /**
@@ -207,19 +103,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Parse }
+     * Create an instance of {@link PersonSearchResult }
      * 
      */
-    public Parse createParse() {
-        return new Parse();
+    public PersonSearchResult createPersonSearchResult() {
+        return new PersonSearchResult();
     }
 
     /**
-     * Create an instance of {@link SearchRegion }
+     * Create an instance of {@link Neighborhood }
      * 
      */
-    public SearchRegion createSearchRegion() {
-        return new SearchRegion();
+    public Neighborhood createNeighborhood() {
+        return new Neighborhood();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfCategoryCount }
+     * 
+     */
+    public ArrayOfCategoryCount createArrayOfCategoryCount() {
+        return new ArrayOfCategoryCount();
+    }
+
+    /**
+     * Create an instance of {@link AvailableFilter }
+     * 
+     */
+    public AvailableFilter createAvailableFilter() {
+        return new AvailableFilter();
+    }
+
+    /**
+     * Create an instance of {@link StructuredSearchQuery }
+     * 
+     */
+    public StructuredSearchQuery createStructuredSearchQuery() {
+        return new StructuredSearchQuery();
+    }
+
+    /**
+     * Create an instance of {@link QuerySuggestion }
+     * 
+     */
+    public QuerySuggestion createQuerySuggestion() {
+        return new QuerySuggestion();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfSearchRegion }
+     * 
+     */
+    public ArrayOfSearchRegion createArrayOfSearchRegion() {
+        return new ArrayOfSearchRegion();
     }
 
     /**
@@ -239,35 +175,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Neighborhood }
+     * Create an instance of {@link SearchResultSet }
      * 
      */
-    public Neighborhood createNeighborhood() {
-        return new Neighborhood();
+    public SearchResultSet createSearchResultSet() {
+        return new SearchResultSet();
     }
 
     /**
-     * Create an instance of {@link FilterValue }
+     * Create an instance of {@link ArrayOfSearchResultSet }
      * 
      */
-    public FilterValue createFilterValue() {
-        return new FilterValue();
+    public ArrayOfSearchResultSet createArrayOfSearchResultSet() {
+        return new ArrayOfSearchResultSet();
     }
 
     /**
-     * Create an instance of {@link ValueListFilter }
+     * Create an instance of {@link RangeFilter }
      * 
      */
-    public ValueListFilter createValueListFilter() {
-        return new ValueListFilter();
+    public RangeFilter createRangeFilter() {
+        return new RangeFilter();
     }
 
     /**
-     * Create an instance of {@link ArrayOfCategoryCount }
+     * Create an instance of {@link SearchResultBase }
      * 
      */
-    public ArrayOfCategoryCount createArrayOfCategoryCount() {
-        return new ArrayOfCategoryCount();
+    public SearchResultBase createSearchResultBase() {
+        return new SearchResultBase();
+    }
+
+    /**
+     * Create an instance of {@link Parse }
+     * 
+     */
+    public Parse createParse() {
+        return new Parse();
+    }
+
+    /**
+     * Create an instance of {@link SearchRegion }
+     * 
+     */
+    public SearchRegion createSearchRegion() {
+        return new SearchRegion();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfSearchResultBase }
+     * 
+     */
+    public ArrayOfSearchResultBase createArrayOfSearchResultBase() {
+        return new ArrayOfSearchResultBase();
     }
 
     /**
@@ -279,11 +239,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RangeFilter }
+     * Create an instance of {@link LocationData }
      * 
      */
-    public RangeFilter createRangeFilter() {
-        return new RangeFilter();
+    public LocationData createLocationData() {
+        return new LocationData();
+    }
+
+    /**
+     * Create an instance of {@link CommunityContentSearchResult }
+     * 
+     */
+    public CommunityContentSearchResult createCommunityContentSearchResult() {
+        return new CommunityContentSearchResult();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfAvailableFilter }
+     * 
+     */
+    public ArrayOfAvailableFilter createArrayOfAvailableFilter() {
+        return new ArrayOfAvailableFilter();
+    }
+
+    /**
+     * Create an instance of {@link CategoryCount }
+     * 
+     */
+    public CategoryCount createCategoryCount() {
+        return new CategoryCount();
+    }
+
+    /**
+     * Create an instance of {@link ValueListFilter }
+     * 
+     */
+    public ValueListFilter createValueListFilter() {
+        return new ValueListFilter();
+    }
+
+    /**
+     * Create an instance of {@link CategorySpecificPropertySet }
+     * 
+     */
+    public CategorySpecificPropertySet createCategorySpecificPropertySet() {
+        return new CategorySpecificPropertySet();
     }
 
     /**

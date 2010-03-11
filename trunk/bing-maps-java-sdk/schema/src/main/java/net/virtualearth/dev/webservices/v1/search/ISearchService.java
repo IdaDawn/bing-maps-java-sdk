@@ -1,12 +1,15 @@
 
 package net.virtualearth.dev.webservices.v1.search;
 
+import java.util.concurrent.Future;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.Response;
 import javax.xml.ws.ResponseWrapper;
 
 
@@ -18,14 +21,43 @@ import javax.xml.ws.ResponseWrapper;
  */
 @WebService(name = "ISearchService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts")
 @XmlSeeAlso({
-    com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory.class,
+    com.microsoft.schemas._2003._10.serialization.ObjectFactory.class,
     net.virtualearth.dev.webservices.v1.search.contracts.ObjectFactory.class,
-    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class,
+    com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory.class,
     net.virtualearth.dev.webservices.v1.search.ObjectFactory.class,
-    com.microsoft.schemas._2003._10.serialization.ObjectFactory.class
+    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class
 })
 public interface ISearchService {
 
+
+    /**
+     * 
+     * @param request
+     * @return
+     *     returns javax.xml.ws.Response<net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse>
+     */
+    @WebMethod(operationName = "Search", action = "http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search")
+    @RequestWrapper(localName = "Search", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.Search")
+    @ResponseWrapper(localName = "SearchResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse")
+    public Response<net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse> searchAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts")
+        SearchRequest request);
+
+    /**
+     * 
+     * @param request
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "Search", action = "http://dev.virtualearth.net/webservices/v1/search/contracts/ISearchService/Search")
+    @RequestWrapper(localName = "Search", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.Search")
+    @ResponseWrapper(localName = "SearchResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse")
+    public Future<?> searchAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts")
+        SearchRequest request,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse> asyncHandler);
 
     /**
      * 
@@ -38,7 +70,7 @@ public interface ISearchService {
     @WebResult(name = "SearchResult", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts")
     @RequestWrapper(localName = "Search", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.Search")
     @ResponseWrapper(localName = "SearchResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts", className = "net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse")
-    public SearchResponse search(
+    public net.virtualearth.dev.webservices.v1.search.SearchResponse search(
         @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/search/contracts")
         SearchRequest request)
         throws ISearchServiceSearchResponseSummaryFaultFaultMessage

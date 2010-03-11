@@ -30,22 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetImageryMetadata }
-     * 
-     */
-    public GetImageryMetadata createGetImageryMetadata() {
-        return new GetImageryMetadata();
-    }
-
-    /**
-     * Create an instance of {@link GetImageryMetadataResponse }
-     * 
-     */
-    public GetImageryMetadataResponse createGetImageryMetadataResponse() {
-        return new GetImageryMetadataResponse();
-    }
-
-    /**
      * Create an instance of {@link GetMapUriResponse }
      * 
      */
@@ -59,6 +43,22 @@ public class ObjectFactory {
      */
     public GetMapUri createGetMapUri() {
         return new GetMapUri();
+    }
+
+    /**
+     * Create an instance of {@link GetImageryMetadata }
+     * 
+     */
+    public GetImageryMetadata createGetImageryMetadata() {
+        return new GetImageryMetadata();
+    }
+
+    /**
+     * Create an instance of {@link GetImageryMetadataResponse }
+     * 
+     */
+    public GetImageryMetadataResponse createGetImageryMetadataResponse() {
+        return new GetImageryMetadataResponse();
     }
 
 }

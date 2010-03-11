@@ -1,13 +1,18 @@
 
 package net.virtualearth.dev.webservices.v1.route;
 
+import java.util.concurrent.Future;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.Response;
 import javax.xml.ws.ResponseWrapper;
+import net.virtualearth.dev.webservices.v1.route.contracts.CalculateRouteResponse;
+import net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoadsResponse;
 
 
 /**
@@ -18,13 +23,42 @@ import javax.xml.ws.ResponseWrapper;
  */
 @WebService(name = "IRouteService", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts")
 @XmlSeeAlso({
-    net.virtualearth.dev.webservices.v1.route.contracts.ObjectFactory.class,
-    net.virtualearth.dev.webservices.v1.route.ObjectFactory.class,
     com.microsoft.schemas._2003._10.serialization.ObjectFactory.class,
-    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class
+    net.virtualearth.dev.webservices.v1.common.ObjectFactory.class,
+    net.virtualearth.dev.webservices.v1.route.contracts.ObjectFactory.class,
+    net.virtualearth.dev.webservices.v1.route.ObjectFactory.class
 })
 public interface IRouteService {
 
+
+    /**
+     * 
+     * @param request
+     * @return
+     *     returns javax.xml.ws.Response<net.virtualearth.dev.webservices.v1.route.contracts.CalculateRouteResponse>
+     */
+    @WebMethod(operationName = "CalculateRoute", action = "http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/CalculateRoute")
+    @RequestWrapper(localName = "CalculateRoute", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoute")
+    @ResponseWrapper(localName = "CalculateRouteResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRouteResponse")
+    public Response<CalculateRouteResponse> calculateRouteAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts")
+        RouteRequest request);
+
+    /**
+     * 
+     * @param request
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "CalculateRoute", action = "http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/CalculateRoute")
+    @RequestWrapper(localName = "CalculateRoute", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoute")
+    @ResponseWrapper(localName = "CalculateRouteResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRouteResponse")
+    public Future<?> calculateRouteAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts")
+        RouteRequest request,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<CalculateRouteResponse> asyncHandler);
 
     /**
      * 
@@ -42,6 +76,35 @@ public interface IRouteService {
         RouteRequest request)
         throws IRouteServiceCalculateRouteResponseSummaryFaultFaultMessage
     ;
+
+    /**
+     * 
+     * @param request
+     * @return
+     *     returns javax.xml.ws.Response<net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoadsResponse>
+     */
+    @WebMethod(operationName = "CalculateRoutesFromMajorRoads", action = "http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/CalculateRoutesFromMajorRoads")
+    @RequestWrapper(localName = "CalculateRoutesFromMajorRoads", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoads")
+    @ResponseWrapper(localName = "CalculateRoutesFromMajorRoadsResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoadsResponse")
+    public Response<CalculateRoutesFromMajorRoadsResponse> calculateRoutesFromMajorRoadsAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts")
+        MajorRoutesRequest request);
+
+    /**
+     * 
+     * @param request
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "CalculateRoutesFromMajorRoads", action = "http://dev.virtualearth.net/webservices/v1/route/contracts/IRouteService/CalculateRoutesFromMajorRoads")
+    @RequestWrapper(localName = "CalculateRoutesFromMajorRoads", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoads")
+    @ResponseWrapper(localName = "CalculateRoutesFromMajorRoadsResponse", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts", className = "net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoadsResponse")
+    public Future<?> calculateRoutesFromMajorRoadsAsync(
+        @WebParam(name = "request", targetNamespace = "http://dev.virtualearth.net/webservices/v1/route/contracts")
+        MajorRoutesRequest request,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<CalculateRoutesFromMajorRoadsResponse> asyncHandler);
 
     /**
      * 

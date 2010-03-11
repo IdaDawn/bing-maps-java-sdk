@@ -40,27 +40,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfFilterBase }
+     * Create an instance of {@link GeocodeRequest }
      * 
      */
-    public ArrayOfFilterBase createArrayOfFilterBase() {
-        return new ArrayOfFilterBase();
-    }
-
-    /**
-     * Create an instance of {@link FilterBase }
-     * 
-     */
-    public FilterBase createFilterBase() {
-        return new FilterBase();
-    }
-
-    /**
-     * Create an instance of {@link ReverseGeocodeRequest }
-     * 
-     */
-    public ReverseGeocodeRequest createReverseGeocodeRequest() {
-        return new ReverseGeocodeRequest();
+    public GeocodeRequest createGeocodeRequest() {
+        return new GeocodeRequest();
     }
 
     /**
@@ -69,6 +53,14 @@ public class ObjectFactory {
      */
     public GeocodeResponse createGeocodeResponse() {
         return new GeocodeResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReverseGeocodeRequest }
+     * 
+     */
+    public ReverseGeocodeRequest createReverseGeocodeRequest() {
+        return new ReverseGeocodeRequest();
     }
 
     /**
@@ -88,11 +80,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GeocodeRequest }
+     * Create an instance of {@link FilterBase }
      * 
      */
-    public GeocodeRequest createGeocodeRequest() {
-        return new GeocodeRequest();
+    public FilterBase createFilterBase() {
+        return new FilterBase();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfFilterBase }
+     * 
+     */
+    public ArrayOfFilterBase createArrayOfFilterBase() {
+        return new ArrayOfFilterBase();
     }
 
     /**

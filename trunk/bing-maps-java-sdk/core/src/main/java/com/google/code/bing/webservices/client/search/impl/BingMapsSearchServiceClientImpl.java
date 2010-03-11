@@ -22,6 +22,12 @@ public class BingMapsSearchServiceClientImpl implements
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
 	static SearchService searchService;
 	
+	@Override
+	public SearchRequestBuilder newSearchRequestBuilder() {
+		return new SearchRequestBuilderImpl();
+	}
+	
+	
 	public static void main(String[] args) throws Exception {
 		searchService = new SearchService();
 		ISearchService proxy = searchService.getBasicHttpBindingISearchService();
@@ -57,5 +63,35 @@ public class BingMapsSearchServiceClientImpl implements
 		request.setSearchOptions(searchOptions);
 		
 		return request;
+	}
+	
+	private static class SearchRequestBuilderImpl implements SearchRequestBuilder {
+
+		@Override
+		public SearchRequest getResult() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<SearchRequest> withCredentials(
+				String applicationId, String token) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<SearchRequest> withCulture(String culture) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public RequestBuilder<SearchRequest> withExecutionOptions(
+				boolean suppressFaults) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
 	}
 }

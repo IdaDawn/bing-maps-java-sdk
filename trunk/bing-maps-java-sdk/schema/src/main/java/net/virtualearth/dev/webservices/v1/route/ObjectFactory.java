@@ -61,11 +61,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MajorRoutesResponse }
+     * Create an instance of {@link ArrayOfWaypoint }
      * 
      */
-    public MajorRoutesResponse createMajorRoutesResponse() {
-        return new MajorRoutesResponse();
+    public ArrayOfWaypoint createArrayOfWaypoint() {
+        return new ArrayOfWaypoint();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfItineraryItem }
+     * 
+     */
+    public ArrayOfItineraryItem createArrayOfItineraryItem() {
+        return new ArrayOfItineraryItem();
     }
 
     /**
@@ -77,11 +85,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ItineraryItemHint }
+     * Create an instance of {@link ArrayOfItineraryItemWarning }
      * 
      */
-    public ItineraryItemHint createItineraryItemHint() {
-        return new ItineraryItemHint();
+    public ArrayOfItineraryItemWarning createArrayOfItineraryItemWarning() {
+        return new ArrayOfItineraryItemWarning();
+    }
+
+    /**
+     * Create an instance of {@link Waypoint }
+     * 
+     */
+    public Waypoint createWaypoint() {
+        return new Waypoint();
+    }
+
+    /**
+     * Create an instance of {@link RoutePath }
+     * 
+     */
+    public RoutePath createRoutePath() {
+        return new RoutePath();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfItineraryItemHint }
+     * 
+     */
+    public ArrayOfItineraryItemHint createArrayOfItineraryItemHint() {
+        return new ArrayOfItineraryItemHint();
     }
 
     /**
@@ -90,6 +122,62 @@ public class ObjectFactory {
      */
     public RouteLeg createRouteLeg() {
         return new RouteLeg();
+    }
+
+    /**
+     * Create an instance of {@link ItineraryItemWarning }
+     * 
+     */
+    public ItineraryItemWarning createItineraryItemWarning() {
+        return new ItineraryItemWarning();
+    }
+
+    /**
+     * Create an instance of {@link RouteResponse }
+     * 
+     */
+    public RouteResponse createRouteResponse() {
+        return new RouteResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfRouteLeg }
+     * 
+     */
+    public ArrayOfRouteLeg createArrayOfRouteLeg() {
+        return new ArrayOfRouteLeg();
+    }
+
+    /**
+     * Create an instance of {@link RouteSummary }
+     * 
+     */
+    public RouteSummary createRouteSummary() {
+        return new RouteSummary();
+    }
+
+    /**
+     * Create an instance of {@link MajorRoutesResponse }
+     * 
+     */
+    public MajorRoutesResponse createMajorRoutesResponse() {
+        return new MajorRoutesResponse();
+    }
+
+    /**
+     * Create an instance of {@link ItineraryItemHint }
+     * 
+     */
+    public ItineraryItemHint createItineraryItemHint() {
+        return new ItineraryItemHint();
+    }
+
+    /**
+     * Create an instance of {@link MajorRoutesOptions }
+     * 
+     */
+    public MajorRoutesOptions createMajorRoutesOptions() {
+        return new MajorRoutesOptions();
     }
 
     /**
@@ -109,30 +197,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RouteSummary }
-     * 
-     */
-    public RouteSummary createRouteSummary() {
-        return new RouteSummary();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfItineraryItemWarning }
-     * 
-     */
-    public ArrayOfItineraryItemWarning createArrayOfItineraryItemWarning() {
-        return new ArrayOfItineraryItemWarning();
-    }
-
-    /**
-     * Create an instance of {@link ItineraryItemWarning }
-     * 
-     */
-    public ItineraryItemWarning createItineraryItemWarning() {
-        return new ItineraryItemWarning();
-    }
-
-    /**
      * Create an instance of {@link RouteRequest }
      * 
      */
@@ -141,75 +205,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RouteResponse }
-     * 
-     */
-    public RouteResponse createRouteResponse() {
-        return new RouteResponse();
-    }
-
-    /**
-     * Create an instance of {@link MajorRoutesOptions }
-     * 
-     */
-    public MajorRoutesOptions createMajorRoutesOptions() {
-        return new MajorRoutesOptions();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfRouteLeg }
-     * 
-     */
-    public ArrayOfRouteLeg createArrayOfRouteLeg() {
-        return new ArrayOfRouteLeg();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfWaypoint }
-     * 
-     */
-    public ArrayOfWaypoint createArrayOfWaypoint() {
-        return new ArrayOfWaypoint();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfItineraryItemHint }
-     * 
-     */
-    public ArrayOfItineraryItemHint createArrayOfItineraryItemHint() {
-        return new ArrayOfItineraryItemHint();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfItineraryItem }
-     * 
-     */
-    public ArrayOfItineraryItem createArrayOfItineraryItem() {
-        return new ArrayOfItineraryItem();
-    }
-
-    /**
      * Create an instance of {@link ItineraryItem }
      * 
      */
     public ItineraryItem createItineraryItem() {
         return new ItineraryItem();
-    }
-
-    /**
-     * Create an instance of {@link Waypoint }
-     * 
-     */
-    public Waypoint createWaypoint() {
-        return new Waypoint();
-    }
-
-    /**
-     * Create an instance of {@link RoutePath }
-     * 
-     */
-    public RoutePath createRoutePath() {
-        return new RoutePath();
     }
 
     /**

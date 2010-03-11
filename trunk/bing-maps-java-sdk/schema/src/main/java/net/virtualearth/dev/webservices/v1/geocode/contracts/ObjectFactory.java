@@ -46,19 +46,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Geocode }
-     * 
-     */
-    public Geocode createGeocode() {
-        return new Geocode();
-    }
-
-    /**
      * Create an instance of {@link ReverseGeocodeResponse }
      * 
      */
     public ReverseGeocodeResponse createReverseGeocodeResponse() {
         return new ReverseGeocodeResponse();
+    }
+
+    /**
+     * Create an instance of {@link Geocode }
+     * 
+     */
+    public Geocode createGeocode() {
+        return new Geocode();
     }
 
 }
