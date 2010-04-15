@@ -18,7 +18,7 @@ public interface BingMapsWebServicesClient {
 		
 		public RequestBuilder<T> withCulture(String culture);
 		
-		public RequestBuilder<T> withExecutionOptions(boolean suppressFaults);
+		public RequestBuilder<T> withExecutionOptions(Boolean suppressFaults);
 		
 		public T getResult();
 	}

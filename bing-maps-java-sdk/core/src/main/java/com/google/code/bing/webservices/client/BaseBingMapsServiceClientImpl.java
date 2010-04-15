@@ -1,5 +1,7 @@
 package com.google.code.bing.webservices.client;
 
+import net.virtualearth.dev.webservices.v1.common.Credentials;
+import net.virtualearth.dev.webservices.v1.common.ExecutionOptions;
 import net.virtualearth.dev.webservices.v1.common.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
@@ -19,21 +21,26 @@ public class BaseBingMapsServiceClientImpl implements
 		@Override
 		public B withCredentials(String applicationId,
 				String token) {
-			// TODO Auto-generated method stub
+			Credentials credentials = COMMON_FACTORY.createCredentials();
+			credentials.setApplicationId(applicationId);
+			credentials.setToken(token);
+			result.setCredentials(credentials);
 			return (B) this;
 		}
 
 		@SuppressWarnings("unchecked")
 		@Override
 		public B withCulture(String culture) {
-			// TODO Auto-generated method stub
+			result.setCulture(culture);
 			return (B) this;
 		}
 
 		@SuppressWarnings("unchecked")
 		@Override
-		public B withExecutionOptions(boolean suppressFaults) {
-			// TODO Auto-generated method stub
+		public B withExecutionOptions(Boolean suppressFaults) {
+			ExecutionOptions options = COMMON_FACTORY.createExecutionOptions();
+			options.setSuppressFaults(suppressFaults);
+			result.setExecutionOptions(options);
 			return (B) this;
 		}
 		
