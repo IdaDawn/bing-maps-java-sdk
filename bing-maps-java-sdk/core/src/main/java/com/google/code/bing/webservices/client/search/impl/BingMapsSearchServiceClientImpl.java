@@ -1,11 +1,14 @@
 package com.google.code.bing.webservices.client.search.impl;
 
+import java.util.concurrent.Future;
+
 import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.CompareOperator;
 import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.FilterExpression;
 import net.virtualearth.dev.webservices.v1.search.ISearchService;
+import net.virtualearth.dev.webservices.v1.search.ISearchServiceSearchResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.search.ListingType;
 import net.virtualearth.dev.webservices.v1.search.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.search.SearchOptions;
@@ -17,6 +20,8 @@ import net.virtualearth.dev.webservices.v1.search.SearchService;
 import net.virtualearth.dev.webservices.v1.search.SortOrder;
 import net.virtualearth.dev.webservices.v1.search.StructuredSearchQuery;
 
+import com.google.code.bing.webservices.client.Adaptable;
+import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient;
 
@@ -27,6 +32,37 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
 	static SearchService searchService;
+	
+	
+	@Override
+	public SearchResponse search(SearchRequest request) {
+		ISearchService proxy = searchService.getBasicHttpBindingISearchService();
+		try {
+			return proxy.search(request);
+		} catch (ISearchServiceSearchResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public Future<SearchResponse> searchAsync(SearchRequest request) {
+		ISearchService proxy = searchService.getBasicHttpBindingISearchService();
+		return new AdaptableFuture<SearchResponse, net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse>(proxy.searchAsync(request), new Adaptable<SearchResponse, net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse>() {
+			@Override
+			public SearchResponse adaptFrom(
+					net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse adaptee) {
+				return adaptee.getSearchResult();
+			}
+
+			@Override
+			public net.virtualearth.dev.webservices.v1.search.contracts.SearchResponse adaptTo(
+					SearchResponse adapter) {
+				return null;
+			}
+		});
+	}
 	
 	@Override
 	public SearchRequestBuilder newSearchRequestBuilder() {

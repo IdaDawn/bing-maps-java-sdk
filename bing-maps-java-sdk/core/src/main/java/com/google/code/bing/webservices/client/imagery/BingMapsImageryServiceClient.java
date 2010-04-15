@@ -3,11 +3,15 @@
  */
 package com.google.code.bing.webservices.client.imagery;
 
+import java.util.concurrent.Future;
+
 import net.virtualearth.dev.webservices.v1.common.ImageType;
 import net.virtualearth.dev.webservices.v1.common.MapStyle;
 import net.virtualearth.dev.webservices.v1.common.UriScheme;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataRequest;
+import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataResponse;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
+import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
 
 import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
 
@@ -18,8 +22,11 @@ import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
  */
 public interface BingMapsImageryServiceClient extends BingMapsWebServicesClient {
 	
+	public Future<ImageryMetadataResponse> getImageryMetadataAsync(ImageryMetadataRequest request);
+    public ImageryMetadataResponse getImageryMetadata(ImageryMetadataRequest request);
+    public Future<MapUriResponse> getMapUriAsync(MapUriRequest request);
+    public MapUriResponse getMapUri(MapUriRequest request);
 	public MapUriRequestBuilder newMapUriRequestBuilder();
-	
 	public ImageryMetadataRequestBuilder newImageryMetadataRequestBuilder();
 	
 	public interface MapUriRequestBuilder extends RequestBuilder<MapUriRequest> {

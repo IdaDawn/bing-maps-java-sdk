@@ -1,5 +1,7 @@
 package com.google.code.bing.webservices.client.imagery.impl;
 
+import java.util.concurrent.Future;
+
 import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.Credentials;
@@ -10,13 +12,20 @@ import net.virtualearth.dev.webservices.v1.common.MapStyle;
 import net.virtualearth.dev.webservices.v1.common.SizeOfint;
 import net.virtualearth.dev.webservices.v1.common.UriScheme;
 import net.virtualearth.dev.webservices.v1.imagery.IImageryService;
+import net.virtualearth.dev.webservices.v1.imagery.IImageryServiceGetImageryMetadataResponseSummaryFaultFaultMessage;
+import net.virtualearth.dev.webservices.v1.imagery.IImageryServiceGetMapUriResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataRequest;
+import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataResponse;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryService;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriOptions;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
 import net.virtualearth.dev.webservices.v1.imagery.ObjectFactory;
+import net.virtualearth.dev.webservices.v1.imagery.contracts.GetImageryMetadataResponse;
+import net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse;
 
+import com.google.code.bing.webservices.client.Adaptable;
+import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.imagery.BingMapsImageryServiceClient;
 
@@ -28,6 +37,64 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
 	static ImageryService imageryService;
+	
+	@Override
+	public ImageryMetadataResponse getImageryMetadata(
+			ImageryMetadataRequest request) {
+		IImageryService proxy = imageryService.getBasicHttpBindingIImageryService();
+		try {
+			return proxy.getImageryMetadata(request);
+		} catch (IImageryServiceGetImageryMetadataResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<ImageryMetadataResponse> getImageryMetadataAsync(
+			ImageryMetadataRequest request) {
+		IImageryService proxy = imageryService.getBasicHttpBindingIImageryService();
+		return new AdaptableFuture<ImageryMetadataResponse, GetImageryMetadataResponse>(proxy.getImageryMetadataAsync(request), new Adaptable<ImageryMetadataResponse, GetImageryMetadataResponse>() {
+			@Override
+			public ImageryMetadataResponse adaptFrom(
+					GetImageryMetadataResponse adaptee) {
+				return adaptee.getGetImageryMetadataResult();
+			}
+
+			@Override
+			public GetImageryMetadataResponse adaptTo(
+					ImageryMetadataResponse adapter) {
+				return null;
+			}
+		});
+	}
+
+	@Override
+	public MapUriResponse getMapUri(MapUriRequest request) {
+		IImageryService proxy = imageryService.getBasicHttpBindingIImageryService();
+		try {
+			return proxy.getMapUri(request);
+		} catch (IImageryServiceGetMapUriResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<MapUriResponse> getMapUriAsync(MapUriRequest request) {
+		IImageryService proxy = imageryService.getBasicHttpBindingIImageryService();
+		return new AdaptableFuture<MapUriResponse, GetMapUriResponse>(proxy.getMapUriAsync(request), new Adaptable<MapUriResponse, GetMapUriResponse>() {
+			@Override
+			public MapUriResponse adaptFrom(GetMapUriResponse adaptee) {
+				return adaptee.getGetMapUriResult();
+			}
+
+			@Override
+			public GetMapUriResponse adaptTo(MapUriResponse adapter) {
+				return null;
+			}
+		});
+	}
 	
 	@Override
 	public ImageryMetadataRequestBuilder newImageryMetadataRequestBuilder() {

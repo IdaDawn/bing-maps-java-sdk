@@ -3,9 +3,12 @@
  */
 package com.google.code.bing.webservices.client.search;
 
+import java.util.concurrent.Future;
+
 import net.virtualearth.dev.webservices.v1.common.CompareOperator;
 import net.virtualearth.dev.webservices.v1.search.ListingType;
 import net.virtualearth.dev.webservices.v1.search.SearchRequest;
+import net.virtualearth.dev.webservices.v1.search.SearchResponse;
 import net.virtualearth.dev.webservices.v1.search.SortOrder;
 
 import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
@@ -17,6 +20,8 @@ import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
  */
 public interface BingMapsSearchServiceClient extends BingMapsWebServicesClient {
 	
+    public Future<SearchResponse> searchAsync(SearchRequest request);
+    public SearchResponse search(SearchRequest request);
 	public SearchRequestBuilder newSearchRequestBuilder();
 	
 	public interface SearchRequestBuilder extends RequestBuilder<SearchRequest> {

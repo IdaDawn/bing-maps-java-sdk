@@ -3,9 +3,12 @@
  */
 package com.google.code.bing.webservices.client.geocode;
 
+import java.util.concurrent.Future;
+
 import net.virtualearth.dev.webservices.v1.common.Confidence;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeRequest;
 import net.virtualearth.dev.webservices.v1.geocode.ReverseGeocodeRequest;
+import net.virtualearth.dev.webservices.v1.geocode.GeocodeResponse;
 
 import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
 
@@ -16,8 +19,11 @@ import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
  */
 public interface BingMapsGeocodeServiceClient extends BingMapsWebServicesClient {
 	
+	public Future<GeocodeResponse> geocodeAsync(GeocodeRequest request);	
+	public GeocodeResponse geocode(GeocodeRequest request);
+	public Future<GeocodeResponse> reverseGeocodeAsync(ReverseGeocodeRequest request);	
+	public GeocodeResponse reverseGeocode(ReverseGeocodeRequest request);
 	public GeocodeRequestBuilder newGeocodeRequestBuilder();
-	
 	public ReverseGeocodeRequestBuilder newReverseGeocodeRequestBuilder();
 	
 	public interface GeocodeRequestBuilder extends RequestBuilder<GeocodeRequest> {
