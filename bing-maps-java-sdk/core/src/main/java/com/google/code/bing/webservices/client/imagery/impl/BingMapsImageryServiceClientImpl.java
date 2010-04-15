@@ -28,6 +28,7 @@ import net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse;
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.constant.ApplicationConstants;
 import com.google.code.bing.webservices.client.exception.BingMapsImageryServiceClientException;
 import com.google.code.bing.webservices.client.imagery.BingMapsImageryServiceClient;
 
@@ -39,6 +40,12 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/imageryservice/imageryservice.wsdl")
 	static ImageryService imageryService;
+	
+	static {
+		if (!ApplicationConstants.IN_WS_CONTAINER) {
+			imageryService = new ImageryService();
+		}
+	}
 	
 	@Override
 	public ImageryMetadataResponse getImageryMetadata(

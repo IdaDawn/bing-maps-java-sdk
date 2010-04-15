@@ -33,6 +33,7 @@ import net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMa
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.constant.ApplicationConstants;
 import com.google.code.bing.webservices.client.exception.BingMapsRouteServiceClientException;
 import com.google.code.bing.webservices.client.route.BingMapsRouteServiceClient;
 
@@ -47,6 +48,12 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
 	static RouteService routeService;
+	
+	static {
+		if (!ApplicationConstants.IN_WS_CONTAINER) {
+			routeService = new RouteService();
+		}
+	}
 	
 	@Override
 	public RouteResponse calculateRoute(RouteRequest request) {

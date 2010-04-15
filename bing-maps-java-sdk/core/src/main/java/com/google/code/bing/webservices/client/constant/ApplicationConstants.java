@@ -32,7 +32,10 @@ public final class ApplicationConstants {
             LOG.log(Level.SEVERE, "An error occurred while loading properties.", e);
         }
     }
-
+    
+    /** The Constant IN_WS_CONTAINER. */
+    public static final boolean IN_WS_CONTAINER = getBooleanProperty("com.google.code.bing.webservices.client.wsContainer");
+    
     /**
      * Instantiates a new application constants.
      */

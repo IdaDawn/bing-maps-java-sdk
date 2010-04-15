@@ -24,6 +24,7 @@ import net.virtualearth.dev.webservices.v1.search.StructuredSearchQuery;
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.constant.ApplicationConstants;
 import com.google.code.bing.webservices.client.exception.BingMapsSearchServiceClientException;
 import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient;
 
@@ -35,6 +36,11 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/searchservice/dev.virtualearth.net.webservices.v1.search.wsdl")
 	static SearchService searchService;
 	
+	static {
+		if (!ApplicationConstants.IN_WS_CONTAINER) {
+			searchService = new SearchService();
+		}
+	}
 	
 	@Override
 	public SearchResponse search(SearchRequest request) {
