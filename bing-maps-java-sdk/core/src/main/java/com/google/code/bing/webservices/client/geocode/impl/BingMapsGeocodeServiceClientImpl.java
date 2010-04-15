@@ -61,14 +61,14 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		return request;
 	}
 	
-	private static class GeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<GeocodeRequest> implements GeocodeRequestBuilder {
+	private static class GeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<GeocodeRequest, GeocodeRequestBuilder> implements GeocodeRequestBuilder {
 
 		protected GeocodeRequestBuilderImpl() {
 			super(GEOCODE_FACTORY.createGeocodeRequest());
 		}
 	}
 	
-	private static class ReverseGeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<ReverseGeocodeRequest> implements ReverseGeocodeRequestBuilder {
+	private static class ReverseGeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<ReverseGeocodeRequest, ReverseGeocodeRequestBuilder> implements ReverseGeocodeRequestBuilder {
 
 		protected ReverseGeocodeRequestBuilderImpl() {
 			super(GEOCODE_FACTORY.createReverseGeocodeRequest());
