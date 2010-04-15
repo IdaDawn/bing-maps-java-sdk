@@ -30,7 +30,7 @@ public interface BingMapsSearchServiceClient extends BingMapsWebServicesClient {
 		public SearchRequestBuilder withSearchOptionsSortOrder(SortOrder sortOrder);
 		public SearchRequestBuilder withSearchOptionsStartingIndex(Integer startingIndex);
 		
-		public SearchRequestBuilder withFilter(CompareOperator compareOperator, Object filterValue, Integer propertyId);
+		public SearchRequestBuilder withSearchOptionsFilter(CompareOperator compareOperator, Object filterValue, Integer propertyId);
 		public SearchRequestBuilder withStructuredQuery(String query, String location);
 	}
 }
