@@ -34,7 +34,7 @@ public final class ApplicationConstants {
     }
     
     /** The Constant IN_WS_CONTAINER. */
-    public static final boolean IN_WS_CONTAINER = getBooleanProperty("com.google.code.bing.webservices.client.wsContainer");
+    public static final boolean STANDALONE_MODE = Boolean.getBoolean("com.google.code.bing.webservices.client.standalone");
     
     /**
      * Instantiates a new application constants.

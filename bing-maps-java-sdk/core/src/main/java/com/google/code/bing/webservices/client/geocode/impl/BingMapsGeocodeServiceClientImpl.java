@@ -35,7 +35,7 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 	static GeocodeService geocodeService;
 	
 	static {
-		if (!ApplicationConstants.IN_WS_CONTAINER) {
+		if (ApplicationConstants.STANDALONE_MODE) {
 			geocodeService = new GeocodeService();
 		}
 	}

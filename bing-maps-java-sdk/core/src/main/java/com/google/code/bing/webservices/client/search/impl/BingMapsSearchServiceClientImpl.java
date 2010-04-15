@@ -37,7 +37,7 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 	static SearchService searchService;
 	
 	static {
-		if (!ApplicationConstants.IN_WS_CONTAINER) {
+		if (ApplicationConstants.STANDALONE_MODE) {
 			searchService = new SearchService();
 		}
 	}
