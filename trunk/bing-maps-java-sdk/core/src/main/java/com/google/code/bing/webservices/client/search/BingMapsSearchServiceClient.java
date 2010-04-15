@@ -3,6 +3,7 @@
  */
 package com.google.code.bing.webservices.client.search;
 
+import net.virtualearth.dev.webservices.v1.common.CompareOperator;
 import net.virtualearth.dev.webservices.v1.search.ListingType;
 import net.virtualearth.dev.webservices.v1.search.SearchRequest;
 import net.virtualearth.dev.webservices.v1.search.SortOrder;
@@ -20,14 +21,16 @@ public interface BingMapsSearchServiceClient extends BingMapsWebServicesClient {
 	
 	public interface SearchRequestBuilder extends RequestBuilder<SearchRequest> {
 		public SearchRequestBuilder withQuery(String query);
-		public SearchRequestBuilder withAutocorrectQuery(boolean autocorrectQuery);
-		public SearchRequestBuilder withCount(int count);
+		public SearchRequestBuilder withSearchOptionsAutocorrectQuery(Boolean autocorrectQuery);
+		public SearchRequestBuilder withSearchOptionsCount(Integer count);
 		
-		public SearchRequestBuilder withListingType(ListingType listingType);
-		public SearchRequestBuilder withParseOnly(boolean parseOnly);
-		public SearchRequestBuilder withRadius(double radius);
-		public SearchRequestBuilder withSortOrder(SortOrder sortOrder);
-		public SearchRequestBuilder withStartingIndex(int startingIndex);
+		public SearchRequestBuilder withSearchOptionsListingType(ListingType listingType);
+		public SearchRequestBuilder withSearchOptionsParseOnly(Boolean parseOnly);
+		public SearchRequestBuilder withSearchOptionsRadius(Double radius);
+		public SearchRequestBuilder withSearchOptionsSortOrder(SortOrder sortOrder);
+		public SearchRequestBuilder withSearchOptionsStartingIndex(Integer startingIndex);
+		
+		public SearchRequestBuilder withFilter(CompareOperator compareOperator, Object filterValue, Integer propertyId);
 		public SearchRequestBuilder withStructuredQuery(String query, String location);
 	}
 }
