@@ -8,30 +8,33 @@ public class BaseBingMapsServiceClientImpl implements
 	
 	protected static final ObjectFactory COMMON_FACTORY = new ObjectFactory();
 	
-	protected abstract static class BaseRequestBuilderImpl<T extends RequestBase> implements RequestBuilder<T> {
+	protected abstract static class BaseRequestBuilderImpl<T extends RequestBase, B extends RequestBuilder<T>> implements RequestBuilder<T> {
 		protected T result;
 		
 		protected BaseRequestBuilderImpl(T result) {
 			this.result = result;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
-		public RequestBuilder<T> withCredentials(String applicationId,
+		public B withCredentials(String applicationId,
 				String token) {
 			// TODO Auto-generated method stub
-			return this;
+			return (B) this;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
-		public RequestBuilder<T> withCulture(String culture) {
+		public B withCulture(String culture) {
 			// TODO Auto-generated method stub
-			return this;
+			return (B) this;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
-		public RequestBuilder<T> withExecutionOptions(boolean suppressFaults) {
+		public B withExecutionOptions(boolean suppressFaults) {
 			// TODO Auto-generated method stub
-			return this;
+			return (B) this;
 		}
 		
 		public T getResult() {

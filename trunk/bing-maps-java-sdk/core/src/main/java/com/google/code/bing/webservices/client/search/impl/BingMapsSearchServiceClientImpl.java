@@ -65,7 +65,7 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 		return request;
 	}
 	
-	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest> implements SearchRequestBuilder {
+	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest, SearchRequestBuilder> implements SearchRequestBuilder {
 
 		protected SearchRequestBuilderImpl() {
 			super(SEARCH_FACTORY.createSearchRequest());

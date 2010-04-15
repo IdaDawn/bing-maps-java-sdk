@@ -93,14 +93,14 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 		return request;
 	}
 	
-	private static class RouteRequestBuilderImpl extends BaseRequestBuilderImpl<RouteRequest> implements RouteRequestBuilder {
+	private static class RouteRequestBuilderImpl extends BaseRequestBuilderImpl<RouteRequest, RouteRequestBuilder> implements RouteRequestBuilder {
 
 		protected RouteRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createRouteRequest());
 		}
 	}
 	
-	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest> implements MajorRoutesRequestBuilder {
+	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest, MajorRoutesRequestBuilder> implements MajorRoutesRequestBuilder {
 
 		protected MajorRoutesRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createMajorRoutesRequest());
