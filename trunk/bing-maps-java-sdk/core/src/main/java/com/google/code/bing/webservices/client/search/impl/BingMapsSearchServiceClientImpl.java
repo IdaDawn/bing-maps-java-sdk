@@ -7,6 +7,7 @@ import javax.xml.ws.WebServiceRef;
 import net.virtualearth.dev.webservices.v1.common.CompareOperator;
 import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.FilterExpression;
+import net.virtualearth.dev.webservices.v1.common.ResponseSummary;
 import net.virtualearth.dev.webservices.v1.search.ISearchService;
 import net.virtualearth.dev.webservices.v1.search.ISearchServiceSearchResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.search.ListingType;
@@ -23,6 +24,7 @@ import net.virtualearth.dev.webservices.v1.search.StructuredSearchQuery;
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.exception.BingMapsSearchServiceClientException;
 import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient;
 
 public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientImpl implements
@@ -40,8 +42,7 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 		try {
 			return proxy.search(request);
 		} catch (ISearchServiceSearchResponseSummaryFaultFaultMessage e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw createException(e.getMessage(), e.getCause(), e.getFaultInfo());
 		}
 	}
 
@@ -79,6 +80,15 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 				System.out.println(base.getName());				
 			}
 		}
+	}
+	
+	/**
+	 * @param e
+	 */
+	private BingMapsSearchServiceClientException createException(String message, Throwable cause, ResponseSummary faultInfo) {
+		String authenticationResultCode = (faultInfo.getAuthenticationResultCode() == null) ? null : faultInfo.getAuthenticationResultCode().value();
+		String statusCode = (faultInfo.getStatusCode() == null)? null : faultInfo.getStatusCode().value();
+		return new BingMapsSearchServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
 	}
 	
 	private static SearchRequest createSearchRequest() {
