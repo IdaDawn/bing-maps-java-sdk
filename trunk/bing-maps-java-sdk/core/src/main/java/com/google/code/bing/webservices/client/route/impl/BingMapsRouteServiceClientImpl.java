@@ -3,14 +3,19 @@
  */
 package com.google.code.bing.webservices.client.route.impl;
 
+import java.util.concurrent.Future;
+
 import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.Location;
 import net.virtualearth.dev.webservices.v1.route.ArrayOfWaypoint;
 import net.virtualearth.dev.webservices.v1.route.IRouteService;
+import net.virtualearth.dev.webservices.v1.route.IRouteServiceCalculateRouteResponseSummaryFaultFaultMessage;
+import net.virtualearth.dev.webservices.v1.route.IRouteServiceCalculateRoutesFromMajorRoadsResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.route.ItineraryItem;
 import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
+import net.virtualearth.dev.webservices.v1.route.MajorRoutesResponse;
 import net.virtualearth.dev.webservices.v1.route.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.route.RouteLeg;
 import net.virtualearth.dev.webservices.v1.route.RouteOptimization;
@@ -21,7 +26,11 @@ import net.virtualearth.dev.webservices.v1.route.RouteService;
 import net.virtualearth.dev.webservices.v1.route.TrafficUsage;
 import net.virtualearth.dev.webservices.v1.route.TravelMode;
 import net.virtualearth.dev.webservices.v1.route.Waypoint;
+import net.virtualearth.dev.webservices.v1.route.contracts.CalculateRouteResponse;
+import net.virtualearth.dev.webservices.v1.route.contracts.CalculateRoutesFromMajorRoadsResponse;
 
+import com.google.code.bing.webservices.client.Adaptable;
+import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.route.BingMapsRouteServiceClient;
 
@@ -36,6 +45,64 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 
 	@WebServiceRef(wsdlLocation="http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl")
 	static RouteService routeService;
+	
+	@Override
+	public RouteResponse calculateRoute(RouteRequest request) {
+		IRouteService proxy = routeService.getBasicHttpBindingIRouteService();
+		try {
+			return proxy.calculateRoute(request);
+		} catch (IRouteServiceCalculateRouteResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<RouteResponse> calculateRouteAsync(RouteRequest request) {
+		IRouteService proxy = routeService.getBasicHttpBindingIRouteService();
+		return new AdaptableFuture<RouteResponse, CalculateRouteResponse>(proxy.calculateRouteAsync(request), new Adaptable<RouteResponse, CalculateRouteResponse>() {
+			@Override
+			public RouteResponse adaptFrom(CalculateRouteResponse adaptee) {
+				return adaptee.getCalculateRouteResult();
+			}
+
+			@Override
+			public CalculateRouteResponse adaptTo(RouteResponse adapter) {
+				return null;
+			}
+		});
+	}
+
+	@Override
+	public MajorRoutesResponse calculateRoutesFromMajorRoads(
+			MajorRoutesRequest request) {
+		IRouteService proxy = routeService.getBasicHttpBindingIRouteService();
+		try {
+			return proxy.calculateRoutesFromMajorRoads(request);
+		} catch (IRouteServiceCalculateRoutesFromMajorRoadsResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<MajorRoutesResponse> calculateRoutesFromMajorRoadsAsync(
+			MajorRoutesRequest request) {
+		IRouteService proxy = routeService.getBasicHttpBindingIRouteService();
+		return new AdaptableFuture<MajorRoutesResponse, CalculateRoutesFromMajorRoadsResponse>(proxy.calculateRoutesFromMajorRoadsAsync(request), new Adaptable<MajorRoutesResponse, CalculateRoutesFromMajorRoadsResponse>() {
+			@Override
+			public MajorRoutesResponse adaptFrom(
+					CalculateRoutesFromMajorRoadsResponse adaptee) {
+				return adaptee.getCalculateRoutesFromMajorRoadsResult();
+			}
+
+			@Override
+			public CalculateRoutesFromMajorRoadsResponse adaptTo(
+					MajorRoutesResponse adapter) {
+				return null;
+			}
+		});
+	}
 	
 	@Override
 	public MajorRoutesRequestBuilder newMajorRoutesRequestBuilder() {

@@ -1,5 +1,7 @@
 package com.google.code.bing.webservices.client.geocode.impl;
 
+import java.util.concurrent.Future;
+
 import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.Confidence;
@@ -11,9 +13,14 @@ import net.virtualearth.dev.webservices.v1.geocode.GeocodeRequest;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeResponse;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeService;
 import net.virtualearth.dev.webservices.v1.geocode.IGeocodeService;
+import net.virtualearth.dev.webservices.v1.geocode.IGeocodeServiceGeocodeResponseSummaryFaultFaultMessage;
+import net.virtualearth.dev.webservices.v1.geocode.IGeocodeServiceReverseGeocodeResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.geocode.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.geocode.ReverseGeocodeRequest;
+import net.virtualearth.dev.webservices.v1.geocode.contracts.ReverseGeocodeResponse;
 
+import com.google.code.bing.webservices.client.Adaptable;
+import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
 import com.google.code.bing.webservices.client.geocode.BingMapsGeocodeServiceClient;
 
@@ -23,6 +30,62 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 	
 	@WebServiceRef(wsdlLocation="geocodeservice.wsdl")
 	static GeocodeService geocodeService;
+	
+	@Override
+	public GeocodeResponse geocode(GeocodeRequest request) {
+		IGeocodeService proxy = geocodeService.getBasicHttpBindingIGeocodeService();
+		try {
+			return proxy.geocode(request);
+		} catch (IGeocodeServiceGeocodeResponseSummaryFaultFaultMessage e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<GeocodeResponse> geocodeAsync(GeocodeRequest request) {
+		IGeocodeService proxy = geocodeService.getBasicHttpBindingIGeocodeService();
+		return new AdaptableFuture<GeocodeResponse, net.virtualearth.dev.webservices.v1.geocode.contracts.GeocodeResponse>(proxy.geocodeAsync(request), new Adaptable<GeocodeResponse, net.virtualearth.dev.webservices.v1.geocode.contracts.GeocodeResponse>() {
+			@Override
+			public GeocodeResponse adaptFrom(
+					net.virtualearth.dev.webservices.v1.geocode.contracts.GeocodeResponse adaptee) {
+				return adaptee.getGeocodeResult();
+			}
+
+			@Override
+			public net.virtualearth.dev.webservices.v1.geocode.contracts.GeocodeResponse adaptTo(
+					GeocodeResponse adapter) {
+				return null;
+			}
+		});
+	}
+
+	@Override
+	public GeocodeResponse reverseGeocode(ReverseGeocodeRequest request) {
+		IGeocodeService proxy = geocodeService.getBasicHttpBindingIGeocodeService();
+		try {
+			return proxy.reverseGeocode(request);
+		} catch (IGeocodeServiceReverseGeocodeResponseSummaryFaultFaultMessage e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Future<GeocodeResponse> reverseGeocodeAsync(
+			ReverseGeocodeRequest request) {
+		IGeocodeService proxy = geocodeService.getBasicHttpBindingIGeocodeService();
+		return new AdaptableFuture<GeocodeResponse, net.virtualearth.dev.webservices.v1.geocode.contracts.ReverseGeocodeResponse>(proxy.reverseGeocodeAsync(request), new Adaptable<GeocodeResponse, net.virtualearth.dev.webservices.v1.geocode.contracts.ReverseGeocodeResponse>() {
+			@Override
+			public GeocodeResponse adaptFrom(ReverseGeocodeResponse adaptee) {
+				return adaptee.getReverseGeocodeResult();
+			}
+
+			@Override
+			public ReverseGeocodeResponse adaptTo(GeocodeResponse adapter) {
+				return null;
+			}
+		});
+	}
 	
 	@Override
 	public GeocodeRequestBuilder newGeocodeRequestBuilder() {

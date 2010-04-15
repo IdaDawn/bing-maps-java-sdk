@@ -3,10 +3,14 @@
  */
 package com.google.code.bing.webservices.client.route;
 
+import java.util.concurrent.Future;
+
 import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
+import net.virtualearth.dev.webservices.v1.route.MajorRoutesResponse;
 import net.virtualearth.dev.webservices.v1.route.RouteOptimization;
 import net.virtualearth.dev.webservices.v1.route.RoutePathType;
 import net.virtualearth.dev.webservices.v1.route.RouteRequest;
+import net.virtualearth.dev.webservices.v1.route.RouteResponse;
 import net.virtualearth.dev.webservices.v1.route.TrafficUsage;
 import net.virtualearth.dev.webservices.v1.route.TravelMode;
 
@@ -19,8 +23,11 @@ import com.google.code.bing.webservices.client.BingMapsWebServicesClient;
  */
 public interface BingMapsRouteServiceClient extends BingMapsWebServicesClient {
 	
+    public RouteResponse calculateRoute(RouteRequest request);
+    public Future<RouteResponse> calculateRouteAsync(RouteRequest request);
+    public MajorRoutesResponse calculateRoutesFromMajorRoads(MajorRoutesRequest request);
+    public Future<MajorRoutesResponse> calculateRoutesFromMajorRoadsAsync(MajorRoutesRequest request);
 	public RouteRequestBuilder newRouteRequestBuilder();
-	
 	public MajorRoutesRequestBuilder newMajorRoutesRequestBuilder();
 	
 	public interface RouteRequestBuilder extends RequestBuilder<RouteRequest> {
