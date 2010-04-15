@@ -23,6 +23,7 @@ import net.virtualearth.dev.webservices.v1.geocode.contracts.ReverseGeocodeRespo
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.constant.ApplicationConstants;
 import com.google.code.bing.webservices.client.exception.BingMapsGeocodeServiceClientException;
 import com.google.code.bing.webservices.client.geocode.BingMapsGeocodeServiceClient;
 
@@ -32,6 +33,12 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 	
 	@WebServiceRef(wsdlLocation="geocodeservice.wsdl")
 	static GeocodeService geocodeService;
+	
+	static {
+		if (!ApplicationConstants.IN_WS_CONTAINER) {
+			geocodeService = new GeocodeService();
+		}
+	}
 	
 	@Override
 	public GeocodeResponse geocode(GeocodeRequest request) {
