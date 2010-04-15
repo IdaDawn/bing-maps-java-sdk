@@ -24,15 +24,15 @@ public interface BingMapsRouteServiceClient extends BingMapsWebServicesClient {
 	public MajorRoutesRequestBuilder newMajorRoutesRequestBuilder();
 	
 	public interface RouteRequestBuilder extends RequestBuilder<RouteRequest> {
-		public RouteRequestBuilder withMode(TravelMode travelMode);
-		public RouteRequestBuilder withOptimization(RouteOptimization optimization);
-		public RouteRequestBuilder withRoutePathType(RoutePathType routePathType);
-		public RouteRequestBuilder withTrafficUsage(TrafficUsage trafficUsage);
+		public RouteRequestBuilder withOptionsMode(TravelMode travelMode);
+		public RouteRequestBuilder withOptionsOptimization(RouteOptimization optimization);
+		public RouteRequestBuilder withOptionsRoutePathType(RoutePathType routePathType);
+		public RouteRequestBuilder withOptionsTrafficUsage(TrafficUsage trafficUsage);
 		public RouteRequestBuilder withWaypoint(String description, Double altitude, Double latitude, Double longitude);
 	}
 	
 	public interface MajorRoutesRequestBuilder extends RequestBuilder<MajorRoutesRequest> {
 		public MajorRoutesRequestBuilder withWaypoint(String description, Double altitude, Double latitude, Double longitude);
-		public MajorRoutesRequestBuilder withReturnRoutes(boolean returnRoutes);
+		public MajorRoutesRequestBuilder withOptionsReturnRoutes(Boolean returnRoutes);
 	}
 }

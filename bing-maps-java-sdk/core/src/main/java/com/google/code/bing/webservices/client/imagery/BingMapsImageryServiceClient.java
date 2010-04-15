@@ -23,31 +23,26 @@ public interface BingMapsImageryServiceClient extends BingMapsWebServicesClient 
 	public ImageryMetadataRequestBuilder newImageryMetadataRequestBuilder();
 	
 	public interface MapUriRequestBuilder extends RequestBuilder<MapUriRequest> {
-		public MapUriRequestBuilder withCenterAltitude(double altitude);
-		public MapUriRequestBuilder withCenterLatitude(double latitude);
-		public MapUriRequestBuilder withCenterLongitude(double longitude);
+		public MapUriRequestBuilder withCenter(Double altitude, Double latitude, Double longitude);
+		public MapUriRequestBuilder withMajorRoutesDestination(Double altitude, Double latitude, Double longitude);
 		
-		public MapUriRequestBuilder withMajorRouteAltitude(double altitude);
-		public MapUriRequestBuilder withMajorRouteLatitude(double latitude);
-		public MapUriRequestBuilder withMajorRouteLongitude(double longitude);
+		public MapUriRequestBuilder withOptionsImageSize(Integer width, Integer height);
+		public MapUriRequestBuilder withOptionsImageType(ImageType imageType);
+		public MapUriRequestBuilder withOptionsPreventIconCollision(Boolean preventIconCollision);
+		public MapUriRequestBuilder withOptionsStyle(MapStyle mapStyle);
+		public MapUriRequestBuilder withOptionsUriScheme(UriScheme uriScheme);
+		public MapUriRequestBuilder withOptionsZoomLevel(Integer zoomLevel);
+		public MapUriRequestBuilder withOptionsDisplayLayer(String displayLayer);
 		
-		public MapUriRequestBuilder withImageSize(int width, int height);
-		public MapUriRequestBuilder withImageType(ImageType imageType);
-		public MapUriRequestBuilder withPreventIconCollision(boolean preventIconCollision);
-		public MapUriRequestBuilder withStyle(MapStyle mapStyle);
-		public MapUriRequestBuilder withUriScheme(UriScheme uriScheme);
-		public MapUriRequestBuilder withZoomLevel(int zoomLevel);
-		public MapUriRequestBuilder withDisplayLayer(String displayLayer);
+		public MapUriRequestBuilder withPushpin(String iconStyle, String label, Double altitude, Double latitude, Double longitude);
 	}
 	
 	public interface ImageryMetadataRequestBuilder extends RequestBuilder<ImageryMetadataRequest> {
 		public ImageryMetadataRequestBuilder withStyle(MapStyle mapStyle);
-		public ImageryMetadataRequestBuilder withUriScheme(UriScheme uriScheme);
-		public ImageryMetadataRequestBuilder withZoomLevel(int zoomLevel);
-		public ImageryMetadataRequestBuilder withLocationAltitude(double altitude);
-		public ImageryMetadataRequestBuilder withLocationLatitude(double latitude);
-		public ImageryMetadataRequestBuilder withLocationLongitude(double longitude);
-		public ImageryMetadataRequestBuilder withHeadingOrientation(double orientation);
-		public ImageryMetadataRequestBuilder withReturnImageryProviders(boolean returnImageryProviders);
+		public ImageryMetadataRequestBuilder withOptionsUriScheme(UriScheme uriScheme);
+		public ImageryMetadataRequestBuilder withOptionsZoomLevel(Integer zoomLevel);
+		public ImageryMetadataRequestBuilder withOptionsLocation(Double altitude, Double latitude, Double longitude);
+		public ImageryMetadataRequestBuilder withOptionsHeading(Double orientation);
+		public ImageryMetadataRequestBuilder withOptionsReturnImageryProviders(Boolean returnImageryProviders);
 	}
 }
