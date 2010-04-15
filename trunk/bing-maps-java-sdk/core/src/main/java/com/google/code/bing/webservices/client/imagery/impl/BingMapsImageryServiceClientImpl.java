@@ -42,7 +42,7 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	static ImageryService imageryService;
 	
 	static {
-		if (!ApplicationConstants.IN_WS_CONTAINER) {
+		if (ApplicationConstants.STANDALONE_MODE) {
 			imageryService = new ImageryService();
 		}
 	}

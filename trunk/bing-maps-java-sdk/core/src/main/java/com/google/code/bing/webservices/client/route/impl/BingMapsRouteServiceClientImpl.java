@@ -50,7 +50,7 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 	static RouteService routeService;
 	
 	static {
-		if (!ApplicationConstants.IN_WS_CONTAINER) {
+		if (ApplicationConstants.STANDALONE_MODE) {
 			routeService = new RouteService();
 		}
 	}
