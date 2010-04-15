@@ -13,9 +13,13 @@ import net.virtualearth.dev.webservices.v1.route.ItineraryItem;
 import net.virtualearth.dev.webservices.v1.route.MajorRoutesRequest;
 import net.virtualearth.dev.webservices.v1.route.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.route.RouteLeg;
+import net.virtualearth.dev.webservices.v1.route.RouteOptimization;
+import net.virtualearth.dev.webservices.v1.route.RoutePathType;
 import net.virtualearth.dev.webservices.v1.route.RouteRequest;
 import net.virtualearth.dev.webservices.v1.route.RouteResponse;
 import net.virtualearth.dev.webservices.v1.route.RouteService;
+import net.virtualearth.dev.webservices.v1.route.TrafficUsage;
+import net.virtualearth.dev.webservices.v1.route.TravelMode;
 import net.virtualearth.dev.webservices.v1.route.Waypoint;
 
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
@@ -98,12 +102,136 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 		protected RouteRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createRouteRequest());
 		}
+
+		@Override
+		public RouteRequestBuilder withOptionsMode(TravelMode travelMode) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createRouteOptions());
+			}
+			result.getOptions().setMode(travelMode);
+			return this;
+		}
+
+		@Override
+		public RouteRequestBuilder withOptionsOptimization(
+				RouteOptimization optimization) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createRouteOptions());
+			}
+			result.getOptions().setOptimization(optimization);
+			return this;
+		}
+
+		@Override
+		public RouteRequestBuilder withOptionsRoutePathType(
+				RoutePathType routePathType) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createRouteOptions());
+			}
+			result.getOptions().setRoutePathType(routePathType);
+			return this;
+		}
+
+		@Override
+		public RouteRequestBuilder withOptionsTrafficUsage(
+				TrafficUsage trafficUsage) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createRouteOptions());
+			}
+			result.getOptions().setTrafficUsage(trafficUsage);
+			return this;
+		}
+
+		@Override
+		public RouteRequestBuilder withWaypoint(String description,
+				Double altitude, Double latitude, Double longitude) {
+			if (result.getWaypoints() == null) {
+				result.setWaypoints(ROUTE_FACTORY.createArrayOfWaypoint());
+			}
+			Waypoint waypoint = ROUTE_FACTORY.createWaypoint();
+			waypoint.setDescription(description);
+			if (altitude != null || latitude != null || longitude != null) {
+				Location location = COMMON_FACTORY.createLocation();
+				location.setAltitude(altitude);
+				location.setLatitude(latitude);
+				location.setLongitude(longitude);
+				waypoint.setLocation(location);
+			}
+			result.getWaypoints().getWaypoint().add(waypoint);
+			return this;
+		}
 	}
 	
 	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest, MajorRoutesRequestBuilder> implements MajorRoutesRequestBuilder {
 
 		protected MajorRoutesRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createMajorRoutesRequest());
+		}
+
+		@Override
+		public MajorRoutesRequestBuilder withOptionsMode(TravelMode travelMode) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createMajorRoutesOptions());
+			}
+			result.getOptions().setMode(travelMode);
+			return this;
+		}
+
+		@Override
+		public MajorRoutesRequestBuilder withOptionsOptimization(
+				RouteOptimization optimization) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createMajorRoutesOptions());
+			}
+			result.getOptions().setOptimization(optimization);
+			return this;
+		}
+
+		@Override
+		public MajorRoutesRequestBuilder withOptionsRoutePathType(
+				RoutePathType routePathType) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createMajorRoutesOptions());
+			}
+			result.getOptions().setRoutePathType(routePathType);
+			return this;
+		}
+
+		@Override
+		public MajorRoutesRequestBuilder withOptionsTrafficUsage(
+				TrafficUsage trafficUsage) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createMajorRoutesOptions());
+			}
+			result.getOptions().setTrafficUsage(trafficUsage);
+			return this;
+		}
+		
+		@Override
+		public MajorRoutesRequestBuilder withOptionsReturnRoutes(
+				Boolean returnRoutes) {
+			if (result.getOptions() == null) {
+				result.setOptions(ROUTE_FACTORY.createMajorRoutesOptions());				
+			}
+			result.getOptions().setReturnRoutes(returnRoutes);
+			return this;
+		}
+
+		@Override
+		public MajorRoutesRequestBuilder withDestination(String description,
+				Double altitude, Double latitude, Double longitude) {
+			if (result.getDestination() == null) {
+				result.setDestination(ROUTE_FACTORY.createWaypoint());
+			}
+			result.getDestination().setDescription(description);
+			if (altitude != null || latitude != null || longitude != null) {
+				Location location = COMMON_FACTORY.createLocation();
+				location.setAltitude(altitude);
+				location.setLatitude(latitude);
+				location.setLongitude(longitude);
+				result.getDestination().setLocation(location);
+			}
+			return this;
 		}
 	}
 }
