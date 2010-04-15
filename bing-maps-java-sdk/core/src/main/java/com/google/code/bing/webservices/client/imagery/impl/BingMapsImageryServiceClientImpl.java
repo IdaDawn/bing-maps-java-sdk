@@ -9,6 +9,7 @@ import net.virtualearth.dev.webservices.v1.common.Heading;
 import net.virtualearth.dev.webservices.v1.common.ImageType;
 import net.virtualearth.dev.webservices.v1.common.Location;
 import net.virtualearth.dev.webservices.v1.common.MapStyle;
+import net.virtualearth.dev.webservices.v1.common.ResponseSummary;
 import net.virtualearth.dev.webservices.v1.common.SizeOfint;
 import net.virtualearth.dev.webservices.v1.common.UriScheme;
 import net.virtualearth.dev.webservices.v1.imagery.IImageryService;
@@ -27,6 +28,7 @@ import net.virtualearth.dev.webservices.v1.imagery.contracts.GetMapUriResponse;
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.exception.BingMapsImageryServiceClientException;
 import com.google.code.bing.webservices.client.imagery.BingMapsImageryServiceClient;
 
 public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientImpl implements
@@ -45,8 +47,7 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 		try {
 			return proxy.getImageryMetadata(request);
 		} catch (IImageryServiceGetImageryMetadataResponseSummaryFaultFaultMessage e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw createException(e.getMessage(), e.getCause(), e.getFaultInfo());
 		}
 	}
 
@@ -75,8 +76,7 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 		try {
 			return proxy.getMapUri(request);
 		} catch (IImageryServiceGetMapUriResponseSummaryFaultFaultMessage e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw createException(e.getMessage(), e.getCause(), e.getFaultInfo());
 		}
 	}
 
@@ -105,6 +105,16 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	public MapUriRequestBuilder newMapUriRequestBuilder() {
 		return new MapUriRequestBuilderImpl();
 	}
+	
+	/**
+	 * @param e
+	 */
+	private BingMapsImageryServiceClientException createException(String message, Throwable cause, ResponseSummary faultInfo) {
+		String authenticationResultCode = (faultInfo.getAuthenticationResultCode() == null) ? null : faultInfo.getAuthenticationResultCode().value();
+		String statusCode = (faultInfo.getStatusCode() == null)? null : faultInfo.getStatusCode().value();
+		return new BingMapsImageryServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
+	}
+	
 	
 	public static void main(String[] args) throws Exception {
 		imageryService = new ImageryService();

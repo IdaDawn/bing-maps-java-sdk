@@ -6,6 +6,7 @@ import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.Confidence;
 import net.virtualearth.dev.webservices.v1.common.Credentials;
+import net.virtualearth.dev.webservices.v1.common.ResponseSummary;
 import net.virtualearth.dev.webservices.v1.geocode.ArrayOfFilterBase;
 import net.virtualearth.dev.webservices.v1.geocode.ConfidenceFilter;
 import net.virtualearth.dev.webservices.v1.geocode.GeocodeOptions;
@@ -22,6 +23,7 @@ import net.virtualearth.dev.webservices.v1.geocode.contracts.ReverseGeocodeRespo
 import com.google.code.bing.webservices.client.Adaptable;
 import com.google.code.bing.webservices.client.AdaptableFuture;
 import com.google.code.bing.webservices.client.BaseBingMapsServiceClientImpl;
+import com.google.code.bing.webservices.client.exception.BingMapsGeocodeServiceClientException;
 import com.google.code.bing.webservices.client.geocode.BingMapsGeocodeServiceClient;
 
 public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientImpl implements
@@ -37,7 +39,7 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		try {
 			return proxy.geocode(request);
 		} catch (IGeocodeServiceGeocodeResponseSummaryFaultFaultMessage e) {
-			e.printStackTrace();
+			throw createException(e.getMessage(), e.getCause(), e.getFaultInfo());
 		}
 	}
 
@@ -65,8 +67,7 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		try {
 			return proxy.reverseGeocode(request);
 		} catch (IGeocodeServiceReverseGeocodeResponseSummaryFaultFaultMessage e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw createException(e.getMessage(), e.getCause(), e.getFaultInfo());
 		}
 	}
 
@@ -97,6 +98,15 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		return new ReverseGeocodeRequestBuilderImpl();
 	}
 	
+	/**
+	 * @param e
+	 */
+	private BingMapsGeocodeServiceClientException createException(String message, Throwable cause, ResponseSummary faultInfo) {
+		String authenticationResultCode = (faultInfo.getAuthenticationResultCode() == null) ? null : faultInfo.getAuthenticationResultCode().value();
+		String statusCode = (faultInfo.getStatusCode() == null)? null : faultInfo.getStatusCode().value();
+		return new BingMapsGeocodeServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
+	}
+
 	public static void main(String[] args) throws Exception {
 		geocodeService = new GeocodeService();
 		IGeocodeService proxy = geocodeService.getBasicHttpBindingIGeocodeService();
