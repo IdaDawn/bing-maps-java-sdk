@@ -1,12 +1,18 @@
 package com.google.code.bing.webservices.client;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.ExecutionOptions;
 import net.virtualearth.dev.webservices.v1.common.ObjectFactory;
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
-public class BaseBingMapsServiceClientImpl implements
+public abstract class BaseBingMapsServiceClientImpl implements
 	BingMapsWebServicesClient {
+	
+    /** The task executor. */
+    protected ExecutorService taskExecutor = Executors.newCachedThreadPool();
 	
 	protected static final ObjectFactory COMMON_FACTORY = new ObjectFactory();
 	
@@ -47,5 +53,10 @@ public class BaseBingMapsServiceClientImpl implements
 		public T getResult() {
 			return result;
 		}
+	}
+
+	@Override
+	public void setTaskExecutor(ExecutorService taskExecutor) {
+		this.taskExecutor = taskExecutor;
 	}
 }

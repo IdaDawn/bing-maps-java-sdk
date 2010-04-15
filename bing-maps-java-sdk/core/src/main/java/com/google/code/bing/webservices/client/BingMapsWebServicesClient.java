@@ -3,6 +3,8 @@
  */
 package com.google.code.bing.webservices.client;
 
+import java.util.concurrent.ExecutorService;
+
 import net.virtualearth.dev.webservices.v1.common.RequestBase;
 
 /**
@@ -11,6 +13,8 @@ import net.virtualearth.dev.webservices.v1.common.RequestBase;
  * @author Nabeel Mukhtar
  */
 public interface BingMapsWebServicesClient {
+	
+	public void setTaskExecutor(ExecutorService taskExecutor);
 	
 	public interface RequestBuilder<T extends RequestBase> {
 		
