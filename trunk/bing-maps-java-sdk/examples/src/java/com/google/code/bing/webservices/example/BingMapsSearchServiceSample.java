@@ -1,14 +1,14 @@
 package com.google.code.bing.webservices.example;
 
 import net.virtualearth.dev.webservices.v1.common.CompareOperator;
-import net.virtualearth.dev.webservices.v1.common.Credentials;
-import net.virtualearth.dev.webservices.v1.common.FilterExpression;
-import net.virtualearth.dev.webservices.v1.search.SearchOptions;
 import net.virtualearth.dev.webservices.v1.search.SearchRequest;
 import net.virtualearth.dev.webservices.v1.search.SearchResponse;
+import net.virtualearth.dev.webservices.v1.search.SearchResultBase;
+import net.virtualearth.dev.webservices.v1.search.SearchResultSet;
 
 import com.google.code.bing.webservices.client.BingMapsWebServicesClientFactory;
 import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient;
+import com.google.code.bing.webservices.client.search.BingMapsSearchServiceClient.SearchRequestBuilder;
 
 public class BingMapsSearchServiceSample {
 	
@@ -20,30 +20,19 @@ public class BingMapsSearchServiceSample {
 	}
 	
 	private static void printResponse(SearchResponse response) {
-		// TODO Auto-generated method stub
-		
+		for (SearchResultSet result : response.getResultSets().getSearchResultSet()) {
+			for (SearchResultBase searchResult : result.getResults().getSearchResultBase()) {
+				System.out.println(searchResult.getName());
+			}
+		}
 	}
 
 	private static SearchRequest createSearchRequest(BingMapsSearchServiceClient client) {
-		SearchRequest request = SEARCH_FACTORY.createSearchRequest();
+		SearchRequestBuilder builder = client.newSearchRequestBuilder();
+		builder.withCredentials("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE", null);
+		builder.withQuery("restaurant in Seattle, WA");
+		builder.withSearchOptionsFilter(CompareOperator.GREATER_THAN_OR_EQUALS, 8, 3);
 		
-		Credentials credential = COMMON_FACTORY.createCredentials();
-		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
-		request.setCredentials(credential);
-		
-		request.setQuery("restaurant in Seattle, WA");
-		
-		
-		SearchOptions searchOptions = SEARCH_FACTORY.createSearchOptions();
-		
-		FilterExpression filter = COMMON_FACTORY.createFilterExpression();
-		filter.setCompareOperator(CompareOperator.GREATER_THAN_OR_EQUALS);
-		filter.setPropertyId(3);
-		filter.setFilterValue(8);
-		searchOptions.setFilters(filter);
-		
-		request.setSearchOptions(searchOptions);
-		
-		return request;
+		return builder.getResult();
 	}
 }
