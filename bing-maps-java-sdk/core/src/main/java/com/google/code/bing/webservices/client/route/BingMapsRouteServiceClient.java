@@ -32,7 +32,7 @@ public interface BingMapsRouteServiceClient extends BingMapsWebServicesClient {
 	}
 	
 	public interface MajorRoutesRequestBuilder extends RequestBuilder<MajorRoutesRequest> {
-		public MajorRoutesRequestBuilder withWaypoint(String description, Double altitude, Double latitude, Double longitude);
+		public MajorRoutesRequestBuilder withDestination(String description, Double altitude, Double latitude, Double longitude);
 		public MajorRoutesRequestBuilder withOptionsMode(TravelMode travelMode);
 		public MajorRoutesRequestBuilder withOptionsOptimization(RouteOptimization optimization);
 		public MajorRoutesRequestBuilder withOptionsRoutePathType(RoutePathType routePathType);
