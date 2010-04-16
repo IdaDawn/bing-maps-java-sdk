@@ -96,19 +96,9 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="BingMapsGeocodeServiceClientImpl">
-        <java classname="com.google.code.bing.webservices.client.geocode.impl.BingMapsGeocodeServiceClientImpl" failonerror="true" fork="yes">
-            <classpath refid="bing-maps-java-sdk.classpath"/>
-        </java>
-    </target>
     <target name="BingMapsGeocodeServiceSample">
         <java classname="com.google.code.bing.webservices.example.BingMapsGeocodeServiceSample" failonerror="true" fork="yes">
             <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
-            <classpath refid="bing-maps-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="BingMapsImageryServiceClientImpl">
-        <java classname="com.google.code.bing.webservices.client.imagery.impl.BingMapsImageryServiceClientImpl" failonerror="true" fork="yes">
             <classpath refid="bing-maps-java-sdk.classpath"/>
         </java>
     </target>
@@ -118,19 +108,9 @@
             <classpath refid="bing-maps-java-sdk.classpath"/>
         </java>
     </target>
-    <target name="BingMapsRouteServiceClientImpl">
-        <java classname="com.google.code.bing.webservices.client.route.impl.BingMapsRouteServiceClientImpl" failonerror="true" fork="yes">
-            <classpath refid="bing-maps-java-sdk.classpath"/>
-        </java>
-    </target>
     <target name="BingMapsRouteServiceSample">
         <java classname="com.google.code.bing.webservices.example.BingMapsRouteServiceSample" failonerror="true" fork="yes">
             <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
-            <classpath refid="bing-maps-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="BingMapsSearchServiceClientImpl">
-        <java classname="com.google.code.bing.webservices.client.search.impl.BingMapsSearchServiceClientImpl" failonerror="true" fork="yes">
             <classpath refid="bing-maps-java-sdk.classpath"/>
         </java>
     </target>
