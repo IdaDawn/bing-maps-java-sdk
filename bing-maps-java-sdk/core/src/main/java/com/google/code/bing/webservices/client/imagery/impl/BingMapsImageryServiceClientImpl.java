@@ -4,7 +4,6 @@ import java.util.concurrent.Future;
 
 import javax.xml.ws.WebServiceRef;
 
-import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.Heading;
 import net.virtualearth.dev.webservices.v1.common.ImageType;
 import net.virtualearth.dev.webservices.v1.common.Location;
@@ -18,7 +17,6 @@ import net.virtualearth.dev.webservices.v1.imagery.IImageryServiceGetMapUriRespo
 import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataRequest;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryMetadataResponse;
 import net.virtualearth.dev.webservices.v1.imagery.ImageryService;
-import net.virtualearth.dev.webservices.v1.imagery.MapUriOptions;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriRequest;
 import net.virtualearth.dev.webservices.v1.imagery.MapUriResponse;
 import net.virtualearth.dev.webservices.v1.imagery.ObjectFactory;
@@ -122,38 +120,6 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 		return new BingMapsImageryServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
 	}
 	
-	
-	public static void main(String[] args) throws Exception {
-		imageryService = new ImageryService();
-		IImageryService proxy = imageryService.getBasicHttpBindingIImageryService();
-		MapUriResponse response = proxy.getMapUri(createMapUriRequest());
-		System.out.println(response.getUri());
-	}
-	
-	private static MapUriRequest createMapUriRequest() {
-		MapUriRequest request = IMAGERY_FACTORY.createMapUriRequest();
-		
-		Credentials credential = COMMON_FACTORY.createCredentials();
-		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
-		request.setCredentials(credential);
-		
-		Location location = COMMON_FACTORY.createLocation();
-		location.setLatitude(24.826942);
-		location.setLongitude(67.033665);
-		request.setCenter(location);
-		
-		MapUriOptions mapUriOptions = IMAGERY_FACTORY.createMapUriOptions();
-		mapUriOptions.setStyle(MapStyle.AERIAL_WITH_LABELS);
-		mapUriOptions.setZoomLevel(10);
-		
-		SizeOfint sizeOfInt = COMMON_FACTORY.createSizeOfint();
-		sizeOfInt.setHeight(400);
-		sizeOfInt.setWidth(400);
-		mapUriOptions.setImageSize(sizeOfInt);
-		request.setOptions(mapUriOptions);
-		
-		return request;
-	}
 	
 	private static class MapUriRequestBuilderImpl extends BaseRequestBuilderImpl<MapUriRequest, MapUriRequestBuilder> implements MapUriRequestBuilder {
 		protected MapUriRequestBuilderImpl() {
