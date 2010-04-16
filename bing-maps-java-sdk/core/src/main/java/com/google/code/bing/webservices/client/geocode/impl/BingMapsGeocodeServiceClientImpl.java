@@ -111,7 +111,7 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		return new BingMapsGeocodeServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
 	}
 
-	private static class GeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<GeocodeRequest, GeocodeRequestBuilder> implements GeocodeRequestBuilder {
+	private static class GeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<GeocodeRequest> implements GeocodeRequestBuilder {
 
 		protected GeocodeRequestBuilderImpl() {
 			super(GEOCODE_FACTORY.createGeocodeRequest());
@@ -222,7 +222,7 @@ public class BingMapsGeocodeServiceClientImpl extends BaseBingMapsServiceClientI
 		}
 	}
 	
-	private static class ReverseGeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<ReverseGeocodeRequest, ReverseGeocodeRequestBuilder> implements ReverseGeocodeRequestBuilder {
+	private static class ReverseGeocodeRequestBuilderImpl extends BaseRequestBuilderImpl<ReverseGeocodeRequest> implements ReverseGeocodeRequestBuilder {
 
 		protected ReverseGeocodeRequestBuilderImpl() {
 			super(GEOCODE_FACTORY.createReverseGeocodeRequest());
