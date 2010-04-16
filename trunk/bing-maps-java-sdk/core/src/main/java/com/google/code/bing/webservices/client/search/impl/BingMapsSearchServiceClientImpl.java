@@ -82,7 +82,7 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 		return new BingMapsSearchServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
 	}
 	
-	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest, SearchRequestBuilder> implements SearchRequestBuilder {
+	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest> implements SearchRequestBuilder {
 
 		protected SearchRequestBuilderImpl() {
 			super(SEARCH_FACTORY.createSearchRequest());

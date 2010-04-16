@@ -126,7 +126,7 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 		return new BingMapsRouteServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
 	}
 	
-	private static class RouteRequestBuilderImpl extends BaseRequestBuilderImpl<RouteRequest, RouteRequestBuilder> implements RouteRequestBuilder {
+	private static class RouteRequestBuilderImpl extends BaseRequestBuilderImpl<RouteRequest> implements RouteRequestBuilder {
 
 		protected RouteRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createRouteRequest());
@@ -191,7 +191,7 @@ public class BingMapsRouteServiceClientImpl extends BaseBingMapsServiceClientImp
 		}
 	}
 	
-	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest, MajorRoutesRequestBuilder> implements MajorRoutesRequestBuilder {
+	private static class MajorRoutesRequestBuilderImpl extends BaseRequestBuilderImpl<MajorRoutesRequest> implements MajorRoutesRequestBuilder {
 
 		protected MajorRoutesRequestBuilderImpl() {
 			super(ROUTE_FACTORY.createMajorRoutesRequest());

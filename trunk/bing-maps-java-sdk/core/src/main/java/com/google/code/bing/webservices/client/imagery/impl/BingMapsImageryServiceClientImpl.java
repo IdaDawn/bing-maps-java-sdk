@@ -121,7 +121,7 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 	}
 	
 	
-	private static class MapUriRequestBuilderImpl extends BaseRequestBuilderImpl<MapUriRequest, MapUriRequestBuilder> implements MapUriRequestBuilder {
+	private static class MapUriRequestBuilderImpl extends BaseRequestBuilderImpl<MapUriRequest> implements MapUriRequestBuilder {
 		protected MapUriRequestBuilderImpl() {
 			super(IMAGERY_FACTORY.createMapUriRequest());
 		}
@@ -232,7 +232,7 @@ public class BingMapsImageryServiceClientImpl extends BaseBingMapsServiceClientI
 		}
 	}
 	
-	private static class ImageryMetadataRequestBuilderImpl extends BaseRequestBuilderImpl<ImageryMetadataRequest, ImageryMetadataRequestBuilder> implements ImageryMetadataRequestBuilder {
+	private static class ImageryMetadataRequestBuilderImpl extends BaseRequestBuilderImpl<ImageryMetadataRequest> implements ImageryMetadataRequestBuilder {
 
 		protected ImageryMetadataRequestBuilderImpl() {
 			super(IMAGERY_FACTORY.createImageryMetadataRequest());
