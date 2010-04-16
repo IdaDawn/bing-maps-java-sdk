@@ -1,6 +1,5 @@
 package com.google.code.bing.webservices.example;
 
-import net.virtualearth.dev.webservices.v1.common.CompareOperator;
 import net.virtualearth.dev.webservices.v1.search.SearchRequest;
 import net.virtualearth.dev.webservices.v1.search.SearchResponse;
 import net.virtualearth.dev.webservices.v1.search.SearchResultBase;
@@ -31,7 +30,7 @@ public class BingMapsSearchServiceSample {
 		SearchRequestBuilder builder = client.newSearchRequestBuilder();
 		builder.withCredentials("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE", null);
 		builder.withQuery("restaurant in Seattle, WA");
-		builder.withSearchOptionsFilter(CompareOperator.GREATER_THAN_OR_EQUALS, 8, 3);
+//		builder.withSearchOptionsFilter(CompareOperator.GREATER_THAN_OR_EQUALS, 8, 3);
 		
 		return builder.getResult();
 	}
