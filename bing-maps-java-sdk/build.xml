@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="bing-maps-java-sdk">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="bing-maps-java-sdk.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/webservices-api.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="schema/src/main/java" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="schema/src/main/resources" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="schema/src/test/java" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="schema/src/test/resources" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="core/src/main/java" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="core/src/main/resources" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="core/src/test/java" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="core/src/test/resources" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="examples/src/resources" excludes="**/*.launch, **/*.java"/>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="schema/src/main/java"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="schema/src/main/resources"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="schema/src/test/java"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="schema/src/test/resources"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="core/src/main/java"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="core/src/main/resources"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="core/src/test/java"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="core/src/test/resources"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="examples/src/java"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="examples/src/resources"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="BingMapsGeocodeServiceClientImpl">
+        <java classname="com.google.code.bing.webservices.client.geocode.impl.BingMapsGeocodeServiceClientImpl" failonerror="true" fork="yes">
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsGeocodeServiceSample">
+        <java classname="com.google.code.bing.webservices.example.BingMapsGeocodeServiceSample" failonerror="true" fork="yes">
+            <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsImageryServiceClientImpl">
+        <java classname="com.google.code.bing.webservices.client.imagery.impl.BingMapsImageryServiceClientImpl" failonerror="true" fork="yes">
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsImageryServiceSample">
+        <java classname="com.google.code.bing.webservices.example.BingMapsImageryServiceSample" failonerror="true" fork="yes">
+            <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsRouteServiceClientImpl">
+        <java classname="com.google.code.bing.webservices.client.route.impl.BingMapsRouteServiceClientImpl" failonerror="true" fork="yes">
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsRouteServiceSample">
+        <java classname="com.google.code.bing.webservices.example.BingMapsRouteServiceSample" failonerror="true" fork="yes">
+            <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsSearchServiceClientImpl">
+        <java classname="com.google.code.bing.webservices.client.search.impl.BingMapsSearchServiceClientImpl" failonerror="true" fork="yes">
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BingMapsSearchServiceSample">
+        <java classname="com.google.code.bing.webservices.example.BingMapsSearchServiceSample" failonerror="true" fork="yes">
+            <jvmarg line="-Dcom.google.code.bing.webservices.client.standalone=true"/>
+            <classpath refid="bing-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+</project>
