@@ -5,18 +5,14 @@ import java.util.concurrent.Future;
 import javax.xml.ws.WebServiceRef;
 
 import net.virtualearth.dev.webservices.v1.common.CompareOperator;
-import net.virtualearth.dev.webservices.v1.common.Credentials;
 import net.virtualearth.dev.webservices.v1.common.FilterExpression;
 import net.virtualearth.dev.webservices.v1.common.ResponseSummary;
 import net.virtualearth.dev.webservices.v1.search.ISearchService;
 import net.virtualearth.dev.webservices.v1.search.ISearchServiceSearchResponseSummaryFaultFaultMessage;
 import net.virtualearth.dev.webservices.v1.search.ListingType;
 import net.virtualearth.dev.webservices.v1.search.ObjectFactory;
-import net.virtualearth.dev.webservices.v1.search.SearchOptions;
 import net.virtualearth.dev.webservices.v1.search.SearchRequest;
 import net.virtualearth.dev.webservices.v1.search.SearchResponse;
-import net.virtualearth.dev.webservices.v1.search.SearchResultBase;
-import net.virtualearth.dev.webservices.v1.search.SearchResultSet;
 import net.virtualearth.dev.webservices.v1.search.SearchService;
 import net.virtualearth.dev.webservices.v1.search.SortOrder;
 import net.virtualearth.dev.webservices.v1.search.StructuredSearchQuery;
@@ -77,17 +73,6 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 	}
 	
 	
-	public static void main(String[] args) throws Exception {
-		searchService = new SearchService();
-		ISearchService proxy = searchService.getBasicHttpBindingISearchService();
-		SearchResponse response = proxy.search(createSearchRequest());
-		for (SearchResultSet result : response.getResultSets().getSearchResultSet()) {
-			for (SearchResultBase base : result.getResults().getSearchResultBase()) {
-				System.out.println(base.getName());				
-			}
-		}
-	}
-	
 	/**
 	 * @param e
 	 */
@@ -95,29 +80,6 @@ public class BingMapsSearchServiceClientImpl extends BaseBingMapsServiceClientIm
 		String authenticationResultCode = (faultInfo.getAuthenticationResultCode() == null) ? null : faultInfo.getAuthenticationResultCode().value();
 		String statusCode = (faultInfo.getStatusCode() == null)? null : faultInfo.getStatusCode().value();
 		return new BingMapsSearchServiceClientException(message, cause, authenticationResultCode, faultInfo.getCopyright(), faultInfo.getFaultReason(), statusCode, faultInfo.getTraceId());
-	}
-	
-	private static SearchRequest createSearchRequest() {
-		SearchRequest request = SEARCH_FACTORY.createSearchRequest();
-		
-		Credentials credential = COMMON_FACTORY.createCredentials();
-		credential.setApplicationId("AgBXisHgZAEfpDnT95skGJiYu_Oh9XgeAi7O0UJfhg_GdEYB2yeeETJ8ayQ-3kNE");
-		request.setCredentials(credential);
-		
-		request.setQuery("restaurant in Seattle, WA");
-		
-		
-		SearchOptions searchOptions = SEARCH_FACTORY.createSearchOptions();
-		
-		FilterExpression filter = COMMON_FACTORY.createFilterExpression();
-		filter.setCompareOperator(CompareOperator.GREATER_THAN_OR_EQUALS);
-		filter.setPropertyId(3);
-		filter.setFilterValue(8);
-		searchOptions.setFilters(filter);
-		
-		request.setSearchOptions(searchOptions);
-		
-		return request;
 	}
 	
 	private static class SearchRequestBuilderImpl extends BaseRequestBuilderImpl<SearchRequest, SearchRequestBuilder> implements SearchRequestBuilder {
